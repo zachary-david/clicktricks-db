@@ -12,18 +12,18 @@ export default function Solution() {
 
   const screenshots = {
     dashboard: {
-      title: "Daily Action Dashboard",
-      description: "See exactly who needs attention today, prioritized by deal value",
+      title: "Follow-ups Due Today",
+      description: "Your daily Airtable view showing exactly which coaching prospects need attention",
       component: <CRMDashboardView />
     },
     leads: {
-      title: "Lead Management", 
-      description: "Track every interaction and never miss a follow-up again",
+      title: "All Active Leads", 
+      description: "Complete Airtable database of all coaching prospects with interaction history",
       component: <CRMLeadsView />
     },
     pipeline: {
-      title: "Sales Pipeline",
-      description: "Visual pipeline shows exactly where each deal stands",
+      title: "Hot Prospects",
+      description: "Airtable view of high-value coaching opportunities prioritized by deal size",
       component: <CRMPipelineView />
     }
   };
@@ -32,21 +32,21 @@ export default function Solution() {
     <section id="demo" className="section" style={{backgroundColor: '#e6f7ff'}}>
       <div className="container">
         <SectionHeader 
-          text="Powered By" 
+          text="Built on Airtable" 
           apps={[
-            { name: "Airtable", icon: "🗃️" },
-            { name: "Zapier", icon: "⚡" },
-            { name: "Google Workspace", icon: "🔗" }
+            { name: "Airtable Tables", icon: "🗃️" },
+            { name: "Custom Views", icon: "👀" },
+            { name: "Automations", icon: "⚡" }
           ]} 
         />
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            Introducing Simple CRM: Professional Lead Management{" "}
-            <span className="text-gradient">Without the Complexity</span>
+            See Your Custom Airtable CRM in Action:{" "}
+            <span className="text-gradient">Professional Lead Management Without the Complexity</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Get organized in 30 minutes with a system that actually works for service businesses
+            Three Airtable tables, custom views, and automated follow-ups - set up in 30 minutes
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export default function Solution() {
 
           <div className="text-center bg-white rounded-xl p-6" style={{border: '2px solid #01a2f1'}}>
             <p className="text-lg font-medium text-gray-900 mb-2">
-              🎯 "See exactly who to call today"
+              🎯 Core Value: "Never forget a coaching prospect again"
             </p>
             <p className="text-sm text-gray-600 mb-4">
               {screenshots[activeTab as keyof typeof screenshots].description}
@@ -112,7 +112,7 @@ export default function Solution() {
               href="#booking"
               className="btn-primary btn-lg"
             >
-              Get Your Custom Demo
+              Get Your Airtable CRM Setup
             </a>
           </div>
         </div>

@@ -3,29 +3,19 @@ import SectionHeader from "./SectionHeader";
 export default function Problem() {
   const problems = [
     {
-      icon: "📝",
-      title: "Leads scattered across sticky notes and spreadsheets",
-      description: "Important customer information gets lost in the chaos of unorganized systems"
+      icon: "⏰",
+      title: "Every morning you waste 30 minutes figuring out who to follow up with",
+      description: "Without a system, you're constantly scrambling to remember which prospects need attention"
     },
     {
-      icon: "📞",
-      title: "Forgetting to follow up with hot prospects",
-      description: "Missing opportunities because there's no system to track who needs attention"
-    },
-    {
-      icon: "🤯",
-      title: "Spending hours every week organizing customer info",
-      description: "Wasting valuable time that could be spent growing your business"
-    },
-    {
-      icon: "💸",
-      title: "Lost revenue from disorganized lead management",
-      description: "Deals slip through the cracks when you can't track them properly"
+      icon: "📊",
+      title: "Hot coaching prospects get forgotten in spreadsheet chaos",
+      description: "$5,000+ opportunities slip through the cracks when leads are scattered across different systems"
     },
     {
       icon: "😰",
-      title: "Looking unprofessional when clients ask for updates",
-      description: "Scrambling to find information makes you look disorganized to clients"
+      title: "You look unprofessional when you can't find client interaction history",
+      description: "Saying 'let me get back to you' destroys confidence when clients expect immediate answers"
     }
   ];
 
@@ -43,10 +33,10 @@ export default function Problem() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            Tired of Losing Leads Because Your System is Broken?
+            "I Can't Remember Who to Follow Up With When"
           </h2>
           <p className="text-xl text-gray-600">
-            If you're running your business with spreadsheets and sticky notes, you're leaving money on the table.
+            If this sounds familiar, you're not alone. Most coaches earning $100K+ lose 15% of potential revenue to poor follow-up systems.
           </p>
         </div>
 
@@ -69,10 +59,10 @@ export default function Problem() {
         <div className="mt-12 p-6 bg-red-50 border border-red-200 rounded-xl max-w-2xl mx-auto">
           <div className="text-center">
             <p className="text-red-800 font-medium mb-2">
-              <span className="text-2xl font-bold">85%</span> of service businesses lose at least one major client per year due to poor follow-up
+              <span className="text-2xl font-bold">The average coach loses $47,000/year</span> to poor follow-up systems
             </p>
             <p className="text-sm text-red-600 italic">
-              Source: Harvard Business Review Study on Customer Retention (2023)
+              That's 3-4 high-ticket clients who chose competitors because you forgot to follow up
             </p>
           </div>
         </div>

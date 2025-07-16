@@ -8,36 +8,44 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "Do I need technical skills to use this?",
-      answer: "Not at all! Simple CRM is designed for non-technical users. If you can use email, you can use our CRM. We'll set everything up for you during your 30-minute onboarding call."
+      question: "What exactly do I get for $497?",
+      answer: "You get a complete Airtable CRM setup with 3 custom tables, 4 optimized views, automated follow-up reminders, and a 30-minute training call. Plus 30 days of email support to ensure you're using it effectively."
     },
     {
-      question: "What if I'm not tech-savvy?",
-      answer: "Perfect! We built this specifically for business owners who don't want to deal with complex software. The interface is intuitive, and we provide personal training to ensure you're comfortable."
+      question: "What does Airtable cost per month?",
+      answer: "Airtable costs $10/month for the Plus plan, which you pay directly to Airtable. This gives you 5,000 records and 100,000 API calls per month - more than enough for most coaching businesses."
     },
     {
-      question: "Can I add team members later?",
-      answer: "Yes! You can add unlimited team members at any time. Each person gets their own login and can see only their assigned leads and tasks."
+      question: "Why does Airtable cost $10/month on top of your $497?",
+      answer: "Airtable is the platform your CRM runs on - think of it like paying for electricity to power your house. The $10/month goes directly to Airtable, not me. This gives you a professional database that syncs across all your devices."
     },
     {
       question: "How is this different from a spreadsheet?",
-      answer: "Unlike spreadsheets, Simple CRM automatically reminds you to follow up, tracks all interactions in one place, and shows you exactly who needs attention today. No more manual sorting or lost information."
+      answer: "Unlike spreadsheets, this Airtable system automatically reminds you to follow up, tracks all interactions in one place, and shows you exactly who needs attention today. No more manual sorting or lost information."
     },
     {
-      question: "What if I don't like it?",
-      answer: "We offer a 30-day money-back guarantee. If you're not completely satisfied, we'll refund your entire payment. No questions asked."
+      question: "What if I already have a CRM?",
+      answer: "Most coaches find their current CRM is either too complex or too basic. Our Airtable solution is designed specifically for coaching businesses - simple enough to use daily, powerful enough to grow with your business."
     },
     {
-      question: "Is there really no monthly fee?",
-      answer: "Correct! You pay $497 once and use it forever. This includes all features, unlimited users, and free updates. No hidden fees or surprise charges."
+      question: "Do I need technical skills to use Airtable?",
+      answer: "Not at all! If you can use email, you can use Airtable. We handle all the technical setup, and the interface is intuitive. You'll be comfortable using it within your first week."
     },
     {
-      question: "How long does setup take?",
-      answer: "We'll have you up and running in 30 minutes during your onboarding call. You'll leave the call with a fully functional CRM and the knowledge to use it effectively."
+      question: "What if I don't like Airtable?",
+      answer: "I offer a 30-day money-back guarantee. If you're not completely satisfied with your custom Airtable CRM, I'll refund your entire $497 payment. The Airtable subscription is separate and can be canceled anytime."
     },
     {
-      question: "Can I import my existing contacts?",
-      answer: "Yes! We'll help you import your contacts from spreadsheets, email, or other systems during your setup call. All your data transfers seamlessly."
+      question: "Can other people access my Airtable CRM?",
+      answer: "Yes! You can add team members to your Airtable base anytime. Each person gets their own Airtable login, and you control what they can see and edit."
+    },
+    {
+      question: "How long does the Airtable setup take?",
+      answer: "I'll have your complete Airtable CRM built and ready in 30 minutes during our setup call. You'll leave knowing exactly how to use your new system."
+    },
+    {
+      question: "Can I import my existing contacts into Airtable?",
+      answer: "Absolutely! I'll help you import all your contacts from spreadsheets, phone, email, or other systems directly into your new Airtable CRM during our setup call."
     }
   ];
 
@@ -46,11 +54,11 @@ export default function FAQ() {
       <div className="container">
         <div className="max-w-3xl mx-auto">
           <SectionHeader 
-            text="Support Via" 
+            text="Questions About" 
             apps={[
-              { name: "Help Desk", icon: "🎧" },
-              { name: "Knowledge Base", icon: "📚" },
-              { name: "Live Chat", icon: "💬" }
+              { name: "Airtable", icon: "🗃️" },
+              { name: "Setup Process", icon: "⚙️" },
+              { name: "Pricing", icon: "💰" }
             ]} 
           />
           

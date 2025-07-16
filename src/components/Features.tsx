@@ -5,31 +5,31 @@ export default function Features() {
     {
       icon: "📅",
       title: "Know Exactly Who to Call Today",
-      description: "Open one view every morning and see all overdue follow-ups prioritized by hotness",
+      description: "Open your daily 'Follow-ups Due Today' view and see all overdue prospects prioritized by deal value",
       benefits: [
-        "Never miss a hot lead again",
-        "Automated follow-up reminders",
-        "Priority sorting by deal value"
+        "Never miss a hot coaching prospect again",
+        "Automated follow-up reminders in Airtable",
+        "Priority sorting by client value"
       ]
     },
     {
       icon: "🗂️",
-      title: "All Customer Info in One Place",
-      description: "No more sticky notes or scattered spreadsheets. Every lead, contact, and note organized professionally",
+      title: "All Client Info in One Airtable Database",
+      description: "Complete interaction history, notes, and contact details organized in professional Airtable views",
       benefits: [
-        "Complete customer history",
-        "Notes and interactions tracked",
-        "Quick search and filters"
+        "Complete coaching client history",
+        "Notes and interactions tracked automatically",
+        "Quick search and Airtable filters"
       ]
     },
     {
-      icon: "👥",
-      title: "Scales When You Hire Help",
-      description: "Add team members instantly. Everyone sees their leads and knows what needs to be done",
+      icon: "⚡",
+      title: "Automated Follow-up System",
+      description: "Airtable automatically tells you when to reach out - no more manual tracking or forgotten prospects",
       benefits: [
-        "Unlimited team members",
-        "Role-based permissions",
-        "Activity tracking"
+        "System-generated follow-up dates",
+        "No more manual calendar reminders",
+        "Professional follow-up consistency"
       ]
     }
   ];
@@ -38,20 +38,20 @@ export default function Features() {
     <section id="features" className="section bg-white">
       <div className="container">
         <SectionHeader 
-          text="Built With" 
+          text="Built on Airtable" 
           apps={[
-            { name: "Notion", icon: "📋" },
-            { name: "Slack", icon: "💬" },
-            { name: "Gmail", icon: "📧" }
+            { name: "Airtable", icon: "🎆" },
+            { name: "Automations", icon: "🤖" },
+            { name: "Custom Views", icon: "👀" }
           ]} 
         />
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            Everything You Need to Never Lose Another Lead
+            Everything You Need to Never Lose Another Coaching Client
           </h2>
           <p className="text-xl text-gray-600">
-            Simple, powerful features designed specifically for service businesses
+            Simple Airtable features designed specifically for coaches who need follow-up tracking
           </p>
         </div>
 
@@ -80,20 +80,20 @@ export default function Features() {
 
         <div className="mt-12 rounded-2xl p-8 text-center" style={{backgroundColor: '#dbeafe', border: '2px solid #93c5fd'}}>
           <h3 className="text-2xl font-bold mb-4">
-            Plus These Time-Saving Features
+            Your Custom Airtable CRM Includes
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
             <div className="text-center">
-              <div className="text-3xl mb-2">📧</div>
-              <p className="font-medium">Email Templates</p>
+              <div className="text-3xl mb-2">📊</div>
+              <p className="font-medium">3 Tables Setup</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">📊</div>
-              <p className="font-medium">Sales Reports</p>
+              <div className="text-3xl mb-2">👀</div>
+              <p className="font-medium">Custom Views</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🔔</div>
-              <p className="font-medium">Smart Alerts</p>
+              <p className="font-medium">Follow-up Alerts</p>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">📱</div>

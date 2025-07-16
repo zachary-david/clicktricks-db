@@ -10,13 +10,13 @@ export default function Pricing() {
   const competitors = [
     {
       name: "HubSpot",
-      price: "$540/year",
-      features: ["Complex setup", "Monthly fees", "Features you won't use"]
+      price: "$540+/year",
+      features: ["Complex setup", "Ongoing monthly fees", "90% features unused"]
     },
     {
       name: "Salesforce",
-      price: "$1,800/year",
-      features: ["Steep learning curve", "Expensive add-ons", "Overkill for small teams"]
+      price: "$1,800+/year",
+      features: ["Enterprise complexity", "Hidden costs everywhere", "Not for coaches"]
     }
   ];
 
@@ -26,7 +26,8 @@ export default function Pricing() {
   const leadsImproved = leadsPerMonth * (currentLossRate - improvedLossRate);
   const monthlyIncrease = leadsImproved * avgDealSize;
   const yearlyIncrease = monthlyIncrease * 12;
-  const roi = ((yearlyIncrease - 497) / 497) * 100;
+  const totalFirstYearCost = 497 + (10 * 12); // Setup + Airtable yearly
+  const roi = ((yearlyIncrease - totalFirstYearCost) / totalFirstYearCost) * 100;
 
   return (
     <section id="pricing" className="section" style={{backgroundColor: '#e6f7ff'}}>
@@ -42,10 +43,10 @@ export default function Pricing() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            Professional CRM Setup for a Fraction of What Others Charge
+            Complete Pricing Transparency - Know Exactly What You'll Pay
           </h2>
           <p className="text-xl text-gray-600">
-            No monthly fees. No complicated contracts. Just a simple one-time investment.
+            One-time setup fee + Airtable's low monthly cost. No hidden fees, no surprises.
           </p>
         </div>
 
@@ -126,7 +127,7 @@ export default function Pricing() {
                   
                   <div className="bg-white rounded-lg p-3 mt-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-700">ROI on $497 investment:</span>
+                      <span className="text-gray-700">ROI on $617 first year investment:</span>
                       <span className="font-bold text-2xl text-blue-600">{roi.toFixed(0)}%</span>
                     </div>
                     <p className="text-xs text-gray-500 mt-1">
@@ -159,23 +160,45 @@ export default function Pricing() {
 
           <div className="card p-8 relative overflow-hidden lg:scale-105" style={{border: '4px solid #01a2f1'}}>
             <div className="absolute top-0 right-0 bg-accent text-white px-4 py-1 text-sm font-medium rounded-bl-lg">
-              BEST VALUE
+              TRANSPARENT PRICING
             </div>
             
-            <h3 className="text-2xl font-bold mb-2 text-center">Simple CRM</h3>
+            <h3 className="text-2xl font-bold mb-2 text-center">Your Airtable CRM</h3>
             <div className="text-center mb-6">
-              <p className="text-5xl font-bold" style={{color: '#01a2f1'}}>$497</p>
-              <p className="text-gray-600">one-time payment</p>
+              <div className="mb-4">
+                <p className="text-5xl font-bold" style={{color: '#01a2f1'}}>$497</p>
+                <p className="text-gray-600">one-time setup</p>
+              </div>
+              <div className="text-lg text-gray-700">+</div>
+              <div className="mt-4">
+                <p className="text-3xl font-bold text-gray-700">$10/mo</p>
+                <p className="text-gray-600">Airtable software</p>
+                <p className="text-xs text-gray-500 mt-1">(paid directly to Airtable)</p>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 rounded-lg p-4 mb-6">
+              <h4 className="font-semibold text-gray-900 mb-2">Total Cost Breakdown:</h4>
+              <div className="space-y-1 text-sm">
+                <div className="flex justify-between">
+                  <span>First year total:</span>
+                  <span className="font-semibold">$617</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Year 2+ (only Airtable):</span>
+                  <span className="font-semibold">$120/year</span>
+                </div>
+              </div>
             </div>
 
             <ul className="space-y-3 mb-8">
               {[
-                "✅ One-time payment, no monthly fees",
-                "✅ 30-minute setup call included",
-                "✅ Custom training for your team",
+                "✅ Complete custom Airtable setup",
+                "✅ 30-minute training call included",
+                "✅ Built specifically for coaches",
                 "✅ 30-day money-back guarantee",
-                "✅ Unlimited users & leads",
-                "✅ Free updates forever"
+                "✅ Unlimited contacts & pipelines",
+                "✅ You own your Airtable forever"
               ].map((feature, index) => (
                 <li key={index} className="text-gray-700">{feature}</li>
               ))}
