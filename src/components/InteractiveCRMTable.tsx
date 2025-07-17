@@ -2,275 +2,404 @@
 
 import { useState } from "react";
 
-export default function InteractiveCRMTable() {
-  const [expandedStage, setExpandedStage] = useState<string | null>("Qualified");
-  
-  const stages = [
-    {
-      name: "New Lead",
-      count: 5,
-      value: "$25,000",
-      color: "#33b4f4",
-      leads: [
-        { name: "Sarah J.", amount: "$5K", probability: "20%" },
-        { name: "Mike R.", amount: "$3K", probability: "25%" }
-      ]
+// Authentic Airtable List View Component
+export function AirtableListView() {
+  const [selectedFilter, setSelectedFilter] = useState("all");
+
+  const leads = [
+    { 
+      id: 1, 
+      name: "Jennifer Wilson", 
+      company: "Tech Innovators", 
+      value: 25000, 
+      status: "Hot Lead", 
+      lastActivity: "2 hours ago", 
+      stage: "Proposal",
+      email: "jennifer@techinnovators.com",
+      phone: "(555) 123-4567",
+      avatar: "JW"
     },
-    {
-      name: "Qualified",
-      count: 4,
-      value: "$32,000",
-      color: "#01a2f1",
-      leads: [
-        { name: "Lisa K.", amount: "$12K", probability: "40%" },
-        { name: "Tom B.", amount: "$8K", probability: "35%" }
-      ]
+    { 
+      id: 2, 
+      name: "Robert Brown", 
+      company: "Digital Solutions", 
+      value: 18500, 
+      status: "Warm Lead", 
+      lastActivity: "1 day ago", 
+      stage: "Demo",
+      email: "robert@digitalsolutions.com", 
+      phone: "(555) 987-6543",
+      avatar: "RB"
     },
-    {
-      name: "Proposal",
-      count: 3,
-      value: "$45,000",
-      color: "#0182c4",
-      leads: [
-        { name: "Emma W.", amount: "$20K", probability: "60%" },
-        { name: "John D.", amount: "$15K", probability: "65%" }
-      ]
+    { 
+      id: 3, 
+      name: "Amanda Taylor", 
+      company: "Growth Partners", 
+      value: 12000, 
+      status: "Cold Lead", 
+      lastActivity: "3 days ago", 
+      stage: "Qualified",
+      email: "amanda@growthpartners.com",
+      phone: "(555) 456-7890", 
+      avatar: "AT"
     },
-    {
-      name: "Negotiation",
-      count: 2,
-      value: "$38,000",
-      color: "#0561a6",
-      leads: [
-        { name: "Anna M.", amount: "$18K", probability: "80%" }
-      ]
-    },
-    {
-      name: "Closed Won",
-      count: 6,
-      value: "$85,000",
-      color: "#041926",
-      leads: [
-        { name: "David L.", amount: "$25K", probability: "100%" },
-        { name: "Karen P.", amount: "$30K", probability: "100%" }
-      ]
-    }
   ];
 
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Hot Lead': return 'bg-red-100 text-red-700';
+      case 'Warm Lead': return 'bg-yellow-100 text-yellow-700';
+      case 'Cold Lead': return 'bg-blue-100 text-blue-700';
+      default: return 'bg-gray-100 text-gray-700';
+    }
+  };
+
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden" style={{border: '2px solid #01a2f1'}}>
-      <div className="bg-gray-100 p-3 sm:p-4 flex items-center gap-2">
-        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-        <span className="ml-4 text-xs sm:text-sm text-gray-600 font-semibold truncate">ClickTricks CRM - Sales Pipeline</span>
+    <div className="bg-white">
+      {/* Airtable-style header */}
+      <div className="border-b border-gray-200 bg-gray-50 px-4 py-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+            <span className="text-sm font-medium text-gray-900">Lead Pipeline</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="p-1 text-gray-500 hover:text-gray-700">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <button className="p-1 text-gray-500 hover:text-gray-700">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-      
-      <div className="p-3 sm:p-6">
-        {/* Pipeline Overview - Compact on mobile */}
-        <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <div className="flex flex-row justify-between items-center gap-2 sm:gap-4">
-            <div className="text-center sm:text-left">
-              <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase">Pipeline</p>
-              <p className="text-xl sm:text-3xl font-bold text-blue-700">$225K</p>
-            </div>
-            <div className="text-center sm:text-right">
-              <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase">Win Rate</p>
-              <p className="text-xl sm:text-2xl font-bold text-green-600">32%</p>
-            </div>
-          </div>
+
+      {/* Airtable-style filters */}
+      <div className="border-b border-gray-200 bg-white px-4 py-2">
+        <div className="flex items-center gap-2">
+          <button className="flex items-center gap-1 px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded border border-blue-200">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.414A1 1 0 013 6.707V4z" />
+            </svg>
+            Status
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <button className="flex items-center gap-1 px-2 py-1 text-xs border border-gray-300 rounded text-gray-600 hover:bg-gray-50">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.414A1 1 0 013 6.707V4z" />
+            </svg>
+            Type
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
         </div>
+      </div>
 
-        {/* Mobile-Optimized Pipeline View */}
-        <div className="block md:hidden">
-          {/* Stage Selector Pills */}
-          <div className="flex overflow-x-auto pb-2 mb-4 gap-2 no-scrollbar" style={{WebkitOverflowScrolling: 'touch'}}>
-            {stages.map((stage) => (
-              <button
-                key={stage.name}
-                onClick={() => setExpandedStage(expandedStage === stage.name ? null : stage.name)}
-                className={`flex-shrink-0 px-3 py-2 rounded-full text-xs font-semibold transition-all ${
-                  expandedStage === stage.name ? 'text-white shadow-lg' : 'bg-gray-100 text-gray-700'
-                }`}
-                style={expandedStage === stage.name ? {backgroundColor: stage.color} : {}}
-              >
-                {stage.name} ({stage.count})
-              </button>
-            ))}
-          </div>
-
-          {/* Expanded Stage Content */}
-          {expandedStage && stages.map((stage) => {
-            if (stage.name !== expandedStage) return null;
-            
-            return (
-              <div key={stage.name} className="animate-slideUp">
-                <div 
-                  className="p-3 rounded-t-lg text-white"
-                  style={{backgroundColor: stage.color}}
-                >
-                  <h4 className="font-bold text-sm uppercase">{stage.name}</h4>
-                  <div className="flex justify-between items-center mt-1">
-                    <span className="text-xs opacity-90">{stage.count} leads</span>
-                    <span className="text-sm font-bold">{stage.value}</span>
-                  </div>
-                </div>
-                
-                <div className="bg-white border-2 border-t-0 rounded-b-lg p-3" style={{borderColor: stage.color}}>
-                  <div className="space-y-2">
-                    {stage.leads.map((lead) => (
-                      <div 
-                        key={lead.name}
-                        className="p-3 bg-gray-50 rounded-lg border border-gray-200"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div 
-                              className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                              style={{backgroundColor: stage.color}}
-                            >
-                              {lead.name.split(' ')[0][0]}{lead.name.split(' ')[1][0]}
-                            </div>
-                            <span className="text-sm font-medium">{lead.name}</span>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-sm font-bold text-gray-900">{lead.amount}</p>
-                            <p className="text-xs text-gray-500">{lead.probability}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    
-                    {stage.count > stage.leads.length && (
-                      <div className="text-center py-2">
-                        <span className="text-xs text-gray-500">
-                          +{stage.count - stage.leads.length} more leads
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
+      {/* Airtable-style record list */}
+      <div className="divide-y divide-gray-100">
+        {leads.map((lead) => (
+          <div key={lead.id} className="px-4 py-3 hover:bg-gray-50 cursor-pointer">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
+                {lead.avatar}
               </div>
-            );
-          })}
-
-          {/* Compact Stage Summary (when no stage is expanded) */}
-          {!expandedStage && (
-            <div className="space-y-2">
-              {stages.map((stage, index) => (
-                <div 
-                  key={stage.name}
-                  onClick={() => setExpandedStage(stage.name)}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:shadow-sm transition-all"
-                  style={{
-                    borderLeftWidth: '4px',
-                    borderLeftColor: stage.color,
-                    animationDelay: `${index * 100}ms`,
-                    animation: 'slideUp 0.5s ease-out forwards'
-                  }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div>
-                      <h5 className="text-sm font-semibold">{stage.name}</h5>
-                      <p className="text-xs text-gray-500">{stage.count} leads</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm font-bold">{stage.value}</p>
-                    <p className="text-xs text-gray-500">tap to expand</p>
-                  </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="text-sm font-medium text-gray-900 truncate">{lead.name}</p>
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(lead.status)}`}>
+                    {lead.status}
+                  </span>
                 </div>
-              ))}
+                <p className="text-xs text-gray-500 truncate">{lead.company}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{lead.stage}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-semibold text-gray-900">${lead.value.toLocaleString()}</p>
+                <p className="text-xs text-gray-500">{lead.lastActivity}</p>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-        {/* Desktop Pipeline View - Hidden on Mobile */}
-        <div className="hidden md:grid md:grid-cols-5 gap-4">
-          {stages.map((stage, index) => (
-            <div 
-              key={stage.name}
-              className="relative"
-              style={{
-                animationDelay: `${index * 150}ms`,
-                animation: 'slideUp 0.6s ease-out forwards'
-              }}
+// Authentic Airtable Form View Component  
+export function AirtableFormView() {
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    status: 'Hot Lead',
+    value: ''
+  });
+
+  return (
+    <div className="bg-white max-w-md mx-auto">
+      {/* Airtable-style form header */}
+      <div className="border-b border-gray-200 bg-red-500 px-4 py-3">
+        <div className="flex items-center justify-between">
+          <button className="flex items-center text-white">
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back
+          </button>
+        </div>
+      </div>
+
+      <div className="p-6">
+        <h2 className="text-xl font-semibold text-gray-900 mb-6">Add a new lead</h2>
+        
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Lead name</label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="Enter lead name"
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Company</label>
+            <input
+              type="text"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="Company name"
+              value={formData.company}
+              onChange={(e) => setFormData({...formData, company: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="email@company.com"
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+            <input
+              type="tel"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="(555) 123-4567"
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Deal value</label>
+            <input
+              type="number"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="25000"
+              value={formData.value}
+              onChange={(e) => setFormData({...formData, value: e.target.value})}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+            <select 
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              value={formData.status}
+              onChange={(e) => setFormData({...formData, status: e.target.value})}
             >
-              {/* Stage Header */}
-              <div 
-                className="p-3 rounded-t-lg text-white text-center"
-                style={{backgroundColor: stage.color}}
-              >
-                <h4 className="font-bold text-sm uppercase">{stage.name}</h4>
-                <p className="text-xs opacity-90">{stage.count} leads • {stage.value}</p>
-              </div>
-              
-              {/* Stage Content */}
-              <div className="bg-white border-2 border-t-0 rounded-b-lg p-3 min-h-[200px]" style={{borderColor: stage.color}}>
-                <div className="space-y-2">
-                  {stage.leads.map((lead, leadIndex) => (
-                    <div 
-                      key={lead.name}
-                      className="p-2 bg-gray-50 rounded border border-gray-200 hover:shadow-sm transition-all cursor-pointer hover:bg-gray-100"
-                      style={{
-                        animationDelay: `${(index * 150) + (leadIndex * 50)}ms`,
-                        animation: 'fadeIn 0.5s ease-out forwards'
-                      }}
-                    >
-                      <div className="flex items-center gap-2">
-                        <div 
-                          className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                          style={{backgroundColor: stage.color}}
-                        >
-                          {lead.name.split(' ')[0][0]}{lead.name.split(' ')[1][0]}
-                        </div>
-                        <span className="text-xs font-medium">{lead.name}</span>
-                      </div>
-                      <div className="mt-1 flex justify-between">
-                        <span className="text-xs text-gray-500">{lead.amount}</span>
-                        <span className="text-xs text-gray-500">{lead.probability}</span>
-                      </div>
-                    </div>
-                  ))}
-                  
-                  {stage.count > stage.leads.length && (
-                    <div className="text-center py-2">
-                      <span className="text-xs text-gray-500">
-                        +{stage.count - stage.leads.length} more
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
-              
-              {/* Progress Arrow */}
-              {index < stages.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
-                  <div 
-                    className="w-4 h-4 rotate-45 border-r-2 border-b-2"
-                    style={{borderColor: stages[index + 1].color}}
-                  ></div>
-                </div>
-              )}
-            </div>
-          ))}
+              <option>Hot Lead</option>
+              <option>Warm Lead</option>
+              <option>Cold Lead</option>
+            </select>
+          </div>
         </div>
 
-        {/* Key Metrics - Responsive */}
-        <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-4">
-          <div className="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 uppercase font-semibold">Avg Deal</p>
-            <p className="text-sm sm:text-lg font-bold text-gray-900">$12.5K</p>
-          </div>
-          <div className="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 uppercase font-semibold">Close Rate</p>
-            <p className="text-sm sm:text-lg font-bold text-green-600">32%</p>
-          </div>
-          <div className="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 uppercase font-semibold">Avg Cycle</p>
-            <p className="text-sm sm:text-lg font-bold text-gray-900">21 days</p>
+        <div className="mt-8 flex justify-between">
+          <button className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800">
+            Clear form
+          </button>
+          <button className="px-6 py-2 bg-gray-900 text-white text-sm rounded-md hover:bg-gray-800">
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Authentic Airtable Dashboard Component
+export function AirtableDashboard() {
+  return (
+    <div className="bg-white">
+      {/* Dashboard header */}
+      <div className="border-b border-gray-200 bg-red-500 px-4 py-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center text-white">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+            Dashboard
           </div>
         </div>
+      </div>
+
+      <div className="p-4">
+        {/* KPI Cards */}
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="bg-white border border-gray-200 rounded-lg p-4">
+            <div className="flex justify-between items-start mb-2">
+              <span className="text-xs text-gray-500 uppercase tracking-wide">This quarter</span>
+              <span className="text-xs text-gray-500 uppercase tracking-wide">This year</span>
+            </div>
+            <div className="flex justify-between items-end">
+              <span className="text-2xl font-bold text-gray-900">12</span>
+              <span className="text-xl font-bold text-red-500">$12,588</span>
+            </div>
+            <div className="flex justify-between items-end mt-1">
+              <span className="text-xs text-gray-500">Releases</span>
+              <span className="text-xs text-gray-500">Spend</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Donut Chart */}
+        <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+          <div className="relative w-32 h-32 mx-auto mb-4">
+            <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#e5e7eb"
+                strokeWidth="3"
+              />
+              {/* Blue segment - 23.2% */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="3"
+                strokeDasharray="23.2, 76.8"
+                strokeDashoffset="0"
+              />
+              {/* Pink segment */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#ec4899"
+                strokeWidth="3"
+                strokeDasharray="22.2, 77.8"
+                strokeDashoffset="-23.2"
+              />
+              {/* Teal segment */}
+              <path
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                fill="none"
+                stroke="#06b6d4"
+                strokeWidth="3"
+                strokeDasharray="18.1, 81.9"
+                strokeDashoffset="-45.4"
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-lg font-bold text-gray-900">63%</span>
+            </div>
+          </div>
+          
+          {/* Legend */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-red-400 rounded mr-2"></div>
+                <span className="text-xs text-gray-600">Brand BTS</span>
+              </div>
+              <div className="w-16 h-2 bg-red-400 rounded"></div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-pink-400 rounded mr-2"></div>
+                <span className="text-xs text-gray-600">Education</span>
+              </div>
+              <div className="w-12 h-2 bg-pink-400 rounded"></div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-red-300 rounded mr-2"></div>
+                <span className="text-xs text-gray-600">Event</span>
+              </div>
+              <div className="w-8 h-2 bg-red-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Main component that switches between views
+export default function AuthenticAirtableCRM() {
+  const [activeView, setActiveView] = useState('list');
+
+  return (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gray-200">
+      {/* Mobile-style view switcher */}
+      <div className="bg-gray-50 border-b border-gray-200 p-2">
+        <div className="flex rounded-lg bg-white p-1 border border-gray-200">
+          <button
+            onClick={() => setActiveView('list')}
+            className={`flex-1 py-2 px-3 text-xs font-medium rounded-md transition-colors ${
+              activeView === 'list' 
+                ? 'bg-blue-500 text-white' 
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            Lead List
+          </button>
+          <button
+            onClick={() => setActiveView('form')}
+            className={`flex-1 py-2 px-3 text-xs font-medium rounded-md transition-colors ${
+              activeView === 'form' 
+                ? 'bg-blue-500 text-white' 
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            Add Lead
+          </button>
+          <button
+            onClick={() => setActiveView('dashboard')}
+            className={`flex-1 py-2 px-3 text-xs font-medium rounded-md transition-colors ${
+              activeView === 'dashboard' 
+                ? 'bg-blue-500 text-white' 
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            Dashboard
+          </button>
+        </div>
+      </div>
+
+      {/* View content */}
+      <div className="h-96 overflow-auto">
+        {activeView === 'list' && <AirtableListView />}
+        {activeView === 'form' && <AirtableFormView />}
+        {activeView === 'dashboard' && <AirtableDashboard />}
       </div>
     </div>
   );
