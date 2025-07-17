@@ -2,7 +2,7 @@
 import SectionHeader from "./SectionHeader";
 import Link from "next/link";
 import Image from "next/image";
-import InteractiveCRMTable from "./InteractiveCRMTable";
+import HeroCRMDemo from "./HeroCRMDemo";
 
 export default function Hero() {
   return (
@@ -104,7 +104,7 @@ export default function Hero() {
               </div>
               
               <div className="p-0">
-                <InteractiveCRMTable />
+                <HeroCRMDemo />
               </div>
             </div>
           </div>
