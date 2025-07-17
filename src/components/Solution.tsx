@@ -5,6 +5,7 @@ import CRMDashboardView from "./CRMDashboardView";
 import CRMLeadsView from "./CRMLeadsView";
 import CRMPipelineView from "./CRMPipelineView";
 import SectionHeader from "./SectionHeader";
+import { CRMTableSkeleton } from "./SkeletonLoader";
 
 export default function Solution() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -13,17 +14,17 @@ export default function Solution() {
   const screenshots = {
     dashboard: {
       title: "Follow-ups Due Today",
-      description: "Your daily Airtable view showing exactly which coaching prospects need attention",
+      description: "Simple, automated lead tracking - your daily Airtable view showing exactly which prospects need attention",
       component: <CRMDashboardView />
     },
     leads: {
       title: "All Active Leads", 
-      description: "Complete Airtable database of all coaching prospects with interaction history",
+      description: "Simple, automated lead tracking - complete Airtable database of all prospects with interaction history",
       component: <CRMLeadsView />
     },
     pipeline: {
       title: "Hot Prospects",
-      description: "Airtable view of high-value coaching opportunities prioritized by deal size",
+      description: "Simple, automated lead tracking - Airtable view of high-value opportunities prioritized by deal size",
       component: <CRMPipelineView />
     }
   };
@@ -42,11 +43,11 @@ export default function Solution() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            See Your Custom Airtable CRM in Action:{" "}
+            See Your Simple, Automated Lead Tracking System in Action:{" "}
             <span className="text-gradient">Professional Lead Management Without the Complexity</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Three Airtable tables, custom views, and automated follow-ups - set up in 30 minutes
+            Simple, automated lead tracking with custom Airtable views and automated follow-ups - set up in 30 minutes
           </p>
         </div>
 
@@ -88,11 +89,8 @@ export default function Solution() {
 
           <div className={`mb-8 transition-all duration-300 ${isLoading ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}>
             {isLoading ? (
-              <div className="flex items-center justify-center h-96 bg-white rounded-lg">
-                <div className="text-center">
-                  <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-gray-600">Loading view...</p>
-                </div>
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <CRMTableSkeleton />
               </div>
             ) : (
               <div className="animate-fade-in">
@@ -103,7 +101,7 @@ export default function Solution() {
 
           <div className="text-center bg-white rounded-xl p-6" style={{border: '2px solid #01a2f1'}}>
             <p className="text-lg font-medium text-gray-900 mb-2">
-              🎯 Core Value: "Never forget a coaching prospect again"
+              🎯 Core Value: "Simple, automated lead tracking - never forget a prospect again"
             </p>
             <p className="text-sm text-gray-600 mb-4">
               {screenshots[activeTab as keyof typeof screenshots].description}
@@ -112,7 +110,7 @@ export default function Solution() {
               href="#booking"
               className="btn-primary btn-lg"
             >
-              Get Your Airtable CRM Setup
+              Get Started Now
             </a>
           </div>
         </div>

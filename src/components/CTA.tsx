@@ -23,7 +23,7 @@ export default function CTA() {
             Ready to Transform Your Lead Management in 30 Minutes?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Join 500+ service business owners who never lose leads anymore
+            Join 500+ freelancers and small teams who never lose leads anymore
           </p>
 
           <div className="bg-white/10 backdrop-blur rounded-2xl p-8 mb-8">
@@ -64,7 +64,7 @@ export default function CTA() {
               onClick={() => setShowCalendly(true)}
               className="btn bg-white text-blue-600 hover:bg-gray-100 btn-lg"
             >
-              Book Your Demo Now
+              Get Started Now
             </button>
             
             <p className="text-white/80">
@@ -77,8 +77,8 @@ export default function CTA() {
               Prefer to reach out directly?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="mailto:support@simplecrm.com" className="text-white hover:text-white/80">
-                📧 support@simplecrm.com
+              <a href="mailto:support@clicktricksdb.com" className="text-white hover:text-white/80">
+                📧 support@clicktricksdb.com
               </a>
               <span className="hidden sm:inline text-white/40">|</span>
               <a href="tel:+1234567890" className="text-white hover:text-white/80">
@@ -118,7 +118,7 @@ export default function CTA() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-white rounded-lg p-6 shadow-sm border">
                     <h5 className="font-semibold text-gray-900 mb-2">📅 Quick Demo</h5>
-                    <p className="text-gray-600 text-sm mb-4">See how Simple CRM works for your business</p>
+                    <p className="text-gray-600 text-sm mb-4">See how ClickTricks DB works for your business</p>
                     <p className="text-blue-600 font-medium">20 minutes</p>
                   </div>
                   <div className="bg-white rounded-lg p-6 shadow-sm border">
@@ -149,7 +149,7 @@ export default function CTA() {
 
                 <div className="text-center">
                   <p className="text-sm text-gray-600 mb-4">
-                    🔒 No credit card required • 30-day money-back guarantee
+                    🔒 No credit card required • 30-day support guarantee
                   </p>
                   <button
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"

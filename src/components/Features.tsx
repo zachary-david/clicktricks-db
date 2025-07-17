@@ -7,9 +7,9 @@ export default function Features() {
       title: "Know Exactly Who to Call Today",
       description: "Open your daily 'Follow-ups Due Today' view and see all overdue prospects prioritized by deal value",
       benefits: [
-        "Never miss a hot coaching prospect again",
+        "Never miss a follow-up again",
         "Automated follow-up reminders in Airtable",
-        "Priority sorting by client value"
+        "Professional image with organized lead tracking"
       ]
     },
     {
@@ -17,9 +17,9 @@ export default function Features() {
       title: "All Client Info in One Airtable Database",
       description: "Complete interaction history, notes, and contact details organized in professional Airtable views",
       benefits: [
-        "Complete coaching client history",
+        "Professional image with complete lead history",
         "Notes and interactions tracked automatically",
-        "Quick search and Airtable filters"
+        "More sales through organized follow-ups"
       ]
     },
     {
@@ -27,9 +27,9 @@ export default function Features() {
       title: "Automated Follow-up System",
       description: "Airtable automatically tells you when to reach out - no more manual tracking or forgotten prospects",
       benefits: [
-        "System-generated follow-up dates",
-        "No more manual calendar reminders",
-        "Professional follow-up consistency"
+        "Never miss a follow-up with automated reminders",
+        "Professional image with consistent follow-up",
+        "More sales through better lead management"
       ]
     }
   ];
@@ -48,16 +48,16 @@ export default function Features() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            Everything You Need to Never Lose Another Coaching Client
+            Never Miss a Follow-Up, Professional Image, More Sales
           </h2>
           <p className="text-xl text-gray-600">
-            Simple Airtable features designed specifically for coaches who need follow-up tracking
+            Simple, automated lead tracking designed specifically for freelancers and small teams who want professional results
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="card p-8 animate-scale-in" style={{animationDelay: `${index * 0.2}s`}}>
+            <div key={index} className="professional-card p-8 animate-scale-in rounded-xl" style={{animationDelay: `${index * 0.2}s`}}>
               <div className="text-5xl mb-6 animate-float" style={{animationDelay: `${index * 0.5}s`}}>
                 {feature.icon}
               </div>

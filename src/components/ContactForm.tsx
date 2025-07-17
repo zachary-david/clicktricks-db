@@ -97,18 +97,22 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8">
-      <h3 className="text-2xl font-bold mb-6">Get Started Today</h3>
+    <div className="form-professional rounded-xl p-6 md:p-8" role="form" aria-labelledby="contact-form-title">
+      <h3 id="contact-form-title" className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-professional">Get Started Today</h3>
       
       {isSuccess && (
-        <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-lg text-green-800">
+        <div 
+          className="mb-4 md:mb-6 p-4 bg-green-100 border border-green-200 rounded-lg text-green-800"
+          role="alert"
+          aria-live="polite"
+        >
           <p className="font-medium">Thank you for your interest!</p>
-          <p className="text-sm">We'll contact you within 24 hours to schedule your demo.</p>
+          <p className="text-sm">We'll contact you within 24 hours to schedule your Airtable setup.</p>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" noValidate>
+        <div className="form-group">
           <label htmlFor="name" className="label">
             Full Name *
           </label>
@@ -118,15 +122,19 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`input ${errors.name ? "border-red-500" : ""}`}
+            className={`input-professional ${errors.name ? "border-red-500" : ""}`}
             placeholder="John Smith"
+            autoComplete="name"
+            required
+            aria-describedby={errors.name ? "name-error" : undefined}
+            aria-invalid={errors.name ? "true" : "false"}
           />
           {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            <p id="name-error" className="text-red-500 text-sm mt-1" role="alert">{errors.name}</p>
           )}
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="email" className="label">
             Email Address *
           </label>
@@ -136,15 +144,20 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`input ${errors.email ? "border-red-500" : ""}`}
+            className={`input-professional ${errors.email ? "border-red-500" : ""}`}
             placeholder="john@example.com"
+            autoComplete="email"
+            inputMode="email"
+            required
+            aria-describedby={errors.email ? "email-error" : undefined}
+            aria-invalid={errors.email ? "true" : "false"}
           />
           {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            <p id="email-error" className="text-red-500 text-sm mt-1" role="alert">{errors.email}</p>
           )}
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="phone" className="label">
             Phone Number *
           </label>
@@ -154,15 +167,20 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className={`input ${errors.phone ? "border-red-500" : ""}`}
+            className={`input-professional ${errors.phone ? "border-red-500" : ""}`}
             placeholder="(555) 123-4567"
+            autoComplete="tel"
+            inputMode="tel"
+            required
+            aria-describedby={errors.phone ? "phone-error" : undefined}
+            aria-invalid={errors.phone ? "true" : "false"}
           />
           {errors.phone && (
-            <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+            <p id="phone-error" className="text-red-500 text-sm mt-1" role="alert">{errors.phone}</p>
           )}
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="businessType" className="label">
             Business Type *
           </label>
@@ -171,7 +189,10 @@ export default function ContactForm() {
             name="businessType"
             value={formData.businessType}
             onChange={handleChange}
-            className={`input ${errors.businessType ? "border-red-500" : ""}`}
+            className={`input-professional ${errors.businessType ? "border-red-500" : ""}`}
+            required
+            aria-describedby={errors.businessType ? "businessType-error" : undefined}
+            aria-invalid={errors.businessType ? "true" : "false"}
           >
             <option value="">Select your business type</option>
             <option value="coach">Coach</option>
@@ -181,11 +202,11 @@ export default function ContactForm() {
             <option value="other">Other</option>
           </select>
           {errors.businessType && (
-            <p className="text-red-500 text-sm mt-1">{errors.businessType}</p>
+            <p id="businessType-error" className="text-red-500 text-sm mt-1" role="alert">{errors.businessType}</p>
           )}
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="leadVolume" className="label">
             Current Lead Volume *
           </label>
@@ -194,7 +215,10 @@ export default function ContactForm() {
             name="leadVolume"
             value={formData.leadVolume}
             onChange={handleChange}
-            className={`input ${errors.leadVolume ? "border-red-500" : ""}`}
+            className={`input-professional ${errors.leadVolume ? "border-red-500" : ""}`}
+            required
+            aria-describedby={errors.leadVolume ? "leadVolume-error" : undefined}
+            aria-invalid={errors.leadVolume ? "true" : "false"}
           >
             <option value="">Select your monthly lead volume</option>
             <option value="0-10">0-10 leads/month</option>
@@ -204,11 +228,11 @@ export default function ContactForm() {
             <option value="100+">100+ leads/month</option>
           </select>
           {errors.leadVolume && (
-            <p className="text-red-500 text-sm mt-1">{errors.leadVolume}</p>
+            <p id="leadVolume-error" className="text-red-500 text-sm mt-1" role="alert">{errors.leadVolume}</p>
           )}
         </div>
 
-        <div>
+        <div className="form-group">
           <label htmlFor="message" className="label">
             Additional Information (Optional)
           </label>
@@ -218,20 +242,33 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="input"
+            className="input-professional"
             placeholder="Tell us about your current challenges..."
+            aria-describedby="message-help"
           />
+          <p id="message-help" className="text-xs text-gray-500 mt-1">Optional: Share any specific challenges you're facing with client follow-up</p>
         </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="btn-primary btn-lg w-full"
-        >
-          {isSubmitting ? "Submitting..." : "Get Your Free Demo"}
-        </button>
+        <div className="pt-2">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="btn-professional btn-lg w-full min-h-[56px] flex items-center justify-center text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-describedby="submit-help"
+          >
+            {isSubmitting ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" aria-hidden="true"></div>
+                <span aria-live="polite">Setting up your Airtable CRM...</span>
+              </>
+            ) : (
+              "Get Your Airtable CRM Setup"
+            )}
+          </button>
+          <p id="submit-help" className="text-xs text-gray-500 mt-2 text-center">Click to submit your information and get started with your custom Airtable CRM</p>
+        </div>
 
-        <p className="text-sm text-gray-600 text-center">
+        <p className="text-xs md:text-sm text-gray-600 text-center leading-relaxed">
           By submitting this form, you agree to our{" "}
           <a href="/terms" className="text-blue-600 hover:text-blue-800 underline">
             Terms of Service

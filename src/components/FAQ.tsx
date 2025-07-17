@@ -13,7 +13,7 @@ export default function FAQ() {
     },
     {
       question: "What does Airtable cost per month?",
-      answer: "Airtable costs $10/month for the Plus plan, which you pay directly to Airtable. This gives you 5,000 records and 100,000 API calls per month - more than enough for most coaching businesses."
+      answer: "Airtable costs $10/month for the Plus plan, which you pay directly to Airtable. This gives you 5,000 records and 100,000 API calls per month - more than enough for most small businesses."
     },
     {
       question: "Why does Airtable cost $10/month on top of your $497?",
@@ -25,7 +25,7 @@ export default function FAQ() {
     },
     {
       question: "What if I already have a CRM?",
-      answer: "Most coaches find their current CRM is either too complex or too basic. Our Airtable solution is designed specifically for coaching businesses - simple enough to use daily, powerful enough to grow with your business."
+      answer: "Most freelancers and small teams find their current CRM is either too complex or too basic. Our Airtable solution is designed specifically for growing businesses - simple enough to use daily, powerful enough to scale with you."
     },
     {
       question: "Do I need technical skills to use Airtable?",
@@ -41,11 +41,11 @@ export default function FAQ() {
     },
     {
       question: "How long does the Airtable setup take?",
-      answer: "I'll have your complete Airtable CRM built and ready in 30 minutes during our setup call. You'll leave knowing exactly how to use your new system."
+      answer: "I'll have your complete Airtable CRM built and ready in 30 minutes during our setup call. You'll leave knowing exactly how to use your new lead tracking system."
     },
     {
       question: "Can I import my existing contacts into Airtable?",
-      answer: "Absolutely! I'll help you import all your contacts from spreadsheets, phone, email, or other systems directly into your new Airtable CRM during our setup call."
+      answer: "Absolutely! I'll help you import all your leads and contacts from spreadsheets, phone, email, or other systems directly into your new Airtable CRM during our setup call."
     }
   ];
 

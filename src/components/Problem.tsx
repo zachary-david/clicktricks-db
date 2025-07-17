@@ -9,8 +9,8 @@ export default function Problem() {
     },
     {
       icon: "📊",
-      title: "Hot coaching prospects get forgotten in spreadsheet chaos",
-      description: "$5,000+ opportunities slip through the cracks when leads are scattered across different systems"
+      title: "Hot leads get forgotten in spreadsheet chaos and sticky notes",
+      description: "Valuable opportunities slip through the cracks when leads are scattered across spreadsheets, sticky notes, and different systems"
     },
     {
       icon: "😰",
@@ -33,10 +33,10 @@ export default function Problem() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6">
-            "I Can't Remember Who to Follow Up With When"
+            "I'm Losing Leads in Spreadsheets and Sticky Notes"
           </h2>
           <p className="text-xl text-gray-600">
-            If this sounds familiar, you're not alone. Most coaches earning $100K+ lose 15% of potential revenue to poor follow-up systems.
+            If this sounds familiar, you're not alone. Most freelancers and small teams lose 15% of potential revenue to disorganized lead management.
           </p>
         </div>
 
@@ -59,10 +59,10 @@ export default function Problem() {
         <div className="mt-12 p-6 bg-red-50 border border-red-200 rounded-xl max-w-2xl mx-auto">
           <div className="text-center">
             <p className="text-red-800 font-medium mb-2">
-              <span className="text-2xl font-bold">The average coach loses $47,000/year</span> to poor follow-up systems
+              <span className="text-2xl font-bold">The average freelancer loses $25,000/year</span> to poor follow-up systems
             </p>
             <p className="text-sm text-red-600 italic">
-              That's 3-4 high-ticket clients who chose competitors because you forgot to follow up
+              That's multiple clients who chose competitors because you forgot to follow up
             </p>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,29 +24,38 @@ export default function Navigation() {
     { href: "#testimonials", label: "Reviews" },
     { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
+    { href: "#about", label: "About" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+          ? "backdrop-blur-md shadow-md"
+          : ""
       }`}
+      style={{backgroundColor: isScrolled ? '#041926ee' : '#041926'}}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="container">
         <div className="flex items-center justify-between py-4">
-          <Link href="/" className="brand text-2xl font-bold" style={{color: '#01a2f1'}}>
-            Simple CRM
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Logo size="md" variant="light" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8" role="menubar">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="nav-item text-gray-700 transition-colors duration-200" onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#01a2f1'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#374151'}
+                className="nav-item transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md px-2 py-1"
+                style={{color: 'white'}}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#01a2f1'} 
+                onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}
+                role="menuitem"
+                aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
               </a>
@@ -54,22 +64,29 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a href="#booking" className="btn-primary">
-              Book Demo
+            <a 
+              href="#booking" 
+              className="btn btn-primary text-xs font-bold py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              aria-label="Get your custom Airtable CRM setup"
+            >
+              Get Your Airtable Setup
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2"
-            aria-label="Toggle menu"
+            className="md:hidden p-3 min-w-[44px] min-h-[44px] rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 transition-transform duration-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              style={{ transform: isMobileMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
             >
               {isMobileMenuOpen ? (
                 <path
@@ -91,29 +108,46 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
+        <div 
+          id="mobile-menu"
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+          role="menu"
+          aria-labelledby="mobile-menu-button"
+        >
+          <div className="py-4 border-t border-gray-200">
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-item text-gray-700 transition-colors duration-200" onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#01a2f1'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#374151'}
+                  className="nav-item transition-all duration-200 p-4 rounded-lg hover:bg-gray-100 min-h-[44px] flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  style={{color: 'white'}}
+                  style={{ 
+                    animationDelay: `${index * 50}ms`,
+                    animation: isMobileMenuOpen ? 'slideInLeft 0.3s ease-out forwards' : 'none'
+                  }}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  role="menuitem"
+                  aria-label={`Navigate to ${item.label} section`}
                 >
                   {item.label}
                 </a>
               ))}
-              <a
-                href="#booking"
-                className="btn-primary w-full text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Book Demo
-              </a>
+              <div className="pt-2">
+                <a
+                  href="#booking"
+                  className="btn btn-primary w-full text-center text-xs font-bold py-2.5 px-3 min-h-[48px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Get your custom Airtable CRM setup"
+                >
+                  Get Your Airtable Setup
+                </a>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

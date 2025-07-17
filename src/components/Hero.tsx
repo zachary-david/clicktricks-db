@@ -1,54 +1,42 @@
 "use client";
-
+import SectionHeader from "./SectionHeader";
 import Link from "next/link";
 import Image from "next/image";
 import InteractiveCRMTable from "./InteractiveCRMTable";
 
 export default function Hero() {
   return (
-    <section className="section bg-white pt-24">
+    <section className="section pt-32 md:pt-24" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="container">
+        {/* Simple Hero Section Header - just text */}
+        <div className="text-center mb-6">
+          <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
+            TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
+          </span>
+        </div>
+        
         {/* Centered Text Content */}
         <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-in">
-          <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6" style={{backgroundColor: '#e6f7ff', color: '#0182c4'}}>
-            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            $497 One-Time Setup + $10/month Airtable
-          </div>
-
-          {/* Target Badge */}
-          <div className="mb-4">
-            <span className="text-sm text-gray-500 font-medium uppercase tracking-wide">
-              Perfect for Coaches & Consultants
-            </span>
-          </div>
           
-          <h1 className="mb-6">
-            Stop Losing $5,000+ Coaching Clients Because You Forgot to Follow Up
+          <h1 className="mb-6" style={{color: 'white !important'}}>
+            Professional CRM for Freelancers, Solopreneurs and Small Teams
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get a professional lead management system that shows you exactly who to call today - set up in 30 minutes
+          <p className="text-xl mb-8 max-w-2xl mx-auto" style={{color: '#d1d5db !important'}}>
+           Simple, automated lead tracking so you never miss a follow-up again
           </p>
 
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex justify-center mb-8">
             <Link
               href="#booking"
               className="btn-primary btn-lg"
             >
-              Get Your Custom CRM Setup
-            </Link>
-            <Link
-              href="#demo"
-              className="btn-secondary btn-lg"
-            >
-              See How It Works
+              Get Started Now
             </Link>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-600 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm mb-12" style={{color: '#d1d5db !important'}}>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" style={{color: '#01a2f1'}} fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -66,29 +54,29 @@ export default function Hero() {
           {/* Customer Logos & Social Proof */}
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6">
-              <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                Trusted by 50+ coaches earning $100K+
+              <p className="text-sm font-medium uppercase tracking-wide" style={{color: '#9ca3af !important'}}>
+                Trusted by 50+ freelancers, solopreneurs & small teams
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity">
-              <div className="flex items-center justify-center h-12 w-24 bg-gray-100 rounded-lg">
-                <span className="text-lg font-bold text-gray-600">ACME</span>
+              <div className="flex items-center justify-center h-12 w-24">
+                <span className="text-lg font-bold" style={{color: 'white'}}>ACME</span>
               </div>
-              <div className="flex items-center justify-center h-12 w-24 bg-gray-100 rounded-lg">
-                <span className="text-lg font-bold text-gray-600">TechCorp</span>
+              <div className="flex items-center justify-center h-12 w-24">
+                <span className="text-lg font-bold" style={{color: 'white'}}>TechCorp</span>
               </div>
-              <div className="flex items-center justify-center h-12 w-24 bg-gray-100 rounded-lg">
-                <span className="text-lg font-bold text-gray-600">BuildCo</span>
+              <div className="flex items-center justify-center h-12 w-24">
+                <span className="text-lg font-bold" style={{color: 'white'}}>BuildCo</span>
               </div>
-              <div className="flex items-center justify-center h-12 w-24 bg-gray-100 rounded-lg">
-                <span className="text-lg font-bold text-gray-600">ConsultPro</span>
+              <div className="flex items-center justify-center h-12 w-24">
+                <span className="text-lg font-bold" style={{color: 'white'}}>ConsultPro</span>
               </div>
-              <div className="flex items-center justify-center h-12 w-24 bg-gray-100 rounded-lg">
-                <span className="text-lg font-bold text-gray-600">ServiceMax</span>
+              <div className="flex items-center justify-center h-12 w-24">
+                <span className="text-lg font-bold" style={{color: 'white'}}>ServiceMax</span>
               </div>
             </div>
             <div className="text-center mt-4">
-              <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center justify-center gap-2 text-sm" style={{color: '#d1d5db !important'}}>
                 <div className="flex text-yellow-400">
                   {'★'.repeat(5)}
                 </div>
@@ -102,13 +90,13 @@ export default function Hero() {
 
         {/* Full-Width CRM Demo */}
         <div className="relative animate-slide-up">
-          <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-6 lg:p-8">
+          <div className="rounded-2xl p-6 lg:p-8" style={{backgroundColor: '#041926'}}>
             <div className="bg-white rounded-lg shadow-xl overflow-hidden" style={{border: '2px solid #01a2f1'}}>
-              <div className="bg-gray-100 p-4 flex items-center gap-2">
+              <div className="p-4 flex items-center gap-2" style={{backgroundColor: '#01a2f1'}}>
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="ml-4 text-sm text-gray-600 typewriter">Your Custom Airtable CRM</span>
+                <span className="ml-4 text-sm font-black" style={{color: 'white', fontFamily: 'var(--font-jakarta)'}}>Your Custom DB</span>
                 <div className="ml-auto flex gap-2">
                   <div className="w-6 h-6 bg-gray-200 rounded hover:bg-gray-300 transition-colors cursor-pointer"></div>
                   <div className="w-6 h-6 bg-gray-200 rounded hover:bg-gray-300 transition-colors cursor-pointer"></div>

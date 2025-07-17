@@ -2,220 +2,273 @@
 
 import { useState } from "react";
 
-interface Lead {
-  id: number;
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  value: string;
-  status: 'hot' | 'warm' | 'cold' | 'closed';
-  lastContact: string;
-  nextAction: string;
-  priority: 'high' | 'medium' | 'low';
-}
-
-const sampleLeads: Lead[] = [
-  {
-    id: 1,
-    name: "John Smith",
-    company: "TechStart Inc",
-    email: "john@techstart.com",
-    phone: "(555) 123-4567",
-    value: "$15,000",
-    status: "hot",
-    lastContact: "2 hours ago",
-    nextAction: "Follow up call today",
-    priority: "high"
-  },
-  {
-    id: 2,
-    name: "Sarah Johnson",
-    company: "Growth Co",
-    email: "sarah@growth.com", 
-    phone: "(555) 234-5678",
-    value: "$8,500",
-    status: "warm",
-    lastContact: "1 day ago",
-    nextAction: "Schedule demo",
-    priority: "medium"
-  },
-  {
-    id: 3,
-    name: "Mike Davis",
-    company: "Scale Solutions",
-    email: "mike@scale.com",
-    phone: "(555) 345-6789",
-    value: "$22,000",
-    status: "hot",
-    lastContact: "3 hours ago",
-    nextAction: "Send proposal",
-    priority: "high"
-  },
-  {
-    id: 4,
-    name: "Lisa Chen",
-    company: "Innovate LLC",
-    email: "lisa@innovate.com",
-    phone: "(555) 456-7890",
-    value: "$12,300",
-    status: "warm",
-    lastContact: "2 days ago",
-    nextAction: "Product demo",
-    priority: "medium"
-  },
-  {
-    id: 5,
-    name: "David Wilson",
-    company: "Future Corp",
-    email: "david@future.com",
-    phone: "(555) 567-8901",
-    value: "$18,750",
-    status: "closed",
-    lastContact: "1 week ago",
-    nextAction: "Contract signed!",
-    priority: "low"
-  }
-];
-
 export default function InteractiveCRMTable() {
-  const [selectedLead, setSelectedLead] = useState<number | null>(null);
-  const [hoveredLead, setHoveredLead] = useState<number | null>(null);
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'hot': return 'bg-red-100 text-red-800 border-red-200';
-      case 'warm': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'cold': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'closed': return 'bg-green-100 text-green-800 border-green-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+  const [expandedStage, setExpandedStage] = useState<string | null>("Qualified");
+  
+  const stages = [
+    {
+      name: "New Lead",
+      count: 5,
+      value: "$25,000",
+      color: "#33b4f4",
+      leads: [
+        { name: "Sarah J.", amount: "$5K", probability: "20%" },
+        { name: "Mike R.", amount: "$3K", probability: "25%" }
+      ]
+    },
+    {
+      name: "Qualified",
+      count: 4,
+      value: "$32,000",
+      color: "#01a2f1",
+      leads: [
+        { name: "Lisa K.", amount: "$12K", probability: "40%" },
+        { name: "Tom B.", amount: "$8K", probability: "35%" }
+      ]
+    },
+    {
+      name: "Proposal",
+      count: 3,
+      value: "$45,000",
+      color: "#0182c4",
+      leads: [
+        { name: "Emma W.", amount: "$20K", probability: "60%" },
+        { name: "John D.", amount: "$15K", probability: "65%" }
+      ]
+    },
+    {
+      name: "Negotiation",
+      count: 2,
+      value: "$38,000",
+      color: "#0561a6",
+      leads: [
+        { name: "Anna M.", amount: "$18K", probability: "80%" }
+      ]
+    },
+    {
+      name: "Closed Won",
+      count: 6,
+      value: "$85,000",
+      color: "#041926",
+      leads: [
+        { name: "David L.", amount: "$25K", probability: "100%" },
+        { name: "Karen P.", amount: "$30K", probability: "100%" }
+      ]
     }
-  };
-
-  const getPriorityIcon = (priority: string) => {
-    switch (priority) {
-      case 'high': return '🔥';
-      case 'medium': return '⚡';
-      case 'low': return '📋';
-      default: return '📋';
-    }
-  };
+  ];
 
   return (
-    <div className="w-full">
-      {/* Table Header */}
-      <div className="bg-gray-50 border-b border-gray-200">
-        <div className="hidden md:grid grid-cols-12 gap-2 p-4 text-xs font-medium text-gray-600 typewriter uppercase">
-          <div className="col-span-2">Contact</div>
-          <div className="col-span-2">Company</div>
-          <div className="col-span-2">Value</div>
-          <div className="col-span-2">Status</div>
-          <div className="col-span-2">Last Contact</div>
-          <div className="col-span-2">Next Action</div>
-        </div>
-        {/* Mobile Header */}
-        <div className="md:hidden p-4 text-xs font-medium text-gray-600 typewriter uppercase text-center">
-          CRM Dashboard - Tap rows to expand
-        </div>
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden" style={{border: '2px solid #01a2f1'}}>
+      <div className="bg-gray-100 p-3 sm:p-4 flex items-center gap-2">
+        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+        <span className="ml-4 text-xs sm:text-sm text-gray-600 font-semibold truncate">ClickTricks CRM - Sales Pipeline</span>
       </div>
+      
+      <div className="p-3 sm:p-6">
+        {/* Pipeline Overview - Compact on mobile */}
+        <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="flex flex-row justify-between items-center gap-2 sm:gap-4">
+            <div className="text-center sm:text-left">
+              <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase">Pipeline</p>
+              <p className="text-xl sm:text-3xl font-bold text-blue-700">$225K</p>
+            </div>
+            <div className="text-center sm:text-right">
+              <p className="text-xs sm:text-sm font-semibold text-blue-600 uppercase">Win Rate</p>
+              <p className="text-xl sm:text-2xl font-bold text-green-600">32%</p>
+            </div>
+          </div>
+        </div>
 
-      {/* Table Body */}
-      <div className="max-h-80 overflow-y-auto">
-        {sampleLeads.map((lead, index) => (
-          <div
-            key={lead.id}
-            className={`grid grid-cols-12 gap-2 p-4 border-b border-gray-100 transition-all duration-200 cursor-pointer crm-row ${
-              selectedLead === lead.id 
-                ? 'bg-blue-50 border-l-4 border-l-blue-400' 
-                : hoveredLead === lead.id 
-                ? 'bg-gray-50' 
-                : 'hover:bg-gray-50'
-            } ${lead.priority === 'high' ? 'priority-pulse' : ''}`}
-            style={{
-              animationDelay: `${index * 100}ms`,
-              animation: 'slideUp 0.5s ease-out forwards'
-            }}
-            onClick={() => setSelectedLead(selectedLead === lead.id ? null : lead.id)}
-            onMouseEnter={() => setHoveredLead(lead.id)}
-            onMouseLeave={() => setHoveredLead(null)}
-          >
-            {/* Contact */}
-            <div className="col-span-3 md:col-span-2">
-              <div className="flex items-center gap-2">
+        {/* Mobile-Optimized Pipeline View */}
+        <div className="block md:hidden">
+          {/* Stage Selector Pills */}
+          <div className="flex overflow-x-auto pb-2 mb-4 gap-2 no-scrollbar" style={{WebkitOverflowScrolling: 'touch'}}>
+            {stages.map((stage) => (
+              <button
+                key={stage.name}
+                onClick={() => setExpandedStage(expandedStage === stage.name ? null : stage.name)}
+                className={`flex-shrink-0 px-3 py-2 rounded-full text-xs font-semibold transition-all ${
+                  expandedStage === stage.name ? 'text-white shadow-lg' : 'bg-gray-100 text-gray-700'
+                }`}
+                style={expandedStage === stage.name ? {backgroundColor: stage.color} : {}}
+              >
+                {stage.name} ({stage.count})
+              </button>
+            ))}
+          </div>
+
+          {/* Expanded Stage Content */}
+          {expandedStage && stages.map((stage) => {
+            if (stage.name !== expandedStage) return null;
+            
+            return (
+              <div key={stage.name} className="animate-slideUp">
                 <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold"
-                  style={{backgroundColor: '#01a2f1'}}
+                  className="p-3 rounded-t-lg text-white"
+                  style={{backgroundColor: stage.color}}
                 >
-                  {lead.name.split(' ').map(n => n[0]).join('')}
+                  <h4 className="font-bold text-sm uppercase">{stage.name}</h4>
+                  <div className="flex justify-between items-center mt-1">
+                    <span className="text-xs opacity-90">{stage.count} leads</span>
+                    <span className="text-sm font-bold">{stage.value}</span>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm">{lead.name}</p>
-                  <p className="text-xs text-gray-500 hidden md:block">{lead.email}</p>
-                  <p className="text-xs text-gray-500 md:hidden">{lead.company}</p>
+                
+                <div className="bg-white border-2 border-t-0 rounded-b-lg p-3" style={{borderColor: stage.color}}>
+                  <div className="space-y-2">
+                    {stage.leads.map((lead) => (
+                      <div 
+                        key={lead.name}
+                        className="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <div 
+                              className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                              style={{backgroundColor: stage.color}}
+                            >
+                              {lead.name.split(' ')[0][0]}{lead.name.split(' ')[1][0]}
+                            </div>
+                            <span className="text-sm font-medium">{lead.name}</span>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-sm font-bold text-gray-900">{lead.amount}</p>
+                            <p className="text-xs text-gray-500">{lead.probability}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    
+                    {stage.count > stage.leads.length && (
+                      <div className="text-center py-2">
+                        <span className="text-xs text-gray-500">
+                          +{stage.count - stage.leads.length} more leads
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            );
+          })}
 
-            {/* Company - Desktop Only */}
-            <div className="hidden md:block col-span-2">
-              <p className="font-medium text-sm">{lead.company}</p>
-              <p className="text-xs text-gray-500">{lead.phone}</p>
-            </div>
-
-            {/* Value */}
-            <div className="col-span-3 md:col-span-2">
-              <div className="flex items-center gap-1">
-                <span className="text-lg font-bold text-green-600">{lead.value}</span>
-                <span className="text-lg">{getPriorityIcon(lead.priority)}</span>
-              </div>
-            </div>
-
-            {/* Status */}
-            <div className="col-span-3 md:col-span-2">
-              <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(lead.status)}`}>
-                {lead.status.charAt(0).toUpperCase() + lead.status.slice(1)}
-              </span>
-            </div>
-
-            {/* Last Contact - Desktop Only */}
-            <div className="hidden md:block col-span-2">
-              <p className="text-sm text-gray-600">{lead.lastContact}</p>
-            </div>
-
-            {/* Next Action */}
-            <div className="col-span-3 md:col-span-2">
-              <p className="text-sm font-medium">{lead.nextAction}</p>
-              {selectedLead === lead.id && (
-                <button 
-                  className="mt-1 px-2 py-1 text-xs rounded"
-                  style={{backgroundColor: '#01a2f1', color: 'white'}}
+          {/* Compact Stage Summary (when no stage is expanded) */}
+          {!expandedStage && (
+            <div className="space-y-2">
+              {stages.map((stage, index) => (
+                <div 
+                  key={stage.name}
+                  onClick={() => setExpandedStage(stage.name)}
+                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:shadow-sm transition-all"
+                  style={{
+                    borderLeftWidth: '4px',
+                    borderLeftColor: stage.color,
+                    animationDelay: `${index * 100}ms`,
+                    animation: 'slideUp 0.5s ease-out forwards'
+                  }}
                 >
-                  Take Action
-                </button>
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <h5 className="text-sm font-semibold">{stage.name}</h5>
+                      <p className="text-xs text-gray-500">{stage.count} leads</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-bold">{stage.value}</p>
+                    <p className="text-xs text-gray-500">tap to expand</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Pipeline View - Hidden on Mobile */}
+        <div className="hidden md:grid md:grid-cols-5 gap-4">
+          {stages.map((stage, index) => (
+            <div 
+              key={stage.name}
+              className="relative"
+              style={{
+                animationDelay: `${index * 150}ms`,
+                animation: 'slideUp 0.6s ease-out forwards'
+              }}
+            >
+              {/* Stage Header */}
+              <div 
+                className="p-3 rounded-t-lg text-white text-center"
+                style={{backgroundColor: stage.color}}
+              >
+                <h4 className="font-bold text-sm uppercase">{stage.name}</h4>
+                <p className="text-xs opacity-90">{stage.count} leads • {stage.value}</p>
+              </div>
+              
+              {/* Stage Content */}
+              <div className="bg-white border-2 border-t-0 rounded-b-lg p-3 min-h-[200px]" style={{borderColor: stage.color}}>
+                <div className="space-y-2">
+                  {stage.leads.map((lead, leadIndex) => (
+                    <div 
+                      key={lead.name}
+                      className="p-2 bg-gray-50 rounded border border-gray-200 hover:shadow-sm transition-all cursor-pointer hover:bg-gray-100"
+                      style={{
+                        animationDelay: `${(index * 150) + (leadIndex * 50)}ms`,
+                        animation: 'fadeIn 0.5s ease-out forwards'
+                      }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div 
+                          className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                          style={{backgroundColor: stage.color}}
+                        >
+                          {lead.name.split(' ')[0][0]}{lead.name.split(' ')[1][0]}
+                        </div>
+                        <span className="text-xs font-medium">{lead.name}</span>
+                      </div>
+                      <div className="mt-1 flex justify-between">
+                        <span className="text-xs text-gray-500">{lead.amount}</span>
+                        <span className="text-xs text-gray-500">{lead.probability}</span>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {stage.count > stage.leads.length && (
+                    <div className="text-center py-2">
+                      <span className="text-xs text-gray-500">
+                        +{stage.count - stage.leads.length} more
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              {/* Progress Arrow */}
+              {index < stages.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
+                  <div 
+                    className="w-4 h-4 rotate-45 border-r-2 border-b-2"
+                    style={{borderColor: stages[index + 1].color}}
+                  ></div>
+                </div>
               )}
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Footer Stats */}
-      <div className="bg-gray-50 border-t border-gray-200 p-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div>
-            <p className="text-xs text-gray-500 typewriter">TOTAL LEADS</p>
-            <p className="text-sm md:text-lg font-bold" style={{color: '#01a2f1'}}>5</p>
+        {/* Key Metrics - Responsive */}
+        <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-4">
+          <div className="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
+            <p className="text-xs text-gray-600 uppercase font-semibold">Avg Deal</p>
+            <p className="text-sm sm:text-lg font-bold text-gray-900">$12.5K</p>
           </div>
-          <div>
-            <p className="text-xs text-gray-500 typewriter">HOT LEADS</p>
-            <p className="text-sm md:text-lg font-bold text-red-600">2</p>
+          <div className="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
+            <p className="text-xs text-gray-600 uppercase font-semibold">Close Rate</p>
+            <p className="text-sm sm:text-lg font-bold text-green-600">32%</p>
           </div>
-          <div>
-            <p className="text-xs text-gray-500 typewriter">PIPELINE VALUE</p>
-            <p className="text-sm md:text-lg font-bold text-green-600">$76,550</p>
-          </div>
-          <div>
-            <p className="text-xs text-gray-500 typewriter">THIS MONTH</p>
-            <p className="text-sm md:text-lg font-bold text-purple-600">$22,000</p>
+          <div className="text-center p-2 sm:p-3 bg-gray-50 rounded-lg">
+            <p className="text-xs text-gray-600 uppercase font-semibold">Avg Cycle</p>
+            <p className="text-sm sm:text-lg font-bold text-gray-900">21 days</p>
           </div>
         </div>
       </div>

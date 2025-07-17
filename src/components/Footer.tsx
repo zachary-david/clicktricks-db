@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h3 className="text-white text-2xl font-bold mb-4">Simple CRM</h3>
+            <h3 className="text-white text-2xl font-bold mb-4">ClickTricks DB</h3>
             <p className="mb-4">
               Professional lead management for service businesses. Get organized in 30 minutes.
             </p>
@@ -44,8 +44,8 @@ export default function Footer() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:support@simplecrm.com" className="hover:text-white transition-colors duration-200">
-                  support@simplecrm.com
+                <a href="mailto:support@clicktricksdb.com" className="hover:text-white transition-colors duration-200">
+                  support@clicktricksdb.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -68,7 +68,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
           <p className="text-sm">
-            © {new Date().getFullYear()} Simple CRM. All rights reserved. | 
+            © {new Date().getFullYear()} ClickTricks DB. All rights reserved. | 
             <a href="/privacy" className="hover:text-white ml-2">Privacy Policy</a> | 
             <a href="/terms" className="hover:text-white ml-2">Terms of Service</a>
           </p>
