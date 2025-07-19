@@ -10,7 +10,8 @@ import Link from 'next/link';
 export default function SuccessPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
-  const [sessionData, setSessionData] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [sessionData, setSessionData] = useState<{ id: string; amount_total: number } | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,10 +24,11 @@ export default function SuccessPage() {
     }
   }, [sessionId]);
 
-  const fetchSessionData = async (sessionId: string) => {
+  const fetchSessionData = async (sessionIdParam: string) => {
     try {
       // You could create an API endpoint to fetch session details if needed
       // For now, we'll just show a generic success message
+      console.log('Session ID:', sessionIdParam);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching session data:', error);

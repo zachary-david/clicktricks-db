@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import ErrorDisplay from './ErrorDisplay';
-import { trackError, NetworkError } from '@/lib/errorTracking';
+import { trackError } from '@/lib/errorTracking';
 import { useErrorHandler } from '@/hooks/useErrorHandler';
 
 interface Lead {

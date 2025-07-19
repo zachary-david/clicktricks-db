@@ -1,5 +1,7 @@
 "use client";
 
+import Image from 'next/image';
+
 interface AvatarProps {
   name: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -54,9 +56,11 @@ export default function Avatar({ name, size = 'md', className = '', seed }: Avat
     <div className={`relative ${className}`}>
       {/* Professional avatar image */}
       <div className={`${sizeClasses[size]} rounded-full overflow-hidden shadow-lg border-2 border-white/20`}>
-        <img
+        <Image
           src={generateAvatar(name, seed)}
           alt={`${name}'s avatar`}
+          width={80}
+          height={80}
           className="w-full h-full object-cover"
           onError={(e) => {
             // Fallback to gradient avatar with initials

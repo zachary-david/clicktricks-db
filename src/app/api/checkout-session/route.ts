@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16',
+  apiVersion: '2025-06-30.basil',
 });
 
 export async function POST(request: NextRequest) {
@@ -45,9 +45,6 @@ export async function POST(request: NextRequest) {
       },
       // Collect customer information
       billing_address_collection: 'required',
-      shipping_address_collection: {
-        allowed_countries: ['US', 'CA', 'GB', 'AU', 'NZ'], // Add countries as needed
-      },
       // Custom fields for business information
       custom_fields: [
         {

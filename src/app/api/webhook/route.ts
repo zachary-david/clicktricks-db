@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16',
+  apiVersion: '2025-06-30.basil',
 });
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
@@ -90,7 +90,6 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       sessionId: session.id,
       paymentStatus: session.payment_status,
       billingAddress: session.customer_details?.address,
-      shippingAddress: session.shipping_details?.address,
     };
 
     console.log('Customer data:', customerData);

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from 'next/image';
+
 export default function About() {
   return (
     <section id="about" className="section" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
@@ -15,15 +17,12 @@ export default function About() {
             {/* Profile Image */}
             <div className="lg:col-span-1 flex flex-col items-center">
               <div className="w-32 h-32 rounded-full overflow-hidden shadow-xl bg-gray-100 mb-4">
-                <img
+                <Image
                   src="https://i.ibb.co/22WPx2j/aboutus-garrett.png"
                   alt="Garrett Johnson, ClickTricks DB Founder"
+                  width={128}
+                  height={128}
                   className="w-full h-full object-cover object-center"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSIjZjNmNGY2Ii8+CjxjaXJjbGUgY3g9IjEyOCIgY3k9IjEwNCIgcj0iMzIiIGZpbGw9IiMwMWEyZjEiLz4KPHBhdGggZD0iTTEyOCAxNjBDMTAyLjk5NCAxNjAgODIgMTgwLjk5NCA4MiAyMDZIMTc0QzE3NCAxODAuOTk0IDE1My4wMDYgMTYwIDEyOCAxNjBaIiBmaWxsPSIjMDFhMmYxIi8+Cjx0ZXh0IHg9IjEyOCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMwMWEyZjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhcnJldHQ8L3RleHQ+Cjwvc3ZnPg==";
-                    target.alt = "Garrett Johnson - ClickTricks DB Founder";
-                  }}
                 />
               </div>
               <div className="text-center">
