@@ -17,7 +17,7 @@ export default function Hero() {
         </div>
         
         {/* Centered Text Content */}
-        <div className="text-center max-w-4xl mx-auto mb-16 animate-fade-in">
+        <div className="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
           
           <h1 className="mb-6" style={{color: 'white !important'}}>
             Professional CRM for Freelancers, Solopreneurs and Small Teams
@@ -31,20 +31,20 @@ export default function Hero() {
           <div className="flex justify-center mb-8">
             <Link
               href="#booking"
-              className="btn-primary btn-lg"
+              className="btn-hero-cta"
             >
               Get Started Now
             </Link>
           </div>
 
           {/* Customer Logos & Social Proof */}
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-6">
+          <div className="max-w-4xl mx-auto border-grid-top pt-6">
+            <div className="text-center mb-4">
               <p className="text-sm font-medium uppercase tracking-wide" style={{color: '#9ca3af !important'}}>
                 Trusted by 50+ freelancers, solopreneurs & small teams
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity border-grid-bottom pb-4">
               <div className="flex items-center justify-center h-12 w-24">
                 <span className="text-lg font-bold" style={{color: 'white'}}>ACME</span>
               </div>
@@ -61,12 +61,12 @@ export default function Hero() {
                 <span className="text-lg font-bold" style={{color: 'white'}}>ServiceMax</span>
               </div>
             </div>
-            <div className="text-center mt-4">
-              <div className="flex items-center justify-center gap-2 text-sm" style={{color: '#d1d5db !important'}}>
-                <div className="flex text-yellow-400">
+            <div className="text-center mt-3">
+              <div className="flex items-center justify-center gap-2 text-base" style={{color: '#d1d5db !important'}}>
+                <div className="flex text-yellow-400 text-lg">
                   {'★'.repeat(5)}
                 </div>
-                <span className="font-medium">4.9/5</span>
+                <span className="font-semibold">4.9/5</span>
                 <span>•</span>
                 <span>Based on 200+ reviews</span>
               </div>
@@ -120,7 +120,7 @@ export default function Hero() {
           </div>
           
           {/* Interactive Demo Label */}
-          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
             <div className="bg-white px-4 py-2 rounded-full shadow-md border-2" style={{borderColor: '#01a2f1'}}>
               <span className="text-sm font-medium typewriter" style={{color: '#0182c4'}}>
                 👆 THIS IS WHAT YOUR AIRTABLE CRM WILL LOOK LIKE

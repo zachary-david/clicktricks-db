@@ -1,4 +1,3 @@
-import SectionHeader from "./SectionHeader";
 import Avatar from "./Avatar";
 
 export default function Testimonials() {
@@ -38,15 +37,6 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="section" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="container">
-        <SectionHeader 
-          text="Trusted By" 
-          apps={[
-            { name: "Trustpilot", icon: "⭐" },
-            { name: "Google Reviews", icon: "🔍" },
-            { name: "Better Business Bureau", icon: "🏆" }
-          ]} 
-        />
-        
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-6" style={{color: 'white'}}>
             Join 50+ Freelancers & Small Teams Who Never Lose Another Lead

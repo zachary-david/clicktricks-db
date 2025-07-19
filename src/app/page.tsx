@@ -36,9 +36,6 @@ const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="section animate-pulse" style={{backgroundColor: '#041926'}}><div className="container"><div className="h-96 bg-gray-700 rounded-lg"></div></div></div>
 });
 
-const ContactForm = dynamic(() => import('@/components/ContactForm'), {
-  loading: () => <div className="form-professional animate-pulse p-8 rounded-xl"><div className="h-96 bg-gray-200 rounded-lg"></div></div>
-});
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="bg-gray-900 animate-pulse h-48"></div>
@@ -55,14 +52,14 @@ export default function Home() {
       {/* 2. Features (Solution) */}
       <Solution />
       
-      {/* 3. Why You'll Love (Benefits) */}
+      {/* 3. Call to Action (Primary) */}
+      <CallToAction variant="primary" />
+      
+      {/* 4. Why You'll Love (Benefits) */}
       <Benefits />
       
-      {/* 4. How It Works */}
+      {/* 5. How It Works */}
       <HowItWorks />
-      
-      {/* 5. Call to Action (Primary) */}
-      <CallToAction variant="primary" />
       
       {/* 6. How You Can Use It */}
       <HowYouCanUseIt />
@@ -78,19 +75,6 @@ export default function Home() {
       
       {/* 10. Call to Action (Secondary) */}
       <CallToAction variant="secondary" />
-      
-      {/* Contact Form Section */}
-      <section id="contact" className="section bg-[#088FDC]" aria-labelledby="contact-heading">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">Get Started Today</h2>
-            <p className="text-lg text-white text-opacity-90">Fill out the form below and we'll set up your custom CRM within 48 hours</p>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            <ContactForm />
-          </div>
-        </div>
-      </section>
       
       {/* 11. About Me */}
       <About />

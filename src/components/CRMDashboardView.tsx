@@ -3,16 +3,17 @@
 import { useState, useEffect } from 'react';
 import ErrorDisplay from './ErrorDisplay';
 import { trackError, NetworkError } from '@/lib/errorTracking';
+import { ExclamationTriangleIcon, ClockIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 interface DashboardItem {
   id: string;
   priority: 'high' | 'medium' | 'low';
-  title: string;
-  subtitle: string;
-  label: string;
-  labelColor: string;
-  borderColor: string;
-  dotColor: string;
+  contact: string;
+  task: string;
+  deadline: string;
+  value: string;
+  urgency: string;
+  icon: typeof ExclamationTriangleIcon;
 }
 
 export default function CRMDashboardView() {
@@ -41,34 +42,34 @@ export default function CRMDashboardView() {
         // Set dashboard items
         setDashboardItems([
           {
-            id: '1',
+            id: 'FU001',
             priority: 'high',
-            title: 'Call John Smith - Hot lead, $15K opportunity',
-            subtitle: 'Expected close: This week',
-            label: 'URGENT',
-            labelColor: 'red',
-            borderColor: 'border-red-500/30',
-            dotColor: 'bg-red-500'
+            contact: 'John Smith',
+            task: 'Hot lead follow-up call',
+            deadline: 'Today',
+            value: '$15,000',
+            urgency: 'URGENT',
+            icon: ExclamationTriangleIcon
           },
           {
-            id: '2',
+            id: 'FU002',
             priority: 'medium',
-            title: 'Send proposal to Mike Davis - $22K deal',
-            subtitle: 'Deadline: End of day',
-            label: 'TODAY',
-            labelColor: 'yellow',
-            borderColor: 'border-yellow-500/30',
-            dotColor: 'bg-yellow-500'
+            contact: 'Mike Davis',
+            task: 'Send detailed proposal',
+            deadline: 'End of day',
+            value: '$22,000',
+            urgency: 'TODAY',
+            icon: ClockIcon
           },
           {
-            id: '3',
+            id: 'FU003',
             priority: 'low',
-            title: 'Schedule demo with Sarah Johnson',
-            subtitle: 'Follow-up on initial interest',
-            label: 'THIS WEEK',
-            labelColor: 'blue',
-            borderColor: 'border-blue-500/30',
-            dotColor: 'bg-blue-500'
+            contact: 'Sarah Johnson',
+            task: 'Schedule product demo',
+            deadline: 'This week',
+            value: '$8,500',
+            urgency: 'THIS WEEK',
+            icon: CalendarDaysIcon
           }
         ]);
       } catch (err) {
@@ -98,34 +99,34 @@ export default function CRMDashboardView() {
         // Set dashboard items
         setDashboardItems([
           {
-            id: '1',
+            id: 'FU001',
             priority: 'high',
-            title: 'Call John Smith - Hot lead, $15K opportunity',
-            subtitle: 'Expected close: This week',
-            label: 'URGENT',
-            labelColor: 'red',
-            borderColor: 'border-red-500/30',
-            dotColor: 'bg-red-500'
+            contact: 'John Smith',
+            task: 'Hot lead follow-up call',
+            deadline: 'Today',
+            value: '$15,000',
+            urgency: 'URGENT',
+            icon: ExclamationTriangleIcon
           },
           {
-            id: '2',
+            id: 'FU002',
             priority: 'medium',
-            title: 'Send proposal to Mike Davis - $22K deal',
-            subtitle: 'Deadline: End of day',
-            label: 'TODAY',
-            labelColor: 'yellow',
-            borderColor: 'border-yellow-500/30',
-            dotColor: 'bg-yellow-500'
+            contact: 'Mike Davis',
+            task: 'Send detailed proposal',
+            deadline: 'End of day',
+            value: '$22,000',
+            urgency: 'TODAY',
+            icon: ClockIcon
           },
           {
-            id: '3',
+            id: 'FU003',
             priority: 'low',
-            title: 'Schedule demo with Sarah Johnson',
-            subtitle: 'Follow-up on initial interest',
-            label: 'THIS WEEK',
-            labelColor: 'blue',
-            borderColor: 'border-blue-500/30',
-            dotColor: 'bg-blue-500'
+            contact: 'Sarah Johnson',
+            task: 'Schedule product demo',
+            deadline: 'This week',
+            value: '$8,500',
+            urgency: 'THIS WEEK',
+            icon: CalendarDaysIcon
           }
         ]);
       } catch (err) {
@@ -140,16 +141,34 @@ export default function CRMDashboardView() {
     fetchDashboardData();
   };
 
+  const getUrgencyColor = (urgency: string) => {
+    switch (urgency) {
+      case 'URGENT':
+        return 'bg-red-100 text-red-800';
+      case 'TODAY':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'THIS WEEK':
+        return 'bg-blue-100 text-blue-800';
+      default:
+        return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   if (error) {
     return (
-      <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden" style={{border: '2px solid #374151'}}>
-        <div className="bg-gray-800 p-3 sm:p-4 flex items-center gap-2 border-b border-gray-700">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          <span className="ml-4 text-xs sm:text-sm text-gray-200 font-semibold truncate">Dashboard Overview</span>
+      <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+        <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+          <div className="flex items-center gap-4">
+            <div className="w-6 h-6 bg-[#01a2f1] rounded-full flex items-center justify-center">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+              Follow-ups Due Today
+            </h3>
+            <span className="text-xs text-gray-500">Error loading</span>
+          </div>
         </div>
-        <div className="p-4">
+        <div className="p-6">
           <ErrorDisplay 
             error={error} 
             variant="inline"
@@ -161,84 +180,148 @@ export default function CRMDashboardView() {
   }
 
   return (
-    <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden" style={{border: '2px solid #374151'}}>
-      {/* Airtable-style dark header */}
-      <div className="bg-gray-800 p-3 sm:p-4 flex items-center gap-2 border-b border-gray-700">
-        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-        <span className="ml-4 text-xs sm:text-sm text-gray-200 font-semibold truncate">Dashboard Overview</span>
-        <div className="ml-auto flex gap-2">
-          <button className="p-1 text-gray-400 hover:text-gray-200 transition-colors">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-          </button>
-          <button className="p-1 text-gray-400 hover:text-gray-200 transition-colors">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-            </svg>
-          </button>
+    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+      {/* Table Header */}
+      <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+        <div className="flex items-center gap-4">
+          <div className="w-6 h-6 bg-[#01a2f1] rounded-full flex items-center justify-center">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+          <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+            Follow-ups Due Today
+          </h3>
+          <span className="text-xs text-gray-500">{dashboardItems.length} tasks</span>
         </div>
       </div>
 
-          <div className="space-y-2 sm:space-y-3">
-            {isLoading ? (
-              <>
-                {/* Loading skeletons */}
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-gray-750 border border-gray-600 rounded-lg p-3 animate-pulse">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                      <div className="flex items-center gap-2 sm:gap-3 flex-1">
-                        <div className="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div>
-                        <div className="flex-1">
-                          <div className="h-4 bg-gray-600 rounded w-3/4 mb-1"></div>
-                          <div className="h-3 bg-gray-700 rounded w-1/2"></div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="h-6 w-16 bg-gray-600 rounded"></div>
-                        <div className="w-4 h-4 bg-gray-600 rounded"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              dashboardItems.map((item) => (
-                <div 
-                  key={item.id} 
-                  className={`bg-gray-750 border ${item.borderColor} rounded-lg p-3 hover:bg-gray-700 transition-colors`}
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                    <div className="flex items-center gap-2 sm:gap-3 flex-1">
-                      <div className={`w-2 h-2 ${item.dotColor} rounded-full ${item.priority === 'high' ? 'animate-pulse' : ''} flex-shrink-0`}></div>
-                      <div className="flex-1">
-                        <p className="text-xs sm:text-sm font-medium text-white">{item.title}</p>
-                        <p className="text-xs text-gray-400 mt-0.5">{item.subtitle}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className={`text-xs px-2 py-1 bg-${item.labelColor}-500/20 text-${item.labelColor}-300 font-medium rounded border ${item.borderColor}`}>
-                        {item.label}
-                      </span>
-                      <button 
-                        className="p-1 text-gray-400 hover:text-white transition-colors"
-                        onClick={() => {
-                          // Handle item completion
-                          console.log('Complete item:', item.id);
-                        }}
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+      {/* Desktop Table View */}
+      <div className="hidden lg:block">
+        {/* Table Column Headers */}
+        <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-700 uppercase tracking-wide">
+          <div className="col-span-1">ID</div>
+          <div className="col-span-2">Contact</div>
+          <div className="col-span-4">Task</div>
+          <div className="col-span-2">Deadline</div>
+          <div className="col-span-2">Value</div>
+          <div className="col-span-1">Priority</div>
         </div>
+
+        {/* Table Rows */}
+        <div className="divide-y divide-gray-100">
+          {isLoading ? (
+            // Loading skeletons
+            [...Array(3)].map((_, i) => (
+              <div key={i} className="grid grid-cols-12 gap-4 px-6 py-4 animate-pulse">
+                <div className="col-span-1 flex items-center">
+                  <div className="h-4 w-12 bg-gray-200 rounded"></div>
+                </div>
+                <div className="col-span-2 flex items-center">
+                  <div className="h-4 w-20 bg-gray-200 rounded"></div>
+                </div>
+                <div className="col-span-4 flex items-center">
+                  <div className="h-4 w-32 bg-gray-200 rounded"></div>
+                </div>
+                <div className="col-span-2 flex items-center">
+                  <div className="h-4 w-16 bg-gray-200 rounded"></div>
+                </div>
+                <div className="col-span-2 flex items-center">
+                  <div className="h-4 w-16 bg-gray-200 rounded"></div>
+                </div>
+                <div className="col-span-1 flex items-center">
+                  <div className="h-6 w-16 bg-gray-200 rounded"></div>
+                </div>
+              </div>
+            ))
+          ) : (
+            dashboardItems.map((item) => (
+              <div
+                key={item.id}
+                className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-gray-50 transition-colors group"
+              >
+                {/* ID Column */}
+                <div className="col-span-1 flex items-center">
+                  <span className="text-xs font-mono text-gray-500">{item.id}</span>
+                </div>
+
+                {/* Contact Column */}
+                <div className="col-span-2 flex items-center gap-3">
+                  <item.icon className="h-5 w-5 text-[#01a2f1] flex-shrink-0" aria-hidden="true" />
+                  <span className="text-sm font-semibold text-gray-900">{item.contact}</span>
+                </div>
+
+                {/* Task Column */}
+                <div className="col-span-4 flex items-center">
+                  <span className="text-sm text-gray-600">{item.task}</span>
+                </div>
+
+                {/* Deadline Column */}
+                <div className="col-span-2 flex items-center">
+                  <span className="text-sm text-gray-900 font-medium">{item.deadline}</span>
+                </div>
+
+                {/* Value Column */}
+                <div className="col-span-2 flex items-center">
+                  <span className="text-sm text-[#01a2f1] font-medium">{item.value}</span>
+                </div>
+
+                {/* Priority Column */}
+                <div className="col-span-1 flex items-center">
+                  <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${getUrgencyColor(item.urgency)}`}>
+                    {item.urgency}
+                  </span>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="lg:hidden divide-y divide-gray-100">
+        {isLoading ? (
+          [...Array(3)].map((_, i) => (
+            <div key={i} className="p-6 animate-pulse">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-8 w-8 bg-gray-200 rounded flex-shrink-0"></div>
+                <div className="flex-1">
+                  <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                </div>
+                <div className="h-6 w-16 bg-gray-200 rounded"></div>
+              </div>
+              <div className="h-4 bg-gray-200 rounded w-full"></div>
+            </div>
+          ))
+        ) : (
+          dashboardItems.map((item) => (
+            <div key={item.id} className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <item.icon className="h-8 w-8 text-[#01a2f1] flex-shrink-0" aria-hidden="true" />
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-gray-900">{item.contact}</h3>
+                  <p className="text-sm text-gray-500">{item.deadline} • {item.value}</p>
+                </div>
+                <div className="flex flex-col items-end">
+                  <span className="text-xs font-mono text-gray-500 mb-1">{item.id}</span>
+                  <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${getUrgencyColor(item.urgency)}`}>
+                    {item.urgency}
+                  </span>
+                </div>
+              </div>
+              
+              <p className="text-sm text-gray-600 leading-relaxed">{item.task}</p>
+            </div>
+          ))
+        )}
+      </div>
+
+      {/* Table Footer */}
+      <div className="bg-gray-50 px-6 py-3 border-t border-gray-200">
+        <div className="flex items-center justify-between text-xs text-gray-500">
+          <span>Showing {dashboardItems.length} of {dashboardItems.length} follow-ups</span>
+          <span>Last updated: Just now</span>
+        </div>
+      </div>
+    </div>
   );
 }

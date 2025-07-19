@@ -40,7 +40,7 @@ export default function Solution() {
     
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % views.length);
-    }, 4000);
+    }, 7000);
     
     return () => clearInterval(interval);
   }, [isPaused, views.length]);
@@ -93,8 +93,19 @@ export default function Solution() {
   }, [handleNext, handlePrev]);
 
   return (
-    <section id="demo" className="section bg-[#088FDC]">
-      <div className="container">
+    <section id="demo" className="section bg-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div 
+        className="absolute inset-0 opacity-30" 
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 2px 2px, rgba(8, 143, 220, 0.3) 1.5px, transparent 1.5px)
+          `,
+          backgroundSize: '24px 24px'
+        }}
+      />
+      
+      <div className="container relative z-10">
         <SectionHeader 
           text="Built on Airtable" 
           apps={[
@@ -109,25 +120,22 @@ export default function Solution() {
             See Your Simple, Automated Lead Tracking System in Action:{" "}
             <span className="text-gradient">Professional Lead Management Without the Complexity</span>
           </h2>
-          <p className="text-xl text-white text-opacity-90">
+          <p className="text-xl text-gray-700">
             Simple, automated lead tracking with custom Airtable views and automated follow-ups - set up in 30 minutes
           </p>
         </div>
 
         {/* Desktop: Overlapping slideshow */}
         <div className="hidden md:block">
-          {/* View title and description */}
-          <div className="text-center mb-8 h-20">
-            <h3 className="text-2xl font-bold text-white mb-2 transition-all duration-700 ease-in-out drop-shadow-md">
+          {/* View title only */}
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white transition-all duration-700 ease-in-out drop-shadow-md">
               {views[activeIndex].title}
             </h3>
-            <p className="text-white text-opacity-90 max-w-2xl mx-auto transition-all duration-700 ease-in-out">
-              {views[activeIndex].description}
-            </p>
           </div>
 
           {/* Overlapping cards container */}
-          <div className="relative w-full max-w-5xl mx-auto h-[500px] mb-8">
+          <div className="relative w-full max-w-5xl mx-auto h-[500px] mb-12">
             {views.map((view, index) => {
               const relativeIndex = index - activeIndex;
               const isActive = index === activeIndex;
@@ -176,6 +184,13 @@ export default function Solution() {
             })}
           </div>
 
+          {/* Description below CRM demo */}
+          <div className="text-center mb-8">
+            <p className="text-gray-700 max-w-2xl mx-auto transition-all duration-700 ease-in-out">
+              {views[activeIndex].description}
+            </p>
+          </div>
+
           {/* Dots indicator */}
           <div className="flex justify-center gap-3" role="tablist" aria-label="Slideshow navigation">
             {views.map((_, index) => (
@@ -197,19 +212,16 @@ export default function Solution() {
 
         {/* Mobile: Traditional carousel */}
         <div className="md:hidden">
-          {/* View title and description */}
+          {/* View title only */}
           <div className="text-center mb-6 px-4">
-            <h3 className="text-xl font-bold text-white mb-2 drop-shadow-md">
+            <h3 className="text-2xl font-bold text-white drop-shadow-md">
               {views[activeIndex].title}
             </h3>
-            <p className="text-white text-opacity-90 text-sm">
-              {views[activeIndex].description}
-            </p>
           </div>
 
           {/* Carousel container */}
           <div 
-            className="relative overflow-hidden mb-6"
+            className="relative overflow-hidden mb-10"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -228,6 +240,13 @@ export default function Solution() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Description below mobile carousel */}
+          <div className="text-center mb-6 px-4">
+            <p className="text-gray-700 text-sm transition-all duration-300 ease-in-out">
+              {views[activeIndex].description}
+            </p>
           </div>
 
           {/* Prev/Next buttons */}
@@ -274,26 +293,6 @@ export default function Solution() {
           </div>
         </div>
 
-        {/* Bottom CTA section */}
-        <div className="mt-12 text-center">
-          <div className="bg-white rounded-2xl p-8 max-w-2xl mx-auto border-2 border-[#01a2f1]">
-            <p className="text-lg font-semibold text-gray-900 mb-3">
-              🎯 Never Miss Another Follow-Up Again
-            </p>
-            <p className="text-gray-600 mb-6">
-              Join hundreds of freelancers and small teams who've transformed their lead management with our custom Airtable CRM setup
-            </p>
-            <a
-              href="#booking"
-              className="btn-primary btn-lg inline-flex items-center gap-2"
-            >
-              Get Started Now
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );
