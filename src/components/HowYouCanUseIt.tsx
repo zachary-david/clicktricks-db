@@ -44,19 +44,19 @@ const audiences = [
 
 export default function HowYouCanUseIt() {
   return (
-    <section className="section relative py-24 sm:py-32" style={{backgroundColor: 'white !important', background: 'white !important'}}>
+    <section className="section relative py-20" style={{backgroundColor: 'white !important', background: 'white !important'}}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <div className="mx-auto max-w-2xl text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">
             How You Can Use It
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="text-lg leading-8 text-gray-600">
             Tailored solutions for every type of business
           </p>
         </div>
 
         {/* Client Database Table View */}
-        <div className="mx-auto mt-16 max-w-7xl">
+        <div className="mx-auto max-w-7xl">
           <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
             {/* Table Header */}
             <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">

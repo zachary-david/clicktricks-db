@@ -36,42 +36,6 @@ export default function Hero() {
               Get Started Now
             </Link>
           </div>
-
-          {/* Customer Logos & Social Proof */}
-          <div className="max-w-4xl mx-auto border-grid-top pt-6">
-            <div className="text-center mb-4">
-              <p className="text-sm font-medium uppercase tracking-wide" style={{color: '#9ca3af !important'}}>
-                Trusted by 50+ freelancers, solopreneurs & small teams
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity border-grid-bottom pb-4">
-              <div className="flex items-center justify-center h-12 w-24">
-                <span className="text-lg font-bold" style={{color: 'white'}}>ACME</span>
-              </div>
-              <div className="flex items-center justify-center h-12 w-24">
-                <span className="text-lg font-bold" style={{color: 'white'}}>TechCorp</span>
-              </div>
-              <div className="flex items-center justify-center h-12 w-24">
-                <span className="text-lg font-bold" style={{color: 'white'}}>BuildCo</span>
-              </div>
-              <div className="flex items-center justify-center h-12 w-24">
-                <span className="text-lg font-bold" style={{color: 'white'}}>ConsultPro</span>
-              </div>
-              <div className="flex items-center justify-center h-12 w-24">
-                <span className="text-lg font-bold" style={{color: 'white'}}>ServiceMax</span>
-              </div>
-            </div>
-            <div className="text-center mt-3">
-              <div className="flex items-center justify-center gap-2 text-base" style={{color: '#d1d5db !important'}}>
-                <div className="flex text-yellow-400 text-lg">
-                  {'★'.repeat(5)}
-                </div>
-                <span className="font-semibold">4.9/5</span>
-                <span>•</span>
-                <span>Based on 200+ reviews</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Full-Width CRM Demo */}
@@ -125,6 +89,42 @@ export default function Hero() {
               <span className="text-sm font-medium typewriter" style={{color: '#0182c4'}}>
                 👆 THIS IS WHAT YOUR AIRTABLE CRM WILL LOOK LIKE
               </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Customer Logos & Social Proof - Moved below CRM demo */}
+        <div className="max-w-4xl mx-auto mt-12 border-grid-top pt-6">
+          <div className="text-center mb-4">
+            <p className="text-sm font-medium uppercase tracking-wide" style={{color: '#9ca3af !important'}}>
+              Trusted by 50+ freelancers, solopreneurs & small teams
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity border-grid-bottom pb-4">
+            <div className="flex items-center justify-center h-12 w-24">
+              <span className="text-lg font-bold" style={{color: 'white'}}>ACME</span>
+            </div>
+            <div className="flex items-center justify-center h-12 w-24">
+              <span className="text-lg font-bold" style={{color: 'white'}}>TechCorp</span>
+            </div>
+            <div className="flex items-center justify-center h-12 w-24">
+              <span className="text-lg font-bold" style={{color: 'white'}}>BuildCo</span>
+            </div>
+            <div className="flex items-center justify-center h-12 w-24">
+              <span className="text-lg font-bold" style={{color: 'white'}}>ConsultPro</span>
+            </div>
+            <div className="flex items-center justify-center h-12 w-24">
+              <span className="text-lg font-bold" style={{color: 'white'}}>ServiceMax</span>
+            </div>
+          </div>
+          <div className="text-center mt-3">
+            <div className="flex items-center justify-center gap-2 text-base" style={{color: '#d1d5db !important'}}>
+              <div className="flex text-yellow-400 text-lg">
+                {'★'.repeat(5)}
+              </div>
+              <span className="font-semibold">4.9/5</span>
+              <span>•</span>
+              <span>Based on 200+ reviews</span>
             </div>
           </div>
         </div>

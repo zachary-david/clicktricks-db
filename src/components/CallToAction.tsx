@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { SparklesIcon } from '@heroicons/react/24/outline';
 
 interface CallToActionProps {
   variant?: 'primary' | 'secondary';

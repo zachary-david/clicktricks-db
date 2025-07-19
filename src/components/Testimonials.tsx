@@ -35,7 +35,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="section relative py-24 sm:py-32 overflow-hidden" style={{backgroundColor: 'white !important', background: 'white !important'}}>
+    <section id="testimonials" className="section relative py-20 overflow-hidden" style={{backgroundColor: 'white !important', background: 'white !important'}}>
       {/* Subtle background pattern */}
       <div 
         className="absolute inset-0 opacity-30" 
@@ -48,6 +48,16 @@ export default function Testimonials() {
       />
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        {/* Header Section */}
+        <div className="mx-auto max-w-2xl text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">
+            Reviews
+          </h2>
+          <p className="text-lg leading-8 text-gray-600">
+            See what our clients say about their results
+          </p>
+        </div>
+
         {/* Three Column Layout - Connects directly to previous section */}
         <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 relative">

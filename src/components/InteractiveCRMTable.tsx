@@ -103,7 +103,8 @@ export default function InteractiveCRMTable() {
     };
 
     fetchLeads();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handleError]);
 
   const getStatusColor = (status: string) => {
     switch (status) {

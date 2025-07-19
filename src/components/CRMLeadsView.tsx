@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import ErrorDisplay from './ErrorDisplay';
-import { trackError, BusinessError } from '@/lib/errorTracking';
+import { trackError } from '@/lib/errorTracking';
 import { UserIcon } from '@heroicons/react/24/outline';
 
 interface Lead {
