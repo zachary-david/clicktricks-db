@@ -1,8 +1,9 @@
 "use client";
-import SectionHeader from "./SectionHeader";
 import Link from "next/link";
-import Image from "next/image";
 import HeroCRMDemo from "./HeroCRMDemo";
+import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorDisplay from "./ErrorDisplay";
 
 export default function Hero() {
   return (
@@ -23,7 +24,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-xl mb-8 max-w-2xl mx-auto" style={{color: '#d1d5db !important'}}>
-           Simple, automated lead tracking so you never miss a follow-up again
+           No more spreadsheets. No more sticky notes. Just leads closed, clients followed up, and deals done.
           </p>
 
           
@@ -34,21 +35,6 @@ export default function Hero() {
             >
               Get Started Now
             </Link>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm mb-12" style={{color: '#d1d5db !important'}}>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" style={{color: '#01a2f1'}} fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              $497 one-time setup
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" style={{color: '#01a2f1'}} fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Built on Airtable ($10/mo)
-            </div>
           </div>
 
           {/* Customer Logos & Social Proof */}
@@ -104,7 +90,31 @@ export default function Hero() {
               </div>
               
               <div className="p-0">
-                <HeroCRMDemo />
+                <ErrorBoundary
+                  fallbackRender={({ error, resetErrorBoundary }) => (
+                    <div className="p-6">
+                      <ErrorDisplay 
+                        error={error} 
+                        variant="inline"
+                        onRetry={resetErrorBoundary}
+                      />
+                    </div>
+                  )}
+                >
+                  <Suspense 
+                    fallback={
+                      <div className="p-6">
+                        <div className="animate-pulse space-y-3">
+                          {[1, 2, 3, 4].map((i) => (
+                            <div key={i} className="h-12 bg-gray-100 rounded"></div>
+                          ))}
+                        </div>
+                      </div>
+                    }
+                  >
+                    <HeroCRMDemo />
+                  </Suspense>
+                </ErrorBoundary>
               </div>
             </div>
           </div>

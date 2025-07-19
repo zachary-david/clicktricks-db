@@ -123,8 +123,8 @@ export default function Navigation() {
                   key={item.href}
                   href={item.href}
                   className="nav-item transition-all duration-200 p-4 rounded-lg hover:bg-gray-100 min-h-[44px] flex items-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                  style={{color: 'white'}}
                   style={{ 
+                    color: 'white',
                     animationDelay: `${index * 50}ms`,
                     animation: isMobileMenuOpen ? 'slideInLeft 0.3s ease-out forwards' : 'none'
                   }}

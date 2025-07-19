@@ -1,300 +1,135 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import ErrorDisplay from './ErrorDisplay';
+import { trackError } from '@/lib/errorTracking';
 
 export default function HeroCRMDemo() {
-  const [activeView, setActiveView] = useState('light');
+  const [error, setError] = useState<Error | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Business-focused contact data
+  useEffect(() => {
+    // Simulate data loading
+    const loadData = async () => {
+      try {
+        // Simulate quick load since this is a demo component
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        setIsLoading(false);
+      } catch (err) {
+        const error = err instanceof Error ? err : new Error('Failed to load demo');
+        setError(error);
+        trackError(error, { component: 'HeroCRMDemo' });
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+  // Simple contact data
   const contacts = [
-    { 
-      id: 1, 
-      name: "Sarah Chen", 
-      company: "Digital Dynamics", 
-      title: "Marketing Director",
-      value: "$18,500", 
-      status: "Proposal", 
-      priority: "High",
-      source: "Website",
-      lastContact: "2 days ago"
-    },
-    { 
-      id: 2, 
-      name: "Michael Rodriguez", 
-      company: "TechFlow Solutions", 
-      title: "VP Operations",
-      value: "$32,000", 
-      status: "Negotiation", 
-      priority: "High",
-      source: "Referral",
-      lastContact: "1 day ago"
-    },
-    { 
-      id: 3, 
-      name: "Emma Thompson", 
-      company: "Growth Partners", 
-      title: "Founder",
-      value: "$12,800", 
-      status: "Qualified", 
-      priority: "Medium",
-      source: "LinkedIn",
-      lastContact: "3 days ago"
-    },
-    { 
-      id: 4, 
-      name: "David Kim", 
-      company: "Scale Ventures", 
-      title: "COO",
-      value: "$45,000", 
-      status: "Demo Scheduled", 
-      priority: "High",
-      source: "Cold Email",
-      lastContact: "4 hours ago"
-    },
-    { 
-      id: 5, 
-      name: "Lisa Park", 
-      company: "Innovation Labs", 
-      title: "Director",
-      value: "$22,500", 
-      status: "Follow-up", 
-      priority: "Medium",
-      source: "Networking",
-      lastContact: "1 week ago"
-    }
+    { name: "Sarah Chen", company: "Digital Dynamics", status: "Proposal", value: "$18.5K" },
+    { name: "Michael Rodriguez", company: "TechFlow Solutions", status: "Negotiation", value: "$32K" },
+    { name: "Emma Thompson", company: "Growth Partners", status: "Qualified", value: "$12.8K" },
+    { name: "David Kim", company: "Scale Ventures", status: "Demo", value: "$45K" },
+    { name: "Lisa Park", company: "Innovation Labs", status: "Follow-up", value: "$22.5K" }
   ];
 
   const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Negotiation': return 'bg-green-100 text-green-700';
-      case 'Proposal': return 'bg-blue-100 text-blue-700';
-      case 'Demo Scheduled': return 'bg-purple-100 text-purple-700';
-      case 'Qualified': return 'bg-yellow-100 text-yellow-700';
-      case 'Follow-up': return 'bg-orange-100 text-orange-700';
-      default: return 'bg-gray-100 text-gray-700';
-    }
+    const colors: { [key: string]: string } = {
+      'Negotiation': 'bg-green-100 text-green-700',
+      'Proposal': 'bg-blue-100 text-blue-700', 
+      'Demo': 'bg-purple-100 text-purple-700',
+      'Qualified': 'bg-yellow-100 text-yellow-700',
+      'Follow-up': 'bg-orange-100 text-orange-700'
+    };
+    return colors[status] || 'bg-gray-100 text-gray-700';
   };
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'High': return 'bg-red-500';
-      case 'Medium': return 'bg-yellow-500';
-      case 'Low': return 'bg-green-500';
-      default: return 'bg-gray-500';
-    }
-  };
+  if (error) {
+    return (
+      <div className="bg-white rounded-xl shadow-sm p-6">
+        <ErrorDisplay 
+          error={error} 
+          variant="inline"
+          onRetry={() => window.location.reload()}
+        />
+      </div>
+    );
+  }
 
-  // Light mode Airtable-style view
-  const LightModeView = () => (
-    <div className="bg-white">
-      {/* Airtable-style header */}
-      <div className="border-b border-gray-200 bg-white px-4 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-red-400 to-pink-400 rounded"></div>
-              <span className="text-sm font-semibold text-gray-900">Lead Pipeline</span>
-            </div>
-            <span className="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">Grid view</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <button className="text-xs bg-gray-100 px-3 py-1 rounded hover:bg-gray-200 transition-colors">
-              Filter
-            </button>
-            <button className="text-xs bg-gray-100 px-3 py-1 rounded hover:bg-gray-200 transition-colors">
-              Sort
-            </button>
-          </div>
+  if (isLoading) {
+    return (
+      <div className="bg-white rounded-xl shadow-sm">
+        <div className="border-b border-gray-200 px-4 py-3 bg-gray-50">
+          <div className="h-4 bg-gray-200 rounded w-24 animate-pulse"></div>
+        </div>
+        <div className="p-4 space-y-3">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className="h-12 bg-gray-100 rounded animate-pulse"></div>
+          ))}
         </div>
       </div>
-
-      {/* Table header */}
-      <div className="bg-gray-50 border-b border-gray-200 px-4 py-2">
-        <div className="grid grid-cols-12 gap-4 text-xs font-medium text-gray-600 uppercase tracking-wide">
-          <div className="col-span-3">Contact</div>
-          <div className="col-span-2">Company</div>
-          <div className="col-span-2">Status</div>
-          <div className="col-span-2">Value</div>
-          <div className="col-span-2">Source</div>
-          <div className="col-span-1">Priority</div>
-        </div>
-      </div>
-
-      {/* Table rows */}
-      <div className="max-h-56 overflow-y-auto">
-        {contacts.map((contact, index) => (
-          <div 
-            key={contact.id} 
-            className="px-4 py-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors"
-            style={{
-              animationDelay: `${index * 100}ms`,
-              animation: 'slideUp 0.5s ease-out forwards'
-            }}
-          >
-            <div className="grid grid-cols-12 gap-4 items-center">
-              {/* Contact */}
-              <div className="col-span-3 flex items-center gap-3">
-                <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0"
-                  style={{backgroundColor: '#01a2f1'}}
-                >
-                  {contact.name.split(' ').map(n => n[0]).join('')}
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-gray-900 truncate">{contact.name}</p>
-                  <p className="text-xs text-gray-500 truncate">{contact.title}</p>
-                </div>
-              </div>
-              
-              {/* Company */}
-              <div className="col-span-2">
-                <p className="text-sm text-gray-900 truncate">{contact.company}</p>
-              </div>
-              
-              {/* Status */}
-              <div className="col-span-2">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(contact.status)}`}>
-                  {contact.status}
-                </span>
-              </div>
-              
-              {/* Value */}
-              <div className="col-span-2">
-                <p className="text-sm font-semibold text-green-600">{contact.value}</p>
-              </div>
-              
-              {/* Source */}
-              <div className="col-span-2">
-                <p className="text-sm text-gray-600">{contact.source}</p>
-              </div>
-              
-              {/* Priority */}
-              <div className="col-span-1">
-                <div className="flex items-center gap-1">
-                  <div className={`w-2 h-2 rounded-full ${getPriorityColor(contact.priority)}`}></div>
-                  <span className="text-xs text-gray-600">{contact.priority}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
-  // Dark mode Airtable-style view
-  const DarkModeView = () => (
-    <div className="bg-gray-900">
-      {/* Dark header */}
-      <div className="border-b border-gray-700 bg-gray-900 px-4 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded"></div>
-              <span className="text-sm font-semibold text-white">CRM Dashboard</span>
-            </div>
-            <span className="text-xs bg-gray-800 px-2 py-1 rounded text-gray-300">Dashboard view</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <button className="text-xs bg-gray-800 px-3 py-1 rounded hover:bg-gray-700 transition-colors text-gray-300">
-              Export
-            </button>
-            <button className="text-xs bg-blue-600 px-3 py-1 rounded hover:bg-blue-500 transition-colors text-white">
-              + New
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats cards */}
-      <div className="p-4">
-        <div className="grid grid-cols-4 gap-4 mb-4">
-          <div className="bg-gray-800 p-3 rounded-lg border border-gray-700">
-            <p className="text-xs font-medium text-gray-400 uppercase">Total Leads</p>
-            <p className="text-2xl font-bold text-white">127</p>
-            <p className="text-xs text-green-400">↗ +15% month</p>
-          </div>
-          <div className="bg-gray-800 p-3 rounded-lg border border-gray-700">
-            <p className="text-xs font-medium text-gray-400 uppercase">Pipeline Value</p>
-            <p className="text-2xl font-bold text-white">$380K</p>
-            <p className="text-xs text-blue-400">↗ +22% month</p>
-          </div>
-          <div className="bg-gray-800 p-3 rounded-lg border border-gray-700">
-            <p className="text-xs font-medium text-gray-400 uppercase">Conversion Rate</p>
-            <p className="text-2xl font-bold text-white">24%</p>
-            <p className="text-xs text-green-400">↗ +3% week</p>
-          </div>
-          <div className="bg-gray-800 p-3 rounded-lg border border-gray-700">
-            <p className="text-xs font-medium text-gray-400 uppercase">Avg Deal Size</p>
-            <p className="text-2xl font-bold text-white">$28K</p>
-            <p className="text-xs text-gray-400">→ No change</p>
-          </div>
-        </div>
-
-        {/* Recent activity */}
-        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-          <h4 className="text-sm font-semibold text-white mb-3">Recent Activity</h4>
-          <div className="space-y-3">
-            {contacts.slice(0, 3).map((contact, index) => (
-              <div key={contact.id} className="flex items-center gap-3 p-2 bg-gray-750 rounded border border-gray-600">
-                <div 
-                  className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-semibold"
-                  style={{backgroundColor: '#01a2f1'}}
-                >
-                  {contact.name.split(' ').map(n => n[0]).join('')}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm text-white truncate">{contact.name} • {contact.company}</p>
-                  <p className="text-xs text-gray-400">Updated {contact.lastContact}</p>
-                </div>
-                <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(contact.status)}`}>
-                  {contact.status}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
 
   return (
     <div className="bg-white">
-      {/* Mode switcher */}
-      <div className="bg-gray-50 border-b border-gray-200 p-3">
+      {/* Simple header */}
+      <div className="border-b border-gray-200 px-4 py-3 bg-gray-50">
         <div className="flex items-center justify-between">
-          <div className="flex rounded-lg bg-white p-1 border border-gray-200">
-            <button
-              onClick={() => setActiveView('light')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                activeView === 'light' 
-                  ? 'text-white shadow-sm' 
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              style={activeView === 'light' ? {backgroundColor: '#01a2f1'} : {}}
-            >
-              ☀️ Light Mode
-            </button>
-            <button
-              onClick={() => setActiveView('dark')}
-              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                activeView === 'dark' 
-                  ? 'text-white shadow-sm' 
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-              style={activeView === 'dark' ? {backgroundColor: '#041926'} : {}}
-            >
-              🌙 Dark Mode
-            </button>
-          </div>
-          <span className="text-xs text-gray-500 font-medium">Powered by Airtable</span>
+          <span className="text-sm font-semibold text-gray-900">Lead Pipeline</span>
+          <span className="text-xs bg-gray-100 px-2 py-1 rounded">Grid view</span>
         </div>
       </div>
 
-      {/* Content area */}
-      <div className="h-80 overflow-hidden">
-        {activeView === 'light' && <LightModeView />}
-        {activeView === 'dark' && <DarkModeView />}
+      {/* Desktop: 4 columns */}
+      <div className="hidden md:block">
+        {/* Header row */}
+        <div className="grid grid-cols-4 gap-4 px-4 py-2 bg-gray-50 border-b border-gray-200">
+          <div className="text-xs font-medium text-gray-600 uppercase">Name</div>
+          <div className="text-xs font-medium text-gray-600 uppercase">Company</div>
+          <div className="text-xs font-medium text-gray-600 uppercase">Stage</div>
+          <div className="text-xs font-medium text-gray-600 uppercase">Revenue</div>
+        </div>
+        
+        {/* Data rows */}
+        <div className="divide-y divide-gray-200">
+          {contacts.map((contact, index) => (
+            <div key={index} className="grid grid-cols-4 gap-4 px-4 py-3 hover:bg-gray-50">
+              <div className="text-sm font-medium text-gray-900 truncate">{contact.name}</div>
+              <div className="text-sm text-gray-600 truncate">{contact.company}</div>
+              <div>
+                <span className={`px-2 py-1 text-xs font-medium rounded ${getStatusColor(contact.status)}`}>
+                  {contact.status}
+                </span>
+              </div>
+              <div className="text-sm font-semibold text-green-600">{contact.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile: 2 columns */}
+      <div className="md:hidden">
+        {/* Header row */}
+        <div className="grid grid-cols-2 gap-4 px-4 py-2 bg-gray-50 border-b border-gray-200">
+          <div className="text-xs font-medium text-gray-600 uppercase">Name</div>
+          <div className="text-xs font-medium text-gray-600 uppercase">Stage</div>
+        </div>
+        
+        {/* Data rows */}
+        <div className="divide-y divide-gray-200">
+          {contacts.map((contact, index) => (
+            <div key={index} className="grid grid-cols-2 gap-4 px-4 py-3 hover:bg-gray-50">
+              <div className="text-sm font-medium text-gray-900 truncate">{contact.name}</div>
+              <div>
+                <span className={`px-2 py-1 text-xs font-medium rounded ${getStatusColor(contact.status)}`}>
+                  {contact.status}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
