@@ -36,6 +36,9 @@ const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="section animate-pulse" style={{backgroundColor: '#041926'}}><div className="container"><div className="h-96 bg-gray-700 rounded-lg"></div></div></div>
 });
 
+const AirtablePromo = dynamic(() => import('@/components/AirtablePromo'), {
+  loading: () => <div className="section animate-pulse" style={{backgroundColor: '#088FDC'}}><div className="container"><div className="h-48 bg-gray-200 rounded-lg"></div></div></div>
+});
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="bg-gray-900 animate-pulse h-48"></div>
@@ -58,14 +61,14 @@ export default function Home() {
       {/* 4. Why You'll Love (Benefits) */}
       <Benefits />
       
-      {/* 5. How It Works */}
+      {/* 5. Reviews (Testimonials) */}
+      <Testimonials />
+      
+      {/* 6. How It Works */}
       <HowItWorks />
       
-      {/* 6. How You Can Use It */}
+      {/* 7. How You Can Use It */}
       <HowYouCanUseIt />
-      
-      {/* 7. Reviews (Testimonials) */}
-      <Testimonials />
       
       {/* 8. Pricing */}
       <Pricing />
@@ -73,8 +76,8 @@ export default function Home() {
       {/* 9. FAQ */}
       <FAQ />
       
-      {/* 10. Call to Action (Secondary) */}
-      <CallToAction variant="secondary" />
+      {/* 10. Airtable Promo */}
+      <AirtablePromo />
       
       {/* 11. About Me */}
       <About />

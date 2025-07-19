@@ -35,69 +35,81 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="section" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
-      <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="mb-6" style={{color: 'white'}}>
-            Join 50+ Freelancers & Small Teams Who Never Lose Another Lead
-          </h2>
-          <p className="text-xl" style={{color: '#d1fae5'}}>
-            Real results from freelancers, solopreneurs and small teams
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="p-8 hover:transform hover:scale-105 transition-all duration-300 animate-scale-in rounded-xl" style={{animationDelay: `${index * 0.1}s`, backgroundColor: 'rgba(255, 255, 255, 0.05) !important', border: '1px solid rgba(255, 255, 255, 0.1) !important', backdropFilter: 'blur(10px) !important'}}>
-              <div className="flex items-center gap-4 mb-6">
-                <Avatar 
-                  name={testimonial.name}
-                  seed={testimonial.seed}
-                  size="lg"
-                  className="flex-shrink-0"
-                />
-                <div className="min-w-0 flex-1">
-                  <h4 className="font-semibold text-lg text-white truncate">{testimonial.name}</h4>
-                  <p className="text-white text-opacity-90 font-medium">{testimonial.title}</p>
-                  <p className="text-white text-opacity-70 text-sm truncate">{testimonial.business}</p>
-                  <div className="flex items-center gap-2 mt-1">
-                    <p className="text-white text-opacity-60 text-xs">{testimonial.location}</p>
-                    <span className="text-white text-opacity-50">•</span>
-                    <p className="text-green-600 text-xs font-medium">{testimonial.revenue}</p>
+    <section id="testimonials" className="section relative py-24 sm:py-32 overflow-hidden" style={{backgroundColor: 'white !important', background: 'white !important'}}>
+      {/* Subtle background pattern */}
+      <div 
+        className="absolute inset-0 opacity-30" 
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 2px 2px, rgba(8, 143, 220, 0.3) 1.5px, transparent 1.5px)
+          `,
+          backgroundSize: '24px 24px'
+        }}
+      />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        {/* Three Column Layout - Connects directly to previous section */}
+        <div className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 relative">
+            {/* Vertical borders that extend up to previous section and down to horizontal line */}
+            <div className="hidden lg:block absolute left-1/3 w-px bg-[#01a2f1] opacity-30" style={{top: '-200px', height: 'calc(100% + 200px)'}}></div>
+            <div className="hidden lg:block absolute left-2/3 w-px bg-[#01a2f1] opacity-30" style={{top: '-200px', height: 'calc(100% + 200px)'}}></div>
+            
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="relative">
+                <div className="px-8 py-12 text-left">
+                  {/* Avatar at top */}
+                  <div className="mb-6">
+                    <Avatar 
+                      name={testimonial.name}
+                      seed={testimonial.seed}
+                      size="xl"
+                      className="w-16 h-16"
+                    />
                   </div>
+                  
+                  {/* Text elements vertically stacked with left alignment */}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      {testimonial.name}
+                    </h3>
+                    
+                    <p className="text-lg text-[#01a2f1] font-semibold mb-2">
+                      {testimonial.title}
+                    </p>
+                    
+                    <div className="flex text-yellow-500">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Two-sentence review */}
+                  <blockquote className="text-base text-gray-700 leading-relaxed">
+                    "{testimonial.quote}"
+                  </blockquote>
                 </div>
               </div>
-              
-              <div className="flex text-yellow-400 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              
-              <blockquote className="mb-6 text-white text-opacity-90 italic">
-                "{testimonial.quote}"
-              </blockquote>
-              
-              <div className="bg-green-500 bg-opacity-20 border border-green-400 border-opacity-30 rounded-lg p-4">
-                <p className="text-green-300 font-medium text-sm">
-                  📈 {testimonial.result}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 text-yellow-500 mb-4">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-6 h-6 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
             ))}
           </div>
-          <p className="text-lg font-medium" style={{color: 'white'}}>4.9/5 average rating from 50+ freelancers and small teams</p>
+        </div>
+
+        {/* Horizontal border to separate columns from header text */}
+        <div className="relative mb-12">
+          <div className="absolute top-0 h-px bg-[#01a2f1] opacity-30" style={{left: '-100vw', right: '-100vw'}}></div>
+        </div>
+
+        {/* Section Header at Bottom */}
+        <div className="max-w-3xl mx-auto text-center mt-16">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">
+            Join 50+ Freelancers & Small Teams Who Never Lose Another Lead
+          </h2>
+          <p className="text-xl text-gray-600">
+            Real results from freelancers, solopreneurs and small teams
+          </p>
         </div>
       </div>
     </section>

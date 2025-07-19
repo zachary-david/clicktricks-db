@@ -52,7 +52,7 @@ export default function FAQ() {
     <section id="faq" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg" style={{color: 'white !important'}}>
             Frequently Asked Questions
           </h2>
           <p className="mt-6 text-lg leading-8 text-white text-opacity-90">
@@ -60,170 +60,47 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* FAQ Knowledge Base Table */}
-        <div className="mx-auto mt-16 max-w-6xl">
-          <div className="overflow-hidden rounded-lg border border-white border-opacity-20 shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05) !important', backdropFilter: 'blur(10px) !important'}}>
-            {/* Table Header */}
-            <div className="px-6 py-3 border-b border-white border-opacity-20" style={{backgroundColor: 'rgba(255, 255, 255, 0.1) !important'}}>
-              <div className="flex items-center gap-4">
-                <div className="w-6 h-6 bg-[#01a2f1] rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-                <h3 className="text-sm font-semibold text-white uppercase tracking-wide">
-                  Knowledge Base
-                </h3>
-                <span className="text-xs text-white text-opacity-70">5 articles</span>
-              </div>
-            </div>
-
-            {/* Desktop Table View */}
-            <div className="hidden lg:block">
-              {/* FAQ Database Rows */}
-              <div className="divide-y divide-white divide-opacity-10">
-                {faqs.map((faq, index) => (
-                  <div
-                    key={faq.id}
-                    className="transition-all duration-200 hover:bg-white hover:bg-opacity-5"
-                  >
-                    {/* Question Row */}
-                    <button
-                      onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                      className="w-full px-6 py-4 text-left group"
+        {/* Simple FAQ List */}
+        <div className="mx-auto mt-16 max-w-3xl">
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={faq.id}
+                className="border border-white border-opacity-20 rounded-lg overflow-hidden"
+                style={{backgroundColor: 'rgba(255, 255, 255, 0.05) !important', backdropFilter: 'blur(10px) !important'}}
+              >
+                {/* Question */}
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full px-6 py-4 text-left group hover:bg-white hover:bg-opacity-5 transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-medium text-white transition-colors" style={{color: 'white !important'}}>
+                      {faq.question}
+                    </h3>
+                    <svg
+                      className={`w-5 h-5 text-white text-opacity-70 transition-transform duration-200 ${
+                        openIndex === index ? "transform rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <div className="grid grid-cols-12 gap-4 items-center">
-                        {/* ID */}
-                        <div className="col-span-1">
-                          <span className="text-xs font-mono text-white text-opacity-50">{faq.id}</span>
-                        </div>
-
-                        {/* Category */}
-                        <div className="col-span-2">
-                          <span className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-[#01a2f1] bg-opacity-20 text-[#01a2f1] border border-[#01a2f1] border-opacity-30">
-                            {faq.category}
-                          </span>
-                        </div>
-
-                        {/* Question */}
-                        <div className="col-span-7">
-                          <span className="text-sm font-medium text-white group-hover:text-[#01a2f1] transition-colors">
-                            {faq.question}
-                          </span>
-                        </div>
-
-                        {/* Priority */}
-                        <div className="col-span-1">
-                          <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
-                            faq.priority === 'Critical' 
-                              ? 'bg-red-100 bg-opacity-20 text-red-300' 
-                              : faq.priority === 'High'
-                              ? 'bg-yellow-100 bg-opacity-20 text-yellow-300'
-                              : 'bg-gray-100 bg-opacity-20 text-gray-300'
-                          }`}>
-                            {faq.priority}
-                          </span>
-                        </div>
-
-                        {/* Expand Icon */}
-                        <div className="col-span-1 flex justify-end">
-                          <svg
-                            className={`w-5 h-5 text-white text-opacity-70 transition-transform duration-200 ${
-                              openIndex === index ? "transform rotate-180" : ""
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </div>
-                      </div>
-                    </button>
-                    
-                    {/* Answer Expansion */}
-                    {openIndex === index && (
-                      <div className="px-6 pb-4 border-t border-white border-opacity-10" style={{backgroundColor: 'rgba(255, 255, 255, 0.02) !important'}}>
-                        <div className="grid grid-cols-12 gap-4 pt-4">
-                          <div className="col-span-1"></div>
-                          <div className="col-span-11">
-                            <div className="flex items-start gap-4">
-                              <div className="w-2 h-2 bg-[#01a2f1] rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-sm text-white text-opacity-90 leading-relaxed">{faq.answer}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Mobile Card View */}
-            <div className="lg:hidden divide-y divide-white divide-opacity-10">
-              {faqs.map((faq, index) => (
-                <div key={faq.id} className="transition-all duration-200">
-                  <button
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full p-6 text-left group"
-                  >
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="flex flex-col items-start">
-                        <span className="text-xs font-mono text-white text-opacity-50 mb-2">{faq.id}</span>
-                        <span className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium bg-[#01a2f1] bg-opacity-20 text-[#01a2f1] border border-[#01a2f1] border-opacity-30">
-                          {faq.category}
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-sm font-medium text-white group-hover:text-[#01a2f1] transition-colors leading-relaxed">
-                          {faq.question}
-                        </h3>
-                      </div>
-                      <div className="flex flex-col items-end gap-2">
-                        <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
-                          faq.priority === 'Critical' 
-                            ? 'bg-red-100 bg-opacity-20 text-red-300' 
-                            : faq.priority === 'High'
-                            ? 'bg-yellow-100 bg-opacity-20 text-yellow-300'
-                            : 'bg-gray-100 bg-opacity-20 text-gray-300'
-                        }`}>
-                          {faq.priority}
-                        </span>
-                        <svg
-                          className={`w-5 h-5 text-white text-opacity-70 transition-transform duration-200 ${
-                            openIndex === index ? "transform rotate-180" : ""
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
+                </button>
+                
+                {/* Answer Dropdown */}
+                {openIndex === index && (
+                  <div className="px-6 pb-4 border-t border-white border-opacity-10" style={{backgroundColor: 'rgba(255, 255, 255, 0.02) !important'}}>
+                    <div className="pt-4">
+                      <p className="text-base text-white text-opacity-90 leading-relaxed">{faq.answer}</p>
                     </div>
-                  </button>
-                  
-                  {/* Answer Expansion for Mobile */}
-                  {openIndex === index && (
-                    <div className="px-6 pb-4 border-t border-white border-opacity-10" style={{backgroundColor: 'rgba(255, 255, 255, 0.02) !important'}}>
-                      <div className="pt-4">
-                        <div className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-[#01a2f1] rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-sm text-white text-opacity-90 leading-relaxed">{faq.answer}</p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Table Footer */}
-            <div className="px-6 py-3 border-t border-white border-opacity-20" style={{backgroundColor: 'rgba(255, 255, 255, 0.05) !important'}}>
-              <div className="flex items-center justify-between text-xs text-white text-opacity-50">
-                <span>Showing 5 of 5 questions</span>
-                <span>Last updated: Just now</span>
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
           </div>
         </div>
 

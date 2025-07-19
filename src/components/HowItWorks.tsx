@@ -43,8 +43,8 @@ export default function HowItWorks() {
               </p>
             </div>
           </div>
-          {/* Header border */}
-          <div className="w-full h-px bg-[#01a2f1] opacity-20"></div>
+          {/* Header border - extends beyond container */}
+          <div className="absolute h-px bg-[#01a2f1] opacity-20" style={{left: '-100vw', right: '-100vw'}}></div>
         </div>
 
         <div className="mt-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -58,10 +58,11 @@ export default function HowItWorks() {
                 }`}
                 onClick={() => setActiveStep(index)}
               >
-                {/* Custom border that aligns with container */}
+                {/* Custom border that extends beyond container */}
                 {index < steps.length - 1 && (
                   <div 
-                    className="absolute bottom-0 left-0 right-0 h-px bg-[#01a2f1] opacity-20"
+                    className="absolute bottom-0 h-px bg-[#01a2f1] opacity-20"
+                    style={{left: '-100vw', right: '-100vw'}}
                   />
                 )}
                 
