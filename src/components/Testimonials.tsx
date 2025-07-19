@@ -109,7 +109,7 @@ export default function Testimonials() {
 
         {/* Horizontal border to separate columns from header text */}
         <div className="relative mb-12">
-          <div className="absolute top-0 h-px bg-[#01a2f1] opacity-30" style={{left: '-100vw', right: '-100vw'}}></div>
+          <div className="hidden lg:block absolute top-0 h-px bg-[#01a2f1] opacity-30 left-0 right-0"></div>
         </div>
 
         {/* Section Header at Bottom */}

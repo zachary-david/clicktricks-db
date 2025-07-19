@@ -31,14 +31,9 @@ export default function InteractiveCRMTable() {
         resetError();
         
         // Simulate API call
-        await new Promise((resolve, reject) => {
+        await new Promise((resolve) => {
           setTimeout(() => {
-            // Simulate random error for demo (remove in production)
-            if (Math.random() > 0.98) {
-              reject(new NetworkError('Failed to load CRM data'));
-            } else {
-              resolve(true);
-            }
+            resolve(true);
           }, 800);
         });
 
@@ -253,13 +248,9 @@ export default function InteractiveCRMTable() {
 
       try {
         // Simulate form submission
-        await new Promise((resolve, reject) => {
+        await new Promise((resolve) => {
           setTimeout(() => {
-            if (Math.random() > 0.9) {
-              reject(new Error('Failed to add lead'));
-            } else {
-              resolve(true);
-            }
+            resolve(true);
           }, 1000);
         });
 

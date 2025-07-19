@@ -30,7 +30,7 @@ export default function Hero() {
           
           <div className="flex justify-center mb-8">
             <Link
-              href="#booking"
+              href="/checkout"
               className="btn-hero-cta"
             >
               Get Started Now

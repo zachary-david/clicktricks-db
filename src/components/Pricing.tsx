@@ -28,10 +28,13 @@ const features = [
 
 export default function Pricing() {
   return (
-    <section className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
+    <section id="pricing" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-white" style={{color: 'white !important'}}>Simple Pricing</h2>
+          <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
+            TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
+          </span>
+          <h2 className="text-base font-semibold leading-7 text-white mt-4" style={{color: 'white !important'}}>Simple Pricing</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl drop-shadow-lg">
             One-Time Pricing — No Subscriptions, No Surprises
           </p>
@@ -39,8 +42,8 @@ export default function Pricing() {
 
         {/* Two Column Layout with Extended Vertical Border */}
         <div className="relative mt-16">
-          {/* Horizontal border underneath header - extends beyond container */}
-          <div className="absolute top-0 h-px bg-[#01a2f1] opacity-30" style={{left: '-100vw', right: '-100vw'}}></div>
+          {/* Horizontal border underneath header - desktop only */}
+          <div className="hidden lg:block absolute top-0 h-px bg-[#01a2f1] opacity-30 left-0 right-0"></div>
           {/* Extended vertical border that intersects with next section */}
           <div className="hidden lg:block absolute top-0 left-1/2 w-px bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 200px)'}}></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 relative">
@@ -82,7 +85,7 @@ export default function Pricing() {
                 <span className="text-sm font-semibold leading-6 tracking-wide text-white text-opacity-90">USD</span>
               </p>
               <a
-                href="#contact"
+                href="/checkout"
                 className="block w-full max-w-xs mx-auto rounded-full bg-gradient-to-r from-[#01a2f1] to-[#0182c4] px-6 py-4 text-center text-lg font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01a2f1] mb-4"
               >
                 Get Started Now

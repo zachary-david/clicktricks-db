@@ -25,7 +25,7 @@ export default function CallToAction({ variant = 'primary' }: CallToActionProps)
           {/* Right Column - CTA Button */}
           <div className="flex justify-center lg:justify-end">
             <a
-              href="#contact"
+              href="/checkout"
               className="btn-hero-cta px-12 py-4 text-lg font-bold"
             >
               Get Started Now

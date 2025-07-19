@@ -71,6 +71,7 @@ body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -986,12 +987,12 @@ p, .text-base {
 
 .section::before {
   left: 50%;
-  transform: translateX(-640px); /* Half of max-width (80rem = 1280px) */
+  transform: translateX(-40rem); /* Half of container max-width */
 }
 
 .section::after {
   right: 50%;
-  transform: translateX(640px); /* Half of max-width (80rem = 1280px) */
+  transform: translateX(40rem); /* Half of container max-width */
 }
 
 /* Database-style top and bottom borders for enhanced container feel */
@@ -1016,7 +1017,7 @@ p, .text-base {
 }
 
 /* Hide borders on mobile for cleaner look */
-@media (max-width: 1344px) {
+@media (max-width: 768px) {
   .section::before,
   .section::after {
     display: none;

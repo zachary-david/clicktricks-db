@@ -29,13 +29,16 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
+    <section id="how-it-works" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <div className="flex items-center justify-center gap-4 py-12 min-h-[120px]">
             <CogIcon className="h-10 w-10 text-[#01a2f1]" />
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl" style={{color: 'white !important'}}>
+              <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
+                TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
+              </span>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mt-2" style={{color: 'white !important'}}>
                 How It Works
               </h2>
               <p className="mt-2 text-lg leading-8 text-gray-300">
@@ -43,8 +46,8 @@ export default function HowItWorks() {
               </p>
             </div>
           </div>
-          {/* Header border - extends beyond container */}
-          <div className="absolute h-px bg-[#01a2f1] opacity-20" style={{left: '-100vw', right: '-100vw'}}></div>
+          {/* Header border - contained within viewport */}
+          <div className="hidden lg:block absolute h-px bg-[#01a2f1] opacity-20 left-0 right-0"></div>
         </div>
 
         <div className="mt-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -58,11 +61,10 @@ export default function HowItWorks() {
                 }`}
                 onClick={() => setActiveStep(index)}
               >
-                {/* Custom border that extends beyond container */}
+                {/* Custom border extending to container edges */}
                 {index < steps.length - 1 && (
                   <div 
-                    className="absolute bottom-0 h-px bg-[#01a2f1] opacity-20"
-                    style={{left: '-100vw', right: '-100vw'}}
+                    className="hidden lg:block absolute bottom-0 h-px bg-[#01a2f1] opacity-20 left-0 right-0"
                   />
                 )}
                 

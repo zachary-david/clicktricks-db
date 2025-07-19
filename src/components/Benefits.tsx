@@ -33,7 +33,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="section relative py-20 overflow-hidden" style={{backgroundColor: 'white !important', background: 'white !important'}}>
+    <section id="features" className="section relative py-20 overflow-hidden" style={{backgroundColor: 'white !important', background: 'white !important'}}>
       {/* Subtle background pattern */}
       <div 
         className="absolute inset-0 opacity-30" 
@@ -66,8 +66,8 @@ export default function Benefits() {
 
         {/* Three Column Layout - Container width with extended horizontal line */}
         <div className="relative">
-          {/* Horizontal border underneath header - extends beyond container */}
-          <div className="absolute top-0 h-px bg-[#01a2f1] opacity-30" style={{left: '-100vw', right: '-100vw'}}></div>
+          {/* Horizontal border underneath header - contained within viewport */}
+          <div className="hidden lg:block absolute top-0 h-px bg-[#01a2f1] opacity-30 left-0 right-0"></div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 relative auto-rows-fr">
             {/* Vertical borders that extend into next section */}

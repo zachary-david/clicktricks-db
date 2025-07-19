@@ -18,13 +18,12 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { href: "#problems", label: "Problems" },
-    { href: "#demo", label: "Demo" },
-    { href: "#features", label: "Features" },
-    { href: "#testimonials", label: "Reviews" },
-    { href: "#pricing", label: "Pricing" },
+    { href: "#demo", label: "DEMO" },
+    { href: "#features", label: "FEATURES" },
+    { href: "#how-it-works", label: "HOW IT WORKS" },
+    { href: "#pricing", label: "PRICING" },
     { href: "#faq", label: "FAQ" },
-    { href: "#about", label: "About" },
+    { href: "#about", label: "ABOUT" },
   ];
 
   return (
@@ -65,7 +64,7 @@ export default function Navigation() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a 
-              href="#booking" 
+              href="/checkout" 
               className="btn btn-primary text-xs font-bold py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               aria-label="Get your custom Airtable CRM setup"
             >
@@ -137,7 +136,7 @@ export default function Navigation() {
               ))}
               <div className="pt-2">
                 <a
-                  href="#booking"
+                  href="/checkout"
                   className="btn btn-primary w-full text-center text-xs font-bold py-2.5 px-3 min-h-[48px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Get your custom Airtable CRM setup"

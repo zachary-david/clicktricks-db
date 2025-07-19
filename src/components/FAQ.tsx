@@ -52,7 +52,10 @@ export default function FAQ() {
     <section id="faq" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg" style={{color: 'white !important'}}>
+          <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
+            TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
+          </span>
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg mt-4" style={{color: 'white !important'}}>
             Frequently Asked Questions
           </h2>
           <p className="mt-6 text-lg leading-8 text-white text-opacity-90">
