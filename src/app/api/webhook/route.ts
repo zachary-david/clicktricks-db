@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-06-30.basil',
-});
-
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+// Lazy initialization to avoid build-time issues
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: '2025-06-30.basil',
+  });
+}
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
@@ -16,6 +17,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'No signature' }, { status: 400 });
   }
 
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+  const stripe = getStripe();
   let event: Stripe.Event;
 
   try {
@@ -67,6 +70,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   
   try {
     // Retrieve full session details with line items
+    const stripe = getStripe();
     const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
       expand: ['line_items', 'customer'],
     });

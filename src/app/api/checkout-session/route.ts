@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-06-30.basil',
-});
+// Lazy initialization to avoid build-time issues
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: '2025-06-30.basil',
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,6 +14,9 @@ export async function POST(request: NextRequest) {
     
     // Get the origin from the request headers
     const origin = request.headers.get('origin') || 'http://localhost:3000';
+    
+    // Initialize Stripe
+    const stripe = getStripe();
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
