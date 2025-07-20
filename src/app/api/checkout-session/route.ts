@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
             options: [
               { label: 'Freelancer', value: 'freelancer' },
               { label: 'Solopreneur', value: 'solopreneur' },
-              { label: 'Small Team (2-10 people)', value: 'small_team' },
+              { label: 'Small Team (2-10 people)', value: 'smallteam' },
               { label: 'Agency', value: 'agency' },
               { label: 'Other', value: 'other' },
             ],

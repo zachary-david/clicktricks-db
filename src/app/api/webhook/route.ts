@@ -87,7 +87,9 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     
     // Extract business information
     const businessName = customFields.find(field => field.key === 'business_name')?.text?.value || '';
-    const businessType = customFields.find(field => field.key === 'business_type')?.dropdown?.value || '';
+    const businessTypeValue = customFields.find(field => field.key === 'business_type')?.dropdown?.value || '';
+    // Convert back to readable format
+    const businessType = businessTypeValue === 'smallteam' ? 'small_team' : businessTypeValue;
 
     // Customer data
     const customerData = {
