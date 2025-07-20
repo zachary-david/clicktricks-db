@@ -3,7 +3,14 @@ import Stripe from 'stripe';
 
 // Lazy initialization to avoid build-time issues
 function getStripe() {
-  return new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  
+  if (!secretKey) {
+    console.error('STRIPE_SECRET_KEY environment variable is not set');
+    throw new Error('Stripe secret key is required');
+  }
+  
+  return new Stripe(secretKey, {
     apiVersion: '2025-06-30.basil',
   });
 }
