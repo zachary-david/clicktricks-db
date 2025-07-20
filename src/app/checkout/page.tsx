@@ -31,7 +31,7 @@ export default function CheckoutPage() {
               </div>
               <div className="flex items-center gap-2">
                 <CurrencyDollarIcon className="h-5 w-5 text-green-600" />
-                <span>30-Day Money Back Guarantee</span>
+                <span>30-Day Support Guarantee</span>
               </div>
             </div>
           </div>
@@ -152,10 +152,6 @@ function CheckoutFAQ() {
     {
       question: "Is this really custom to my business?",
       answer: "Yes — it's built around your workflow, not a generic template. During our kickoff call, we'll discuss your specific needs and processes to ensure your CRM fits perfectly."
-    },
-    {
-      question: "What if I don't like it?",
-      answer: "30-day full refund available. If you're not satisfied with your custom CRM setup, just let us know within 30 days and we'll refund your payment in full."
     },
     {
       question: "What if I'm not technical?",
