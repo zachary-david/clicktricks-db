@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import HeroCRMDemo from "./HeroCRMDemo";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -30,7 +31,9 @@ export default function Hero() {
           
           <div className="flex justify-center mb-8">
             <Link
-              href="/checkout"
+              href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-hero-cta"
             >
               Get Started Now
@@ -97,24 +100,28 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto mt-12 border-grid-top pt-6">
           <div className="text-center mb-4">
             <p className="text-sm font-medium uppercase tracking-wide" style={{color: '#9ca3af !important'}}>
-              Trusted by 50+ freelancers, solopreneurs & small teams
+              Built on the same platform trusted by
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity border-grid-bottom pb-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity border-grid-bottom pb-4">
+            {/* AWS Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <span className="text-lg font-bold" style={{color: 'white'}}>ACME</span>
+              <Image src="/logos/AWS.svg" alt="AWS" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
+            
+            {/* Levi's Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <span className="text-lg font-bold" style={{color: 'white'}}>TechCorp</span>
+              <Image src="/logos/Levis.svg" alt="Levi's" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
+            
+            {/* New Balance Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <span className="text-lg font-bold" style={{color: 'white'}}>BuildCo</span>
+              <Image src="/logos/NewBalance.svg" alt="New Balance" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
+            
+            {/* Walmart Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <span className="text-lg font-bold" style={{color: 'white'}}>ConsultPro</span>
-            </div>
-            <div className="flex items-center justify-center h-12 w-24">
-              <span className="text-lg font-bold" style={{color: 'white'}}>ServiceMax</span>
+              <Image src="/logos/Walmart.svg" alt="Walmart" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
           </div>
           <div className="text-center mt-3">

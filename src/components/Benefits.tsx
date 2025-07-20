@@ -2,14 +2,16 @@
 
 import React from 'react';
 import { CheckCircleIcon, CurrencyDollarIcon, LightBulbIcon } from '@heroicons/react/24/outline';
-import SectionHeader from './SectionHeader';
+import SectionTitle from './SectionTitle';
+import { BiSupport } from 'react-icons/bi';
+import { MdOutlineAttachMoney, MdOutlineLightbulb, MdOutlineSettings } from 'react-icons/md';
 
 const benefits = [
   {
     id: 'BEN001',
     feature: 'No Monthly Retainer',
-    value: '$497 One-Time',
-    description: 'One-time setup fee of $497. No ongoing monthly costs beyond your Airtable subscription.',
+    value: 'Starting at $99',
+    description: 'One-time setup fee starting at $99. No ongoing monthly costs beyond your Airtable subscription.',
     icon: CurrencyDollarIcon,
     status: 'Active',
   },
@@ -46,13 +48,9 @@ export default function Benefits() {
       />
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <SectionHeader 
+        <SectionTitle 
           text="Trusted Tools, Done-For-You Design" 
-          apps={[
-            { name: "Airtable", icon: "🗃️" },
-            { name: "Automation", icon: "⚡" },
-            { name: "Support", icon: "🛟" }
-          ]} 
+          icon={<BiSupport className="w-4 h-4 text-[#01a2f1]" />}
         />
         
         <div className="mx-auto max-w-2xl text-center mb-16">
@@ -77,6 +75,15 @@ export default function Benefits() {
             {benefits.map((benefit) => (
               <div key={benefit.id} className="relative h-full">
                 <div className="px-8 py-12 text-center h-full flex flex-col">
+                  {/* Section Title for each benefit */}
+                  <div className="mb-6">
+                    <SectionTitle 
+                      text={benefit.id === 'BEN001' ? 'NO MONTHLY FEES' : benefit.id === 'BEN002' ? 'EASY TO USE' : 'PROFESSIONAL SETUP'}
+                      icon={benefit.id === 'BEN001' ? <MdOutlineAttachMoney className="w-4 h-4 text-[#01a2f1]" /> : benefit.id === 'BEN002' ? <MdOutlineLightbulb className="w-4 h-4 text-[#01a2f1]" /> : <MdOutlineSettings className="w-4 h-4 text-[#01a2f1]" />}
+                      variant="bordered"
+                    />
+                  </div>
+                  
                   {/* Icon */}
                   <div className="flex justify-center mb-8">
                     <benefit.icon className="h-16 w-16 text-[#01a2f1]" aria-hidden="true" />
@@ -111,7 +118,7 @@ export default function Benefits() {
                         </div>
                         <div className="p-3 flex flex-col justify-center h-[calc(100%-28px)]">
                           <div className="text-center">
-                            <div className="text-gray-900 font-bold text-lg">$497</div>
+                            <div className="text-gray-900 font-bold text-lg">$99</div>
                             <div className="text-[#01a2f1] text-xs mt-1">One-time fee</div>
                           </div>
                         </div>

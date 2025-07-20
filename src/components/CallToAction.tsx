@@ -17,7 +17,7 @@ export default function CallToAction({ variant = 'primary' }: CallToActionProps)
           <div className="text-center lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               {isPrimary 
-                ? 'Ready to Transform Your Lead Management?' 
+                ? 'Join 50+ Freelancers & Small Teams Who Never Lose Another Lead' 
                 : 'Start Growing Your Business Today'}
             </h2>
           </div>
@@ -25,7 +25,9 @@ export default function CallToAction({ variant = 'primary' }: CallToActionProps)
           {/* Right Column - CTA Button */}
           <div className="flex justify-center lg:justify-end">
             <a
-              href="/checkout"
+              href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-hero-cta px-12 py-4 text-lg font-bold"
             >
               Get Started Now

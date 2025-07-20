@@ -1,8 +1,10 @@
+import { ReactElement } from 'react';
+
 interface SectionHeaderProps {
   text: string;
   apps: Array<{
     name: string;
-    icon: string; // For now using emoji, can be replaced with actual SVGs later
+    icon: string | ReactElement; // Now supports both emoji and React icons
   }>;
 }
 

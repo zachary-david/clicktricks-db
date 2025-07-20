@@ -32,11 +32,11 @@ export default function Pricing() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
-            TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
+            NO SUBSCRIPTIONS, NO SURPRISES
           </span>
           <h2 className="text-base font-semibold leading-7 text-white mt-4" style={{color: 'white !important'}}>Simple Pricing</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl drop-shadow-lg">
-            One-Time Pricing — No Subscriptions, No Surprises
+            Tell us about your database project and we'll deliver a sample and offer based on your needs.
           </p>
         </div>
 
@@ -74,27 +74,29 @@ export default function Pricing() {
             {/* Right Column - Price */}
             <div className="p-12 flex flex-col justify-center text-center">
               <h3 className="text-2xl font-bold tracking-tight text-white mb-4">
-                $497 Flat Setup Fee
+                Starting at just $99.
               </h3>
               <p className="text-base leading-7 text-white text-opacity-90 mb-6">
-                That's it. No monthly CRM subscription. No confusing tiers. No bloated features you'll never use.
+                That's it. No monthly CRM subscription to us. No confusing tiers. No bloated features you'll never use.
               </p>
               <p className="text-base font-semibold text-white text-opacity-90 mb-2">One-time payment</p>
               <p className="flex items-baseline justify-center gap-x-2 mb-8">
-                <span className="text-5xl font-bold tracking-tight text-white">$497</span>
+                <span className="text-5xl font-bold tracking-tight text-white">$99</span>
                 <span className="text-sm font-semibold leading-6 tracking-wide text-white text-opacity-90">USD</span>
               </p>
               <a
-                href="/checkout"
+                href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full max-w-xs mx-auto rounded-full bg-gradient-to-r from-[#01a2f1] to-[#0182c4] px-6 py-4 text-center text-lg font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01a2f1] mb-4"
               >
                 Get Started Now
               </a>
               <p className="text-xs leading-5 text-white text-opacity-80 mb-4">
-                Setup completed within 48 hours
+                Setup completed within 48 hours of confirmation.
               </p>
               <p className="text-sm text-white text-opacity-80">
-                * Airtable software costs approximately $10/month per user (paid directly to Airtable)
+                * Airtable software costs approximately $10/month per user (paid directly to Airtable). Some design features can be used on Free plan.
               </p>
             </div>
           </div>

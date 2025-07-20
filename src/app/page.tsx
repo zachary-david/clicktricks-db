@@ -20,13 +20,14 @@ const CallToAction = dynamic(() => import('@/components/CallToAction'), {
   loading: () => <div className="section animate-pulse" style={{backgroundColor: 'rgba(8, 143, 220, 0.1)'}}><div className="container"><div className="h-48 bg-gray-200 rounded-lg"></div></div></div>
 });
 
-const HowYouCanUseIt = dynamic(() => import('@/components/HowYouCanUseIt'), {
-  loading: () => <div className="section bg-white animate-pulse"><div className="container"><div className="h-96 bg-gray-200 rounded-lg"></div></div></div>
-});
+// Removed sections - keeping components for future use
+// const HowYouCanUseIt = dynamic(() => import('@/components/HowYouCanUseIt'), {
+//   loading: () => <div className="section bg-white animate-pulse"><div className="container"><div className="h-96 bg-gray-200 rounded-lg"></div></div></div>
+// });
 
-const Testimonials = dynamic(() => import('@/components/Testimonials'), {
-  loading: () => <div className="section animate-pulse" style={{backgroundColor: '#041926'}}><div className="container"><div className="h-96 bg-gray-700 rounded-lg"></div></div></div>
-});
+// const Testimonials = dynamic(() => import('@/components/Testimonials'), {
+//   loading: () => <div className="section animate-pulse" style={{backgroundColor: '#041926'}}><div className="container"><div className="h-96 bg-gray-700 rounded-lg"></div></div></div>
+// });
 
 const Pricing = dynamic(() => import('@/components/Pricing'), {
   loading: () => <div className="section animate-pulse" style={{backgroundColor: '#041926'}}><div className="container"><div className="h-96 bg-gray-700 rounded-lg"></div></div></div>
@@ -61,25 +62,19 @@ export default function Home() {
       {/* 4. Why You'll Love (Benefits) */}
       <Benefits />
       
-      {/* 5. Reviews (Testimonials) */}
-      <Testimonials />
-      
-      {/* 6. How It Works */}
+      {/* 5. How It Works */}
       <HowItWorks />
       
-      {/* 7. How You Can Use It */}
-      <HowYouCanUseIt />
-      
-      {/* 8. Pricing */}
+      {/* 6. Pricing */}
       <Pricing />
       
-      {/* 9. FAQ */}
+      {/* 7. FAQ */}
       <FAQ />
       
-      {/* 10. Airtable Promo */}
+      {/* 8. Airtable Promo */}
       <AirtablePromo />
       
-      {/* 11. About Me */}
+      {/* 9. About Me */}
       <About />
       
       <Footer />

@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import CRMDashboardView from "./CRMDashboardView";
 import CRMLeadsView from "./CRMLeadsView";
 import CRMPipelineView from "./CRMPipelineView";
-import SectionHeader from "./SectionHeader";
+import SectionTitle from "./SectionTitle";
+import { SiAirtable } from 'react-icons/si';
 
 export default function Solution() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -106,13 +107,9 @@ export default function Solution() {
       />
       
       <div className="container relative z-10">
-        <SectionHeader 
+        <SectionTitle 
           text="Built on Airtable" 
-          apps={[
-            { name: "Airtable Tables", icon: "🗃️" },
-            { name: "Custom Views", icon: "👀" },
-            { name: "Automations", icon: "⚡" }
-          ]}
+          icon={<SiAirtable className="w-4 h-4 text-[#FCB400]" />}
         />
         
         <div className="max-w-3xl mx-auto text-center mb-12">

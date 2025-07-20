@@ -31,7 +31,7 @@ export default function StripeCheckout() {
         body: JSON.stringify({
           // Add any data you need to send to your backend
           productId: 'clicktricks-db-setup',
-          amount: 49700, // $497.00 in cents
+          amount: 9900, // $99.00 in cents
         }),
       });
 
@@ -64,7 +64,7 @@ export default function StripeCheckout() {
             <h3 className="font-semibold text-gray-900">ClickTricks DB Setup</h3>
             <p className="text-sm text-gray-600 mt-1">Custom Airtable CRM for your business</p>
           </div>
-          <div className="text-xl font-bold text-gray-900">$497</div>
+          <div className="text-xl font-bold text-gray-900">$99</div>
         </div>
         
         <ul className="space-y-2 text-sm text-gray-600">
@@ -121,7 +121,7 @@ export default function StripeCheckout() {
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            Pay Securely – $497 Flat Fee
+            Pay Securely – $99 Flat Fee
           </>
         )}
       </button>

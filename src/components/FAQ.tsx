@@ -25,7 +25,7 @@ export default function FAQ() {
     {
       id: 'FAQ003',
       category: 'Features',
-      question: "What exactly is included in the $497 setup?",
+      question: "What exactly is included in the setup?",
       answer: "You get a custom CRM tailored to your business, fully set up inside Airtable. It includes: Lead pipeline tracking, Follow-up reminders, Built-in activity log, Dashboard views, 30-minute onboarding call, 30 days of email support. No templates to figure out. No DIY guesswork. Just log in and use it.",
       priority: 'Critical',
       status: 'Active'
@@ -42,7 +42,7 @@ export default function FAQ() {
       id: 'FAQ005',
       category: 'Pricing',
       question: "Do I have to pay for anything else?",
-      answer: "Just the one-time $497. You'll only need an Airtable account (free works for most). There are no hidden fees, no monthly CRM subscriptions, and no upsells.",
+      answer: "Just the one-time setup fee starting at $99. You'll only need an Airtable account (free works for most). There are no hidden fees, no monthly CRM subscriptions, and no upsells.",
       priority: 'High',
       status: 'Active'
     }

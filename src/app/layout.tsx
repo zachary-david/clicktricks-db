@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Custom Airtable CRM Setup for Freelancers, Solopreneurs & Small Teams | ClickTricks DB",
-    description: "Professional CRM made easy - Never lose a lead again. Simple lead tracking, follow-up notifications, and basic pipeline management. $497 one-time + $10/month Airtable.",
+    description: "Professional CRM made easy - Never lose a lead again. Simple lead tracking, follow-up notifications, and basic pipeline management. Starting at $99 one-time + $10/month Airtable.",
     url: "https://clicktricksdb.com",
     siteName: "ClickTricks DB",
     locale: "en_US",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Custom Airtable CRM Setup for Freelancers & Small Teams",
-    description: "Professional CRM made easy - Never lose a lead again. Simple lead tracking & follow-up notifications. $497 one-time + $10/month.",
+    description: "Professional CRM made easy - Never lose a lead again. Simple lead tracking & follow-up notifications. Starting at $99 one-time + $10/month.",
     creator: "@clicktricksdb",
     images: ["https://clicktricksdb.com/twitter-image.jpg"],
   },
@@ -93,7 +93,7 @@ export default function RootLayout({
       "@type": "Offer",
       "name": "Custom Airtable CRM Setup",
       "description": "Complete Airtable CRM setup with simple lead tracking, follow-up notifications, basic pipeline management, and 30-minute training call",
-      "price": "497",
+      "price": "99",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "validFrom": "2024-01-01",

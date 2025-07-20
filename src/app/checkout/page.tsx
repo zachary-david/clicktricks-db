@@ -45,7 +45,7 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Complete Your Purchase</h2>
-                <div className="text-3xl font-bold text-[#01a2f1] mb-2">$497</div>
+                <div className="text-3xl font-bold text-[#01a2f1] mb-2">$99</div>
                 <p className="text-gray-600">One-time payment • No recurring fees</p>
               </div>
               

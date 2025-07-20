@@ -20,7 +20,7 @@ export default function AirtablePromo() {
           {/* Right Column - CTA Button */}
           <div className="flex justify-center lg:justify-end">
             <a
-              href="https://airtable.com"
+              href="https://airtable.com/invite/r/1tSgBaO2"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-12 py-4 text-lg font-bold bg-white text-[#088FDC] rounded-full hover:bg-gray-100 hover:scale-105 transition-all duration-200 shadow-lg"
