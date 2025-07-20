@@ -19,6 +19,13 @@ export async function POST(request: NextRequest) {
   try {
     const { productId, amount } = await request.json();
     
+    // Debug: Check if environment variables are set
+    console.log('Environment check:', {
+      hasSecretKey: !!process.env.STRIPE_SECRET_KEY,
+      secretKeyPrefix: process.env.STRIPE_SECRET_KEY?.substring(0, 7),
+      nodeEnv: process.env.NODE_ENV
+    });
+    
     // Get the origin from the request headers
     const origin = request.headers.get('origin') || 'http://localhost:3000';
     
