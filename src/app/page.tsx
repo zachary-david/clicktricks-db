@@ -45,9 +45,7 @@ const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="bg-gray-900 animate-pulse h-48"></div>
 });
 
-const CookieBanner = dynamic(() => import('@/components/CookieBanner'), {
-  ssr: false
-});
+const CookieBanner = dynamic(() => import('@/components/CookieBanner'));
 
 export default function Home() {
   return (
