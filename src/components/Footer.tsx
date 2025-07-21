@@ -1,10 +1,14 @@
+import Logo from './Logo';
+
 export default function Footer() {
   return (
     <footer id="contact" className="text-gray-300" style={{backgroundColor: '#041926'}}>
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-white text-2xl font-bold mb-4">ClickTricks DB</h3>
+            <div className="mb-4">
+              <Logo size="md" variant="dark" />
+            </div>
             <p className="mb-4">
               Professional lead management for service businesses. Get organized in 30 minutes.
             </p>
@@ -28,7 +32,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-4" style={{color: '#ffffff !important'}}>Quick Links</h4>
             <ul className="space-y-2">
               <li><a href="#features" className="hover:text-white transition-colors duration-200">Features</a></li>
               <li><a href="#pricing" className="hover:text-white transition-colors duration-200">Pricing</a></li>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import Logo from './Logo';
 
 export default function About() {
   return (
@@ -29,7 +30,9 @@ export default function About() {
                 <h3 className="text-xl font-bold text-white mb-1">
                   <span style={{ color: '#01a2f1' }}>Garrett Johnson</span>
                 </h3>
-                <p className="text-white text-opacity-90">ClickTricks DB Founder</p>
+                <div className="flex justify-center">
+                  <Logo size="sm" variant="dark" />
+                </div>
               </div>
             </div>
             

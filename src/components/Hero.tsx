@@ -103,22 +103,22 @@ export default function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity border-grid-bottom pb-4">
             {/* AWS Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <Image src="/logos/AWS.svg" alt="AWS" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
+              <Image src="/Logos/AWS.svg" alt="AWS" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
             
             {/* Levi's Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <Image src="/logos/Levis.svg" alt="Levi's" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
+              <Image src="/Logos/Levis.svg" alt="Levi's" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
             
             {/* New Balance Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <Image src="/logos/NewBalance.svg" alt="New Balance" width={96} height={48} className="h-10 w-auto" />
+              <Image src="/Logos/NewBalance.svg" alt="New Balance" width={96} height={48} className="h-10 w-auto" />
             </div>
             
             {/* Walmart Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <Image src="/logos/Walmart.svg" alt="Walmart" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
+              <Image src="/Logos/Walmart.svg" alt="Walmart" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
             </div>
           </div>
         </div>

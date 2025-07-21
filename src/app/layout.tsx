@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Script from "next/script";
@@ -9,7 +9,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const jakartaSans = Plus_Jakarta_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-jakarta",
 });
@@ -141,7 +141,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#041926" />
         <meta name="msapplication-TileColor" content="#041926" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/logo-icon-2.svg" />
+        <link rel="icon" type="image/svg+xml" href="/logo-icon-2.svg" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +150,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="ClickTricks DB" />
         <meta name="format-detection" content="telephone=no" />
       </head>
-      <body className={`${inter.variable} ${jakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${manrope.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         {/* Google Consent Script */}
         <Script
           id="gtag-consent"
