@@ -7,7 +7,7 @@ interface SectionTitleProps {
 }
 
 export default function SectionTitle({ text, icon, variant = 'default' }: SectionTitleProps) {
-  const baseClasses = "text-sm font-bold uppercase tracking-wider typewriter inline-flex items-center gap-2";
+  const baseClasses = "text-base font-bold uppercase tracking-wider typewriter inline-flex items-center gap-2";
   const colorStyle = { color: '#01a2f1' };
   
   if (variant === 'bordered') {

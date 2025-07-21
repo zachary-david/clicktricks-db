@@ -55,7 +55,7 @@ export default function FAQ() {
           <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
             TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
           </span>
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg mt-4" style={{color: 'white !important'}}>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl drop-shadow-lg mt-4" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
             Frequently Asked Questions
           </h2>
           <p className="mt-6 text-lg leading-8 text-white text-opacity-90">
@@ -78,7 +78,7 @@ export default function FAQ() {
                   className="w-full px-6 py-4 text-left group hover:bg-white hover:bg-opacity-5 transition-all duration-200"
                 >
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-medium text-white transition-colors" style={{color: 'white !important'}}>
+                    <h3 className="text-lg font-medium text-white transition-colors">
                       {faq.question}
                     </h3>
                     <svg
@@ -113,7 +113,7 @@ export default function FAQ() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full bg-gradient-to-r from-[#01a2f1] to-[#0182c4] px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01a2f1]"
+            className="btn-hero-cta inline-block px-12 py-4 text-lg font-bold"
           >
             Contact Us
           </a>

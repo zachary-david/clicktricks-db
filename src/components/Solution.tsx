@@ -113,11 +113,11 @@ export default function Solution() {
         />
         
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="mb-6 text-white drop-shadow-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white drop-shadow-lg">
             See Your Simple, Automated Lead Tracking System in Action:{" "}
             <span className="text-gradient">Professional Lead Management Without the Complexity</span>
           </h2>
-          <p className="text-xl text-gray-700">
+          <p className="text-xl text-gray-300">
             Simple, automated lead tracking with custom Airtable views and automated follow-ups - set up in 30 minutes
           </p>
         </div>

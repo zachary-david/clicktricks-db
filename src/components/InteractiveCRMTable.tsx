@@ -98,8 +98,7 @@ export default function InteractiveCRMTable() {
     };
 
     fetchLeads();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [handleError]);
+  }, []); // Remove handleError dependency to prevent infinite loop
 
   const getStatusColor = (status: string) => {
     switch (status) {

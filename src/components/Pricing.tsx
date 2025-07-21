@@ -29,13 +29,13 @@ const features = [
 export default function Pricing() {
   return (
     <section id="pricing" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container">
         <div className="mx-auto max-w-4xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
             NO SUBSCRIPTIONS, NO SURPRISES
           </span>
-          <h2 className="text-base font-semibold leading-7 text-white mt-4" style={{color: 'white !important'}}>Simple Pricing</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl drop-shadow-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold mt-4" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>Simple Pricing</h2>
+          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl drop-shadow-lg" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
             Tell us about your database project and we'll deliver a sample and offer based on your needs.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function Pricing() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 relative">
             
             {/* Left Column - Features */}
-            <div className="p-12">
+            <div className="p-6 lg:p-8">
               <h3 className="text-2xl font-bold tracking-tight text-white mb-6">
                 What's Included
               </h3>
@@ -72,7 +72,7 @@ export default function Pricing() {
             </div>
 
             {/* Right Column - Price */}
-            <div className="p-12 flex flex-col justify-center text-center">
+            <div className="p-6 lg:p-8 flex flex-col justify-center text-center">
               <h3 className="text-2xl font-bold tracking-tight text-white mb-4">
                 Starting at just $99.
               </h3>
@@ -88,7 +88,7 @@ export default function Pricing() {
                 href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full max-w-xs mx-auto rounded-full bg-gradient-to-r from-[#01a2f1] to-[#0182c4] px-6 py-4 text-center text-lg font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#01a2f1] mb-4"
+                className="btn-hero-cta inline-block px-12 py-4 text-lg font-bold mb-4"
               >
                 Get Started Now
               </a>

@@ -32,7 +32,7 @@ export default function Problem() {
         />
         
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
             "I'm Losing Leads in Spreadsheets and Sticky Notes"
           </h2>
           <p className="text-xl text-gray-600">

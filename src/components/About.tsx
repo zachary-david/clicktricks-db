@@ -8,7 +8,7 @@ export default function About() {
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-lg" style={{color: 'white !important'}}>
+            <h2 className="text-3xl font-bold mb-4 drop-shadow-lg sm:text-4xl" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
               About Me
             </h2>
           </div>
@@ -47,38 +47,6 @@ export default function About() {
                 <p>
                   That's why I focus on keeping things simple. Whether you need help with your first Facebook ad, want to set up affiliate partnerships, or just can't figure out some new marketing tool, I'll show you what works and skip all the confusing stuff.
                 </p>
-              </div>
-              
-              {/* Key Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm p-4 rounded-lg text-center border border-white border-opacity-20">
-                  <div className="text-2xl font-bold text-[#01a2f1] mb-1">500+</div>
-                  <div className="text-sm text-white text-opacity-80">Businesses Helped</div>
-                </div>
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm p-4 rounded-lg text-center border border-white border-opacity-20">
-                  <div className="text-2xl font-bold text-[#01a2f1] mb-1">5+</div>
-                  <div className="text-sm text-white text-opacity-80">Years Experience</div>
-                </div>
-                <div className="bg-white bg-opacity-10 backdrop-blur-sm p-4 rounded-lg text-center border border-white border-opacity-20">
-                  <div className="text-2xl font-bold text-[#01a2f1] mb-1">Simple</div>
-                  <div className="text-sm text-white text-opacity-80">Solutions Focus</div>
-                </div>
-              </div>
-              
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <a
-                  href="#booking"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-[#01a2f1] text-white font-semibold rounded-lg hover:bg-[#0182c4] transition-colors"
-                >
-                  Work With Me
-                </a>
-                <a
-                  href="mailto:support@clicktricksdb.com"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-white border-opacity-30 text-white font-semibold rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"
-                >
-                  Get In Touch
-                </a>
               </div>
             </div>
           </div>

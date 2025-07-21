@@ -20,7 +20,7 @@ export default function Hero() {
         {/* Centered Text Content */}
         <div className="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
           
-          <h1 className="mb-6" style={{color: 'white !important'}}>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
             Professional CRM for Freelancers, Solopreneurs and Small Teams
           </h1>
           
