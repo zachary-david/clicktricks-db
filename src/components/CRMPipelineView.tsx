@@ -173,7 +173,7 @@ export default function CRMPipelineView() {
         </div>
 
         {/* Table Rows */}
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-100 min-h-[320px]">
           {isLoading ? (
             // Loading skeletons
             [...Array(5)].map((_, index) => (
@@ -244,7 +244,7 @@ export default function CRMPipelineView() {
       </div>
 
       {/* Mobile Card View */}
-      <div className="lg:hidden divide-y divide-gray-100">
+      <div className="lg:hidden divide-y divide-gray-100 min-h-[480px]">
         {isLoading ? (
           [...Array(5)].map((_, index) => (
             <div key={index} className="p-6 animate-pulse">

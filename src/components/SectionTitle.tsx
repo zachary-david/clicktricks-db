@@ -7,14 +7,14 @@ interface SectionTitleProps {
 }
 
 export default function SectionTitle({ text, icon, variant = 'default' }: SectionTitleProps) {
-  const baseClasses = "text-base font-bold uppercase tracking-wider typewriter inline-flex items-center gap-2";
+  const baseClasses = "text-xs sm:text-sm font-bold uppercase tracking-wider typewriter inline-flex items-center gap-2";
   const colorStyle = { color: '#01a2f1' };
   
   if (variant === 'bordered') {
     return (
       <div className="text-center mb-6">
         <span 
-          className={`${baseClasses} px-4 py-2 rounded-full border`}
+          className={`${baseClasses} px-4 py-2 rounded-lg border`}
           style={{ 
             ...colorStyle, 
             borderColor: '#041926',

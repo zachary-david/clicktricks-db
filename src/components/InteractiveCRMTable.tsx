@@ -227,7 +227,7 @@ export default function InteractiveCRMTable() {
 
       {/* Add Lead Button */}
       <div className="px-4 py-3 border-t border-gray-200 bg-gray-50">
-        <button className="w-full py-2 px-4 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors font-medium">
+        <button className="w-full btn-hero-cta">
           + Add New Lead
         </button>
       </div>
@@ -335,7 +335,7 @@ export default function InteractiveCRMTable() {
           </button>
           <button 
             type="submit"
-            className="px-6 py-2 bg-gray-900 text-white text-sm rounded-md hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-hero-cta disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Creating...' : 'Create'}
@@ -434,7 +434,7 @@ export default function InteractiveCRMTable() {
 
         {/* Quick Actions */}
         <div className="pt-4 border-t border-gray-200">
-          <button className="w-full py-2 px-4 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors font-medium">
+          <button className="w-full btn-hero-cta">
             View Full Dashboard
           </button>
         </div>

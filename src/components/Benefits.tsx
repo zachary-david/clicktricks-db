@@ -10,7 +10,6 @@ const benefits = [
   {
     id: 'BEN001',
     feature: 'No Monthly Retainer',
-    value: 'Starting at $99',
     description: 'One-time setup fee starting at $99. No ongoing monthly costs beyond your Airtable subscription.',
     icon: CurrencyDollarIcon,
     status: 'Active',
@@ -18,7 +17,6 @@ const benefits = [
   {
     id: 'BEN002', 
     feature: 'Easy to Use Software',
-    value: 'Airtable Interface',
     description: 'Airtable\'s intuitive interface means you and your team can start using it immediately.',
     icon: LightBulbIcon,
     status: 'Active',
@@ -26,7 +24,6 @@ const benefits = [
   {
     id: 'BEN003',
     feature: 'Professional Setup',
-    value: 'Custom Design',
     description: 'Custom-designed for your business with automated workflows and professional templates.',
     icon: CheckCircleIcon,
     status: 'Active',
@@ -41,7 +38,7 @@ export default function Benefits() {
         className="absolute inset-0 opacity-30" 
         style={{
           backgroundImage: `
-            radial-gradient(circle at 2px 2px, rgba(8, 143, 220, 0.3) 1.5px, transparent 1.5px)
+            radial-gradient(circle at 2px 2px, rgba(8, 143, 220, 0.4) 1.5px, transparent 1.5px)
           `,
           backgroundSize: '24px 24px'
         }}
@@ -74,9 +71,9 @@ export default function Benefits() {
             
             {benefits.map((benefit) => (
               <div key={benefit.id} className="relative h-full">
-                <div className="px-8 py-12 text-center h-full flex flex-col">
+                <div className="px-8 py-12 text-left lg:text-center h-full flex flex-col">
                   {/* Section Title for each benefit */}
-                  <div className="mb-6">
+                  <div className="mb-3">
                     <SectionTitle 
                       text={benefit.id === 'BEN001' ? 'NO MONTHLY FEES' : benefit.id === 'BEN002' ? 'EASY TO USE' : 'PROFESSIONAL SETUP'}
                       icon={benefit.id === 'BEN001' ? <MdOutlineAttachMoney className="w-4 h-4 text-[#01a2f1]" /> : benefit.id === 'BEN002' ? <MdOutlineLightbulb className="w-4 h-4 text-[#01a2f1]" /> : <MdOutlineSettings className="w-4 h-4 text-[#01a2f1]" />}
@@ -84,29 +81,24 @@ export default function Benefits() {
                     />
                   </div>
                   
-                  {/* Icon */}
-                  <div className="flex justify-center mb-8">
-                    <benefit.icon className="h-16 w-16 text-[#01a2f1]" aria-hidden="true" />
-                  </div>
-                  
                   {/* Feature */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">
                     {benefit.feature}
                   </h3>
                   
                   {/* Value */}
-                  <p className="text-lg text-[#01a2f1] font-normal mb-6">
+                  <p className="text-lg text-[#01a2f1] font-normal mb-0">
                     {benefit.value}
                   </p>
                   
                   {/* Description */}
-                  <p className="text-base text-gray-600 leading-7 font-normal mb-8">
+                  <p className="text-base text-gray-600 leading-6 font-normal mb-4">
                     {benefit.description}
                   </p>
                   
                   {/* Simple Spreadsheet Illustration */}
                   {benefit.id === 'BEN001' && (
-                    <div className="mt-auto pt-6">
+                    <div className="mt-auto pt-2">
                       <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mx-auto w-[180px] h-[120px]">
                         <div className="bg-gray-100 px-2 py-1 flex items-center justify-between">
                           <div className="flex gap-1">
@@ -127,7 +119,7 @@ export default function Benefits() {
                   )}
                   
                   {benefit.id === 'BEN002' && (
-                    <div className="mt-auto pt-6">
+                    <div className="mt-auto pt-2">
                       <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mx-auto w-[180px] h-[120px]">
                         <div className="bg-gray-100 px-2 py-1 flex items-center justify-between">
                           <div className="flex gap-1">
@@ -163,7 +155,7 @@ export default function Benefits() {
                   )}
                   
                   {benefit.id === 'BEN003' && (
-                    <div className="mt-auto pt-6">
+                    <div className="mt-auto pt-2">
                       <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mx-auto w-[180px] h-[120px]">
                         <div className="bg-gray-100 px-2 py-1 flex items-center justify-between">
                           <div className="flex gap-1">

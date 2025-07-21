@@ -62,7 +62,7 @@ export default function CTA() {
           <div className="space-y-4">
             <button
               onClick={() => setShowCalendly(true)}
-              className="btn bg-white text-blue-600 hover:bg-gray-100 btn-lg"
+              className="btn-hero-cta"
             >
               Get Started Now
             </button>
@@ -134,7 +134,7 @@ export default function CTA() {
                     {['9:00 AM', '11:00 AM', '2:00 PM', '4:00 PM'].map((time, index) => (
                       <button
                         key={index}
-                        className="px-4 py-2 border border-blue-200 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-700 font-medium"
+                        className="btn-hero-cta"
                         onClick={() => {
                           // Here you would integrate with actual calendar booking
                           alert(`Demo scheduled for ${time}. In a real implementation, this would connect to Calendly or your preferred booking system.`);
@@ -152,7 +152,7 @@ export default function CTA() {
                     🔒 No credit card required • 30-day support guarantee
                   </p>
                   <button
-                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    className="btn-hero-cta"
                     onClick={() => {
                       window.open('https://calendly.com/your-link', '_blank');
                     }}

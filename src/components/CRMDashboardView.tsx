@@ -207,7 +207,7 @@ export default function CRMDashboardView() {
         </div>
 
         {/* Table Rows */}
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-100 min-h-[320px]">
           {isLoading ? (
             // Loading skeletons
             [...Array(3)].map((_, i) => (
@@ -273,11 +273,20 @@ export default function CRMDashboardView() {
               </div>
             ))
           )}
+          
+          {/* Empty rows to maintain consistent height */}
+          {!isLoading && dashboardItems.length < 5 && (
+            <>
+              {[...Array(5 - dashboardItems.length)].map((_, i) => (
+                <div key={`empty-${i}`} className="h-16"></div>
+              ))}
+            </>
+          )}
         </div>
       </div>
 
       {/* Mobile Card View */}
-      <div className="lg:hidden divide-y divide-gray-100">
+      <div className="lg:hidden divide-y divide-gray-100 min-h-[480px]">
         {isLoading ? (
           [...Array(3)].map((_, i) => (
             <div key={i} className="p-6 animate-pulse">
@@ -312,6 +321,11 @@ export default function CRMDashboardView() {
               <p className="text-sm text-gray-600 leading-relaxed">{item.task}</p>
             </div>
           ))
+        )}
+        
+        {/* Empty space to maintain consistent height on mobile */}
+        {!isLoading && dashboardItems.length < 5 && (
+          <div style={{ height: `${(5 - dashboardItems.length) * 96}px` }}></div>
         )}
       </div>
 

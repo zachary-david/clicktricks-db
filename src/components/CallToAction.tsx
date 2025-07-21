@@ -28,7 +28,7 @@ export default function CallToAction({ variant = 'primary' }: CallToActionProps)
               href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-hero-cta px-12 py-4 text-lg font-bold"
+              className="btn-hero-cta"
             >
               Get Started Now
             </a>

@@ -247,7 +247,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-[#01a2f1] to-[#0182c4] text-white font-semibold py-4 px-6 rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full btn-hero-cta disabled:opacity-70 disabled:cursor-not-allowed"
             aria-busy={isSubmitting}
           >
             {isSubmitting ? (

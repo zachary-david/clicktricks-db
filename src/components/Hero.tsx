@@ -5,17 +5,14 @@ import HeroCRMDemo from "./HeroCRMDemo";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorDisplay from "./ErrorDisplay";
+import SectionTitle from "./SectionTitle";
 
 export default function Hero() {
   return (
     <section className="section pt-32 md:pt-24" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="container">
         {/* Simple Hero Section Header - just text */}
-        <div className="text-center mb-6">
-          <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
-            TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
-          </span>
-        </div>
+        <SectionTitle text="TRUSTED TOOLS, DONE-FOR-YOU-DESIGN" />
         
         {/* Centered Text Content */}
         <div className="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
@@ -87,10 +84,10 @@ export default function Hero() {
           </div>
           
           {/* Interactive Demo Label */}
-          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
-            <div className="bg-white px-4 py-2 rounded-full shadow-md border-2" style={{borderColor: '#01a2f1'}}>
-              <span className="text-sm font-medium typewriter" style={{color: '#0182c4'}}>
-                👆 THIS IS WHAT YOUR AIRTABLE CRM WILL LOOK LIKE
+          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 px-4">
+            <div className="bg-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md border-2 max-w-full" style={{borderColor: '#01a2f1'}}>
+              <span className="text-xs sm:text-sm font-medium typewriter text-center block whitespace-nowrap" style={{color: '#0182c4'}}>
+                👆 YOUR AIRTABLE CRM
               </span>
             </div>
           </div>
@@ -116,22 +113,12 @@ export default function Hero() {
             
             {/* New Balance Logo */}
             <div className="flex items-center justify-center h-12 w-24">
-              <Image src="/logos/NewBalance.svg" alt="New Balance" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
+              <Image src="/logos/NewBalance.svg" alt="New Balance" width={96} height={48} className="h-10 w-auto" />
             </div>
             
             {/* Walmart Logo */}
             <div className="flex items-center justify-center h-12 w-24">
               <Image src="/logos/Walmart.svg" alt="Walmart" width={96} height={48} className="h-10 w-auto filter brightness-0 invert" />
-            </div>
-          </div>
-          <div className="text-center mt-3">
-            <div className="flex items-center justify-center gap-2 text-base" style={{color: '#d1d5db !important'}}>
-              <div className="flex text-yellow-400 text-lg">
-                {'★'.repeat(5)}
-              </div>
-              <span className="font-semibold">4.9/5</span>
-              <span>•</span>
-              <span>Based on 200+ reviews</span>
             </div>
           </div>
         </div>

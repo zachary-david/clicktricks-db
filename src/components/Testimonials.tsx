@@ -41,7 +41,7 @@ export default function Testimonials() {
         className="absolute inset-0 opacity-30" 
         style={{
           backgroundImage: `
-            radial-gradient(circle at 2px 2px, rgba(8, 143, 220, 0.3) 1.5px, transparent 1.5px)
+            radial-gradient(circle at 2px 2px, rgba(8, 143, 220, 0.4) 1.5px, transparent 1.5px)
           `,
           backgroundSize: '24px 24px'
         }}

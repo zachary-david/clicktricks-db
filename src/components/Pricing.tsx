@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
+import SectionTitle from './SectionTitle';
 
 const features = [
   {
@@ -31,11 +32,9 @@ export default function Pricing() {
     <section id="pricing" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
-            NO SUBSCRIPTIONS, NO SURPRISES
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-4" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>Simple Pricing</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl drop-shadow-lg" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
+          <SectionTitle text="NO SUBSCRIPTIONS, NO SURPRISES" />
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{color: '#ffffff !important'}}>Simple Pricing</h2>
+          <p className="text-xl text-gray-300">
             Tell us about your database project and we'll deliver a sample and offer based on your needs.
           </p>
         </div>
@@ -50,11 +49,11 @@ export default function Pricing() {
             
             {/* Left Column - Features */}
             <div className="p-6 lg:p-8">
-              <h3 className="text-2xl font-bold tracking-tight text-white mb-6">
+              <h3 className="text-2xl font-bold tracking-tight mb-6" style={{color: '#ffffff !important'}}>
                 What's Included
               </h3>
-              <h4 className="text-lg font-semibold text-white mb-6">Here's what you get:</h4>
-              <ul role="list" className="space-y-4 text-sm leading-6 text-white text-opacity-90">
+              <h4 className="text-lg font-semibold mb-6" style={{color: '#ffffff !important'}}>Here's what you get:</h4>
+              <ul role="list" className="space-y-4 text-sm leading-6 text-white">
                 {features.map((feature) => (
                   <li key={feature.title} className="flex gap-x-3">
                     <CheckIcon className="h-6 w-5 flex-none text-[#01a2f1]" aria-hidden="true" />
@@ -73,29 +72,31 @@ export default function Pricing() {
 
             {/* Right Column - Price */}
             <div className="p-6 lg:p-8 flex flex-col justify-center text-center">
-              <h3 className="text-2xl font-bold tracking-tight text-white mb-4">
+              <h3 className="text-2xl font-bold tracking-tight mb-4" style={{color: '#ffffff !important'}}>
                 Starting at just $99.
               </h3>
-              <p className="text-base leading-7 text-white text-opacity-90 mb-6">
+              <p className="text-base leading-7 text-white mb-6">
                 That's it. No monthly CRM subscription to us. No confusing tiers. No bloated features you'll never use.
               </p>
-              <p className="text-base font-semibold text-white text-opacity-90 mb-2">One-time payment</p>
+              <p className="text-base font-semibold text-white mb-2">One-time payment</p>
               <p className="flex items-baseline justify-center gap-x-2 mb-8">
                 <span className="text-5xl font-bold tracking-tight text-white">$99</span>
-                <span className="text-sm font-semibold leading-6 tracking-wide text-white text-opacity-90">USD</span>
+                <span className="text-sm font-semibold leading-6 tracking-wide text-white">USD</span>
               </p>
-              <a
-                href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-hero-cta inline-block px-12 py-4 text-lg font-bold mb-4"
-              >
-                Get Started Now
-              </a>
-              <p className="text-xs leading-5 text-white text-opacity-80 mb-4">
+              <div className="flex justify-center mb-4">
+                <a
+                  href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-hero-cta"
+                >
+                  Get Started Now
+                </a>
+              </div>
+              <p className="text-xs leading-5 text-white mb-4">
                 Setup completed within 48 hours of confirmation.
               </p>
-              <p className="text-sm text-white text-opacity-80">
+              <p className="text-sm text-white">
                 * Airtable software costs approximately $10/month per user (paid directly to Airtable). Some design features can be used on Free plan.
               </p>
             </div>

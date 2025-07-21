@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SectionTitle from "./SectionTitle";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -52,9 +53,7 @@ export default function FAQ() {
     <section id="faq" className="section relative py-24 sm:py-32" style={{backgroundColor: '#041926 !important', background: '#041926 !important'}}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-12">
-          <span className="text-sm font-bold uppercase tracking-wider typewriter" style={{color: '#01a2f1'}}>
-            TRUSTED TOOLS, DONE-FOR-YOU-DESIGN
-          </span>
+          <SectionTitle text="TRUSTED TOOLS, DONE-FOR-YOU-DESIGN" />
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl drop-shadow-lg mt-4" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
             Frequently Asked Questions
           </h2>
@@ -78,7 +77,7 @@ export default function FAQ() {
                   className="w-full px-6 py-4 text-left group hover:bg-white hover:bg-opacity-5 transition-all duration-200"
                 >
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-medium text-white transition-colors">
+                    <h3 className="text-lg font-medium transition-colors" style={{color: '#ffffff !important'}}>
                       {faq.question}
                     </h3>
                     <svg
@@ -113,7 +112,7 @@ export default function FAQ() {
           </p>
           <a
             href="#contact"
-            className="btn-hero-cta inline-block px-12 py-4 text-lg font-bold"
+            className="btn-hero-cta inline-block"
           >
             Contact Us
           </a>

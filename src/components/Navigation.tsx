@@ -65,7 +65,7 @@ export default function Navigation() {
           <div className="hidden md:block">
             <a 
               href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form" target="_blank" rel="noopener noreferrer" 
-              className="btn btn-primary text-xs font-bold py-1.5 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="btn-hero-cta focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               aria-label="Get your custom Airtable CRM setup"
             >
               Get Your Airtable Setup
@@ -137,7 +137,7 @@ export default function Navigation() {
               <div className="pt-2">
                 <a
                   href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form" target="_blank" rel="noopener noreferrer"
-                  className="btn btn-primary w-full text-center text-xs font-bold py-2.5 px-3 min-h-[48px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  className="btn-hero-cta w-full text-center min-h-[48px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Get your custom Airtable CRM setup"
                 >

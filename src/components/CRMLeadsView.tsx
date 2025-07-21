@@ -167,7 +167,7 @@ export default function CRMLeadsView() {
         </div>
 
         {/* Table Rows */}
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-100 min-h-[320px]">
           {isLoading ? (
             // Loading skeletons
             [...Array(4)].map((_, index) => (
@@ -242,11 +242,20 @@ export default function CRMLeadsView() {
               </div>
             ))
           )}
+          
+          {/* Empty rows to maintain consistent height */}
+          {!isLoading && leads.length < 5 && (
+            <>
+              {[...Array(5 - leads.length)].map((_, i) => (
+                <div key={`empty-${i}`} className="h-16"></div>
+              ))}
+            </>
+          )}
         </div>
       </div>
 
       {/* Mobile Card View */}
-      <div className="lg:hidden divide-y divide-gray-100">
+      <div className="lg:hidden divide-y divide-gray-100 min-h-[480px]">
         {isLoading ? (
           [...Array(4)].map((_, index) => (
             <div key={index} className="p-6 animate-pulse">
@@ -293,6 +302,11 @@ export default function CRMLeadsView() {
               </div>
             </div>
           ))
+        )}
+        
+        {/* Empty space to maintain consistent height on mobile */}
+        {!isLoading && leads.length < 5 && (
+          <div style={{ height: `${(5 - leads.length) * 96}px` }}></div>
         )}
       </div>
 
