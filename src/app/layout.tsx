@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "google379583f3dfef0db6",
   },
   alternates: {
     canonical: "https://clicktricksdb.com",
@@ -92,7 +93,7 @@ export default function RootLayout({
     "offers": {
       "@type": "Offer",
       "name": "Custom Airtable CRM Setup",
-      "description": "Complete Airtable CRM setup with simple lead tracking, follow-up notifications, basic pipeline management, and 30-minute training call",
+      "description": "Complete Airtable CRM setup with simple lead tracking, follow-up notifications, basic pipeline management, and 30-minute training call. Pricing begins at $99 and may vary based on project complexity.",
       "price": "99",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
@@ -149,6 +150,66 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={`${inter.variable} ${jakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        {/* Google Consent Script */}
+        <Script
+          id="gtag-consent"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied'
+              });
+            `,
+          }}
+        />
+        
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-head"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-PF366PMN');
+            `,
+          }}
+        />
+        
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-DKM088Y0ZF"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DKM088Y0ZF', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+        
+        {/* GTM NoScript */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PF366PMN"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        
         <ErrorBoundary>
           {children}
         </ErrorBoundary>

@@ -76,7 +76,7 @@ export default function Pricing() {
                 Starting at just $99.
               </h3>
               <p className="text-base leading-7 text-white mb-6">
-                That's it. No monthly CRM subscription to us. No confusing tiers. No bloated features you'll never use.
+                That's it. No monthly CRM subscription to us. No confusing tiers. No bloated features you'll never use. Final price may vary based on project complexity.
               </p>
               <p className="text-base font-semibold text-white mb-2">One-time payment as low as</p>
               <p className="flex items-baseline justify-center gap-x-2 mb-8">

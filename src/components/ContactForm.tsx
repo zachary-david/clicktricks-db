@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useFormErrorHandler } from "@/hooks/useErrorHandler";
 import ErrorDisplay from "@/components/ErrorDisplay";
+import * as gtag from "@/lib/gtag";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -92,6 +93,13 @@ export default function ContactForm() {
       //   body: JSON.stringify(formData)
       // });
       // if (!response.ok) throw new Error('Failed to send message');
+
+      // Track form submission
+      gtag.event({
+        action: 'submit_form',
+        category: 'engagement',
+        label: 'contact_form',
+      });
 
       setIsSuccess(true);
       setFormData({

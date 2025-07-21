@@ -45,6 +45,10 @@ const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="bg-gray-900 animate-pulse h-48"></div>
 });
 
+const CookieBanner = dynamic(() => import('@/components/CookieBanner'), {
+  ssr: false
+});
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -78,6 +82,9 @@ export default function Home() {
       <About />
       
       <Footer />
+      
+      {/* Cookie Consent Banner */}
+      <CookieBanner />
     </main>
   );
 }
