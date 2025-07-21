@@ -35,16 +35,16 @@ export default function Pricing() {
           <SectionTitle text="NO SUBSCRIPTIONS, NO SURPRISES" />
           <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{color: '#ffffff !important'}}>Simple Pricing</h2>
           <p className="text-xl text-gray-300">
-            Tell us about your database project and we'll deliver a sample and offer based on your needs.
+            Tell us about your database project and we'll deliver a sample of your design and custom offer.
           </p>
         </div>
 
         {/* Two Column Layout with Extended Vertical Border */}
         <div className="relative mt-16">
           {/* Horizontal border underneath header - desktop only */}
-          <div className="hidden lg:block absolute top-0 h-px bg-[#01a2f1] opacity-30 left-0 right-0"></div>
+          <div className="hidden lg:block absolute top-0 h-0.5 bg-[#01a2f1] opacity-30" style={{left: '50%', transform: 'translateX(-40rem)', width: '80rem'}}></div>
           {/* Extended vertical border that intersects with next section */}
-          <div className="hidden lg:block absolute top-0 left-1/2 w-px bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 200px)'}}></div>
+          <div className="hidden lg:block absolute top-0 left-1/2 w-0.5 bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 8rem)'}}></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 relative">
             
             {/* Left Column - Features */}
@@ -78,7 +78,7 @@ export default function Pricing() {
               <p className="text-base leading-7 text-white mb-6">
                 That's it. No monthly CRM subscription to us. No confusing tiers. No bloated features you'll never use.
               </p>
-              <p className="text-base font-semibold text-white mb-2">One-time payment</p>
+              <p className="text-base font-semibold text-white mb-2">One-time payment as low as</p>
               <p className="flex items-baseline justify-center gap-x-2 mb-8">
                 <span className="text-5xl font-bold tracking-tight text-white">$99</span>
                 <span className="text-sm font-semibold leading-6 tracking-wide text-white">USD</span>
@@ -94,7 +94,7 @@ export default function Pricing() {
                 </a>
               </div>
               <p className="text-xs leading-5 text-white mb-4">
-                Setup completed within 48 hours of confirmation.
+                Setup completed within 48 hours of confirmation and received payment.
               </p>
               <p className="text-sm text-white">
                 * Airtable software costs approximately $10/month per user (paid directly to Airtable). Some design features can be used on Free plan.

@@ -46,26 +46,31 @@ export default function HowItWorks() {
             </p>
           </div>
           {/* Header border - contained within viewport */}
-          <div className="hidden lg:block absolute h-px bg-[#01a2f1] opacity-20 left-0 right-0"></div>
+          <div className="hidden lg:block absolute h-0.5 bg-[#01a2f1] opacity-30 left-0 right-0"></div>
         </div>
 
         <div className="mt-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Steps */}
           <div className="space-y-0 relative lg:text-left text-center">
             {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`relative flex items-start lg:gap-6 gap-4 cursor-pointer transition-all duration-200 px-6 py-12 min-h-[160px] lg:flex-row flex-col lg:text-left text-center ${
-                  activeStep === index ? 'scale-105' : 'opacity-70 hover:opacity-100'
-                }`}
-                onClick={() => setActiveStep(index)}
-              >
-                {/* Custom border extending to container edges */}
+              <div key={step.number} className="relative">
+                {/* Border positioned outside the scaleable container */}
                 {index < steps.length - 1 && (
                   <div 
-                    className="hidden lg:block absolute bottom-0 h-px bg-[#01a2f1] opacity-20 left-0 right-0"
+                    className="hidden lg:block absolute h-0.5 bg-[#01a2f1] opacity-30"
+                    style={{
+                      bottom: '0px',
+                      left: '-2rem', 
+                      right: '1.5rem'
+                    }}
                   />
                 )}
+                <div
+                  className={`relative flex items-start lg:gap-6 gap-4 cursor-pointer transition-all duration-200 px-6 py-12 min-h-[160px] lg:flex-row flex-col lg:text-left text-center ${
+                    activeStep === index ? 'scale-105' : 'opacity-70 hover:opacity-100'
+                  }`}
+                  onClick={() => setActiveStep(index)}
+                >
                 
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full lg:mt-1 mt-0 lg:mx-0 mx-auto ${
@@ -93,6 +98,7 @@ export default function HowItWorks() {
                 <div className="flex-1 lg:text-left text-center">
                   <h3 
                     className="text-xl font-semibold text-white mb-3 leading-tight"
+                    style={{color: '#ffffff !important'}}
                   >
                     {step.title}
                   </h3>
@@ -101,6 +107,7 @@ export default function HowItWorks() {
                   >
                     {step.description}
                   </p>
+                </div>
                 </div>
               </div>
             ))}

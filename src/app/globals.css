@@ -223,9 +223,9 @@ p {
 .section {
   padding: clamp(3rem, 8vw, 8rem) 0;
   position: relative;
-  border-bottom: 1px solid rgba(1, 162, 241, 0.5) !important;
-  border-left: 1px solid rgba(1, 162, 241, 0.5) !important;
-  border-right: 1px solid rgba(1, 162, 241, 0.5) !important;
+  border-bottom: 2px solid rgba(1, 162, 241, 0.3) !important;
+  border-left: 2px solid rgba(1, 162, 241, 0.3) !important;
+  border-right: 2px solid rgba(1, 162, 241, 0.3) !important;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
 }
 
@@ -331,20 +331,20 @@ p {
   }
   
   .border-grid-right {
-    border-right: 1px solid rgba(1, 162, 241, 0.3) !important;
+    border-right: 2px solid rgba(1, 162, 241, 0.3) !important;
   }
   
   .border-grid-left {
-    border-left: 1px solid rgba(1, 162, 241, 0.3) !important;
+    border-left: 2px solid rgba(1, 162, 241, 0.3) !important;
   }
 }
 
 .border-grid-right {
-  border-right: 1px solid rgba(1, 162, 241, 0.2);
+  border-right: 2px solid rgba(1, 162, 241, 0.3);
 }
 
 .border-grid-left {
-  border-left: 1px solid rgba(1, 162, 241, 0.2);
+  border-left: 2px solid rgba(1, 162, 241, 0.3);
 }
 
 @keyframes fadeIn {
@@ -849,12 +849,12 @@ p, .text-base {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 1px;
+  width: 2px;
   background: linear-gradient(
     to bottom,
-    rgba(1, 162, 241, 0.1) 0%,
+    rgba(1, 162, 241, 0.2) 0%,
     rgba(1, 162, 241, 0.3) 50%,
-    rgba(1, 162, 241, 0.1) 100%
+    rgba(1, 162, 241, 0.2) 100%
   );
   z-index: 1;
 }
@@ -876,7 +876,7 @@ p, .text-base {
     to bottom,
     rgba(1, 162, 241, 0.4) 0%,
     rgba(1, 162, 241, 0.3) 50%,
-    rgba(1, 162, 241, 0.1) 100%
+    rgba(1, 162, 241, 0.2) 100%
   );
 }
 
@@ -884,17 +884,299 @@ p, .text-base {
 .section:last-child::after {
   background: linear-gradient(
     to bottom,
-    rgba(1, 162, 241, 0.1) 0%,
+    rgba(1, 162, 241, 0.2) 0%,
     rgba(1, 162, 241, 0.3) 50%,
     rgba(1, 162, 241, 0.4) 100%
   );
 }
 
-/* Hide borders on mobile for cleaner look */
+/* Show borders on all screen sizes for consistent professional look */
+
+/* Hide vertical borders on mobile to prevent overflow */
 @media (max-width: 768px) {
   .section::before,
   .section::after {
-    display: none;
+    display: none !important;
+  }
+  
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Enhanced mobile container padding */
+  .container {
+    padding-left: clamp(5vw, 5vw, 3rem);
+    padding-right: clamp(5vw, 5vw, 3rem);
+  }
+  
+  /* Optimized mobile text sizes with better scaling */
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.2;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    line-height: 1.3;
+    margin-bottom: clamp(0.75rem, 2.5vw, 1.25rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.125rem, 4.5vw, 1.5rem);
+    line-height: 1.4;
+    margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  /* Fix mobile paragraph spacing */
+  p {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    line-height: 1.6;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  /* Mobile section improvements */
+  .section {
+    padding: clamp(2rem, 6vw, 4rem) 0;
+  }
+  
+  /* Mobile button fixes */
+  .btn, .btn-primary, .btn-secondary, .btn-hero-cta {
+    width: auto;
+    margin: clamp(0.75rem, 2vw, 1rem) auto;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+  }
+  
+  /* Center align mobile content */
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Mobile card and grid fixes */
+  .grid {
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+  
+  .card {
+    margin: clamp(1rem, 3vw, 1.5rem) 0;
+    padding: clamp(1rem, 4vw, 2rem);
+  }
+  
+  /* Mobile CRM table improvements */
+  .crm-row {
+    padding: clamp(0.75rem, 2.5vw, 1rem);
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+  }
+  
+  /* Mobile text center alignment */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Mobile pricing card */
+  .pricing-card {
+    margin: clamp(1rem, 3vw, 2rem) 0;
+    padding: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  /* Mobile hero section specific fixes */
+  .hero-section {
+    padding: clamp(2rem, 6vw, 4rem) 0;
+    text-align: center;
+  }
+  
+  /* Mobile FAQ improvements */
+  .faq-item {
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  /* HowItWorks mobile fixes */
+  .step-container {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  .step-number {
+    width: clamp(2rem, 6vw, 3rem);
+    height: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(0.875rem, 3vw, 1rem);
+  }
+  
+  /* Pricing section mobile fixes */
+  .pricing-container {
+    padding: clamp(1.5rem, 4vw, 2rem);
+    margin: clamp(1rem, 3vw, 2rem) 0;
+  }
+  
+  .price-display {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin: clamp(1rem, 3vw, 1.5rem) 0;
+  }
+  
+  .feature-list {
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+  }
+  
+  .feature-list li {
+    margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+    padding-left: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  /* FAQ section mobile fixes */
+  .faq-container {
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  .faq-question {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    padding: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  }
+  
+  .faq-answer {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    padding: clamp(0.75rem, 2.5vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    line-height: 1.6;
+  }
+  
+  /* About section mobile fixes */
+  .about-container {
+    padding: clamp(1.5rem, 4vw, 2rem);
+    text-align: center;
+  }
+  
+  .about-image {
+    width: clamp(120px, 25vw, 200px);
+    height: clamp(120px, 25vw, 200px);
+    margin: clamp(1rem, 3vw, 2rem) auto;
+  }
+  
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    margin: clamp(1.5rem, 4vw, 2rem) 0;
+  }
+  
+  .stat-card {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    margin: clamp(0.5rem, 2vw, 0.75rem) 0;
+  }
+  
+  /* Mobile step content spacing */
+  .step-content {
+    margin: clamp(1rem, 3vw, 1.5rem) 0;
+  }
+  
+  .step-title {
+    font-size: clamp(1.125rem, 4.5vw, 1.375rem);
+    margin-bottom: clamp(0.75rem, 2.5vw, 1rem);
+  }
+  
+  .step-description {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    line-height: 1.6;
+  }
+  
+  /* Navigation mobile fixes */
+  .navigation {
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(5vw, 5vw, 3rem);
+  }
+  
+  .nav-logo {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    margin-right: clamp(1rem, 3vw, 2rem);
+  }
+  
+  .nav-menu {
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+  
+  .nav-item {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem);
+    margin: clamp(0.25rem, 1vw, 0.5rem) 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-button {
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    margin: clamp(0.5rem, 2vw, 0.75rem) 0;
+  }
+  
+  .mobile-menu {
+    padding: clamp(1rem, 3vw, 2rem);
+    margin-top: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  .mobile-menu-item {
+    padding: clamp(0.75rem, 2.5vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    text-align: center;
+  }
+  
+  /* Footer mobile fixes */
+  .footer {
+    padding: clamp(2rem, 6vw, 4rem) clamp(5vw, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 4vw, 2rem);
+    text-align: center;
+  }
+  
+  .footer-section {
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .footer-title {
+    font-size: clamp(1.125rem, 4.5vw, 1.375rem);
+    margin-bottom: clamp(0.75rem, 2.5vw, 1rem);
+    font-weight: 600;
+  }
+  
+  .footer-link {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    padding: clamp(0.5rem, 2vw, 0.75rem) 0;
+    margin: clamp(0.25rem, 1vw, 0.5rem) 0;
+    display: block;
+    line-height: 1.5;
+  }
+  
+  .footer-text {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    line-height: 1.6;
+    margin-bottom: clamp(0.75rem, 2.5vw, 1rem);
+  }
+  
+  .footer-copyright {
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
+    text-align: center;
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+    margin-top: clamp(1.5rem, 4vw, 2rem);
+    border-top: 1px solid rgba(1, 162, 241, 0.2);
+  }
+  
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    margin: clamp(1rem, 3vw, 1.5rem) 0;
+  }
+  
+  .footer-social-link {
+    padding: clamp(0.75rem, 2.5vw, 1rem);
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
   }
 }
 

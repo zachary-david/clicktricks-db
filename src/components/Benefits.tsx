@@ -62,12 +62,12 @@ export default function Benefits() {
         {/* Three Column Layout - Container width with extended horizontal line */}
         <div className="relative">
           {/* Horizontal border underneath header - contained within viewport */}
-          <div className="hidden lg:block absolute top-0 h-px bg-[#01a2f1] opacity-30 left-0 right-0"></div>
+          <div className="hidden lg:block absolute top-0 h-0.5 bg-[#01a2f1] opacity-30" style={{left: '50%', transform: 'translateX(-40rem)', width: '80rem'}}></div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 relative auto-rows-fr">
             {/* Vertical borders that extend into next section */}
-            <div className="hidden lg:block absolute top-0 left-1/3 w-px bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 200px)'}}></div>
-            <div className="hidden lg:block absolute top-0 left-2/3 w-px bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 200px)'}}></div>
+            <div className="hidden lg:block absolute top-0 left-1/3 w-0.5 bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 200px)'}}></div>
+            <div className="hidden lg:block absolute top-0 left-2/3 w-0.5 bg-[#01a2f1] opacity-30" style={{height: 'calc(100% + 200px)'}}></div>
             
             {benefits.map((benefit) => (
               <div key={benefit.id} className="relative h-full">
@@ -86,10 +86,6 @@ export default function Benefits() {
                     {benefit.feature}
                   </h3>
                   
-                  {/* Value */}
-                  <p className="text-lg text-[#01a2f1] font-normal mb-0">
-                    {benefit.value}
-                  </p>
                   
                   {/* Description */}
                   <p className="text-base text-gray-600 leading-6 font-normal mb-4">
