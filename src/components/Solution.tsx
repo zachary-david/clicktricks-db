@@ -15,20 +15,20 @@ export default function Solution() {
 
   const views = [
     {
-      title: "Follow-ups Due Today",
-      description: "Simple, automated lead tracking showing exactly which prospects need attention",
+      title: "Go Beyond the Template",
+      description: "We'll design a table that prioritizes the information that's a priority to you",
       component: <CRMDashboardView />
     },
-    {
-      title: "All Active Leads",
-      description: "Complete Airtable database with interaction history",
+        {
+      title: "Always Ready to Work...",
+      description: "Access your lead data on a desktop, smartphone or through the AirTable app with continuous real-time data syncing",
       component: <CRMLeadsView />
     },
     {
-      title: "Hot Prospects",
-      description: "High-value opportunities prioritized by deal size",
+      title: "...and Always Easy to Use",
+      description: "We take care of the hard parts so you can focus on running your business",
       component: <CRMPipelineView />
-    }
+    },
   ];
 
   // Auto-advance slideshow (desktop only)
@@ -114,24 +114,15 @@ export default function Solution() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white drop-shadow-lg">
-            <span className="text-gradient">Professional Lead Management Without the Complexity</span>
+            <span className="text-gradient">Get Premium Features of an Enterprise CRM -- without the Premium Pricetag.</span>
           </h2>
-          <p className="text-xl text-gray-700">
-            Simple, automated lead tracking with custom Airtable views and automated follow-ups - set up in 30 minutes
-          </p>
+
         </div>
 
         {/* Desktop: Overlapping slideshow */}
         <div className="hidden md:block">
-          {/* View title only */}
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white transition-all duration-700 ease-in-out drop-shadow-md">
-              {views[activeIndex].title}
-            </h3>
-          </div>
-
           {/* Overlapping cards container */}
-          <div className="relative w-full max-w-5xl mx-auto h-[500px] mb-12">
+          <div className="relative w-full max-w-5xl mx-auto h-[500px] mb-8">
             {views.map((view, index) => {
               const relativeIndex = index - activeIndex;
               const isActive = index === activeIndex;
@@ -180,9 +171,12 @@ export default function Solution() {
             })}
           </div>
 
-          {/* Description below CRM demo */}
+          {/* Title and Description stacked below carousel */}
           <div className="text-center mb-8">
-            <p className="text-gray-700 max-w-2xl mx-auto transition-all duration-700 ease-in-out">
+            <h3 className="text-xl font-bold text-white mb-2 transition-all duration-700 ease-in-out drop-shadow-md">
+              {views[activeIndex].title}
+            </h3>
+            <p className="text-sm text-gray-700 max-w-2xl mx-auto transition-all duration-700 ease-in-out">
               {views[activeIndex].description}
             </p>
           </div>
@@ -208,16 +202,9 @@ export default function Solution() {
 
         {/* Mobile: Traditional carousel */}
         <div className="md:hidden">
-          {/* View title only */}
-          <div className="text-center mb-4 px-4">
-            <h3 className="text-2xl font-bold text-white drop-shadow-md">
-              {views[activeIndex].title}
-            </h3>
-          </div>
-
           {/* Carousel container */}
           <div 
-            className="relative overflow-hidden mb-4"
+            className="relative overflow-hidden mb-6"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -238,9 +225,12 @@ export default function Solution() {
             </div>
           </div>
 
-          {/* Description below mobile carousel */}
-          <div className="text-center mb-3 px-4">
-            <p className="text-gray-700 text-sm transition-all duration-300 ease-in-out">
+          {/* Title and Description stacked below carousel */}
+          <div className="text-center mb-4 px-4">
+            <h3 className="text-lg font-bold text-white mb-1 drop-shadow-md transition-all duration-300 ease-in-out">
+              {views[activeIndex].title}
+            </h3>
+            <p className="text-gray-700 text-xs transition-all duration-300 ease-in-out">
               {views[activeIndex].description}
             </p>
           </div>

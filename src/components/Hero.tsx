@@ -1,10 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import HeroCRMDemo from "./HeroCRMDemo";
-import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import ErrorDisplay from "./ErrorDisplay";
 import SectionTitle from "./SectionTitle";
 
 export default function Hero() {
@@ -40,8 +36,8 @@ export default function Hero() {
 
         {/* Full-Width CRM Demo */}
         <div className="relative animate-slide-up">
-          <div className="rounded-2xl p-6 lg:p-8" style={{backgroundColor: '#041926'}}>
-            <div className="bg-white rounded-lg shadow-xl overflow-hidden" style={{border: '2px solid #01a2f1'}}>
+          <div className="rounded-2xl p-4 sm:p-6 lg:p-8" style={{backgroundColor: '#041926'}}>
+            <div className="bg-white rounded-lg shadow-xl overflow-hidden w-full" style={{border: '2px solid #01a2f1'}}>
               <div className="p-4 flex items-center gap-2" style={{backgroundColor: '#01a2f1'}}>
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -54,39 +50,25 @@ export default function Hero() {
               </div>
               
               <div className="p-0">
-                <ErrorBoundary
-                  fallbackRender={({ error, resetErrorBoundary }) => (
-                    <div className="p-6">
-                      <ErrorDisplay 
-                        error={error} 
-                        variant="inline"
-                        onRetry={resetErrorBoundary}
-                      />
-                    </div>
-                  )}
+                <video 
+                  className="w-full h-auto"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
                 >
-                  <Suspense 
-                    fallback={
-                      <div className="p-6">
-                        <div className="animate-pulse space-y-3">
-                          {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="h-12 bg-gray-100 rounded"></div>
-                          ))}
-                        </div>
-                      </div>
-                    }
-                  >
-                    <HeroCRMDemo />
-                  </Suspense>
-                </ErrorBoundary>
+                  <source src="https://fbkiiqfbskkjupovqbjy.supabase.co/storage/v1/object/public/videos//Kanban%20Video%20edit.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
           
           {/* Interactive Demo Label */}
-          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 px-4">
-            <div className="bg-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md border-2 max-w-full" style={{borderColor: '#01a2f1'}}>
-              <span className="text-xs sm:text-sm font-medium typewriter text-center block whitespace-nowrap" style={{color: '#0182c4'}}>
+          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 px-2">
+            <div className="bg-white px-2 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md border-2" style={{borderColor: '#01a2f1'}}>
+              <span className="text-[10px] sm:text-sm font-medium typewriter text-center block whitespace-nowrap" style={{color: '#0182c4'}}>
                 👆 YOUR AIRTABLE CRM
               </span>
             </div>

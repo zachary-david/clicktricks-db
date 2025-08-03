@@ -1466,3 +1466,14 @@ p, .text-base {
   border-top: none;
   border-bottom-right-radius: 8px;
 }
+
+/* 3D Perspective for Hero CRM Demo */
+.perspective-1000 {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Shadow effects for 3D cards */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}

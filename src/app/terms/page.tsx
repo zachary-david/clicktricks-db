@@ -47,7 +47,7 @@ export default function TermsOfService() {
         <div className="max-w-none text-white">
           <h2 className="text-2xl font-semibold mb-4 text-white" style={{color: "#ffffff !important"}}>1. Service Description</h2>
           <p className="mb-6 text-gray-300">
-            ClickTricks DB provides custom Airtable CRM setup and configuration services 
+            ClickTricks provides custom Airtable CRM setup and configuration services 
             for freelancers, solopreneurs, and small teams. Our services include:
           </p>
           <ul className="list-disc pl-6 mb-6 text-gray-300">
@@ -84,7 +84,7 @@ export default function TermsOfService() {
             <strong>Please note:</strong> We provide setup and initial training. Ongoing support, 
             major modifications, or additional training beyond the initial scope may be subject 
             to additional fees. We are not responsible for data loss, system downtime, or 
-            Airtable service issues after project completion.
+            AirTable service issues after project completion.
           </p>
           
           <h2 className="text-2xl font-semibold mb-4 text-white" style={{color: "#ffffff !important"}}>4. Client Responsibilities</h2>
@@ -102,7 +102,7 @@ export default function TermsOfService() {
           <h2 className="text-2xl font-semibold mb-4 text-white" style={{color: "#ffffff !important"}}>5. Intellectual Property</h2>
           <p className="mb-6 text-gray-300">
             Upon full payment, you own all data, configurations, and customizations created 
-            specifically for your Airtable CRM implementation. However, our proprietary 
+            specifically for your AirTable CRM implementation. However, our proprietary 
             methodologies, templates, and general business processes remain the intellectual 
             property of ClickTricks DB.
           </p>
