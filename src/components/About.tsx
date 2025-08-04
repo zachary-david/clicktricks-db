@@ -20,7 +20,7 @@ export default function About() {
               <div className="w-32 h-32 rounded-full overflow-hidden shadow-xl bg-gray-100 mb-4">
                 <Image
                   src="https://i.ibb.co/22WPx2j/aboutus-garrett.png"
-                  alt="Garrett Johnson, ClickTricks DB Founder"
+                  alt="Garrett Johnson, ClickTricks Founder"
                   width={128}
                   height={128}
                   className="w-full h-full object-cover object-center"

@@ -35,7 +35,7 @@ export default function Pricing() {
           <SectionTitle text="NO SUBSCRIPTIONS, NO SURPRISES" />
           <h2 className="text-3xl sm:text-4xl font-bold mb-6" style={{color: '#ffffff !important'}}>Simple Pricing</h2>
           <p className="text-xl text-gray-300">
-            Tell us about your database project and we'll deliver a sample of your design and custom offer.
+            Only pay for what you need, and what we build is yours to own forever.
           </p>
         </div>
 
@@ -65,20 +65,13 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <p className="text-lg font-semibold text-white mt-8">
-                Own your CRM — no SaaS fees, ever.
-              </p>
             </div>
 
             {/* Right Column - Price */}
             <div className="p-6 lg:p-8 flex flex-col justify-center text-center">
               <h3 className="text-2xl font-bold tracking-tight mb-4" style={{color: '#ffffff !important'}}>
-                Starting at just $99.
+                Starting at just
               </h3>
-              <p className="text-base leading-7 text-white mb-6">
-                That's it. No monthly CRM subscription to us. No confusing tiers. No bloated features you'll never use. Final price may vary based on project complexity.
-              </p>
-              <p className="text-base font-semibold text-white mb-2">One-time payment as low as</p>
               <p className="flex items-baseline justify-center gap-x-2 mb-8">
                 <span className="text-5xl font-bold tracking-tight text-white">$99</span>
                 <span className="text-sm font-semibold leading-6 tracking-wide text-white">USD</span>
@@ -94,7 +87,7 @@ export default function Pricing() {
                 </a>
               </div>
               <p className="text-xs leading-5 text-white mb-4">
-                Setup completed within 48 hours of confirmation and received payment.
+                Setups are usually completed within the next three business days of received payment, depending on project scope or current volume. An accurate delivery timeline will be provided during initial outreach and before paymnent is submitted.
               </p>
               <p className="text-sm text-white">
                 * Airtable software costs approximately $10/month per user (paid directly to Airtable). Some design features can be used on Free plan.

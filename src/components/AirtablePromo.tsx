@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 export default function AirtablePromo() {
   return (
@@ -29,8 +30,19 @@ export default function AirtablePromo() {
             </div>
           </div>
           
-          {/* Right Column - Empty space for balance */}
-          <div className="hidden lg:block"></div>
+          {/* Right Column - Airtable Logo */}
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="max-w-md w-full">
+              <Image
+                src="/airtable-logo.svg"
+                alt="Airtable Logo"
+                width={400}
+                height={200}
+                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-300 filter brightness-0 invert"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

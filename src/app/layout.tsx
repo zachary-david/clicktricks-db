@@ -20,12 +20,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Custom Airtable CRM Setup for Freelancers, Solopreneurs and Small Teams | ClickTricks DB | Never Lose Another Lead Again",
+  title: "Custom Airtable CRM Setup for Freelancers, Solopreneurs and Small Teams | ClickTricks | Never Lose Another Lead Again",
   description: "Professional CRM made easy - Simple lead tracking, follow-up notifications, and basic pipeline management. Custom Airtable setup for freelancers, solopreneurs and small teams.",
-  keywords: "airtable crm setup, freelancer crm, solopreneur lead management, small team crm, lead tracking system, follow up notifications, pipeline management, clicktricks db",
-  authors: [{ name: "ClickTricks DB" }],
-  creator: "ClickTricks DB",
-  publisher: "ClickTricks DB",
+  keywords: "airtable crm setup, freelancer crm, solopreneur lead management, small team crm, lead tracking system, follow up notifications, pipeline management, clicktricks",
+  authors: [{ name: "ClickTricks" }],
+  creator: "ClickTricks",
+  publisher: "ClickTricks",
   category: "Business Software",
   formatDetection: {
     email: false,
@@ -33,18 +33,18 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Custom Airtable CRM Setup for Freelancers, Solopreneurs & Small Teams | ClickTricks DB",
+    title: "Custom Airtable CRM Setup for Freelancers, Solopreneurs & Small Teams | ClickTricks",
     description: "Professional CRM made easy - Never lose a lead again. Simple lead tracking, follow-up notifications, and basic pipeline management. Starting at $99 one-time + $10/month Airtable.",
-    url: "https://clicktricksdb.com",
-    siteName: "ClickTricks DB",
+    url: "https://clicktricks.com",
+    siteName: "ClickTricks",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://clicktricksdb.com/og-image.jpg",
+        url: "https://clicktricks.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ClickTricks DB - Custom Airtable Setup for Coaches",
+        alt: "ClickTricks - Custom Airtable Setup for Coaches",
       },
     ],
   },
@@ -82,13 +82,13 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "ClickTricks DB",
-    "url": "https://clicktricksdb.com",
-    "logo": "https://clicktricksdb.com/logo.png",
+    "name": "ClickTricks",
+    "url": "https://clicktricks.com",
+    "logo": "https://clicktricks.com/logo.png",
     "description": "Custom Airtable CRM setup for freelancers, solopreneurs and small teams who need professional lead management systems",
     "founder": {
       "@type": "Person",
-      "name": "ClickTricks DB Team"
+      "name": "ClickTricks Team"
     },
     "offers": {
       "@type": "Offer",
@@ -147,7 +147,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="ClickTricks DB" />
+        <meta name="apple-mobile-web-app-title" content="ClickTricks" />
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={`${inter.variable} ${manrope.variable} ${jetbrainsMono.variable} font-sans antialiased`}>

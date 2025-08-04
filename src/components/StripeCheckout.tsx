@@ -30,7 +30,7 @@ export default function StripeCheckout() {
         },
         body: JSON.stringify({
           // Add any data you need to send to your backend
-          productId: 'clicktricks-db-setup',
+          productId: 'clicktricks-setup',
           amount: 9900, // $99.00 in cents
         }),
       });
@@ -61,7 +61,7 @@ export default function StripeCheckout() {
       <div className="bg-gray-50 rounded-lg p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h3 className="font-semibold text-gray-900">ClickTricks DB Setup</h3>
+            <h3 className="font-semibold text-gray-900">ClickTricks Setup</h3>
             <p className="text-sm text-gray-600 mt-1">Custom Airtable CRM for your business</p>
           </div>
           <div className="text-xl font-bold text-gray-900">$99</div>
@@ -171,7 +171,7 @@ To complete the Stripe integration, you'll need to:
            price_data: {
              currency: 'usd',
              product_data: {
-               name: 'ClickTricks DB Setup',
+               name: 'ClickTricks Setup',
                description: 'Custom Airtable CRM setup for your business',
              },
              unit_amount: amount,

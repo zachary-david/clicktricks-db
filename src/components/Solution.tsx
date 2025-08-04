@@ -16,16 +16,16 @@ export default function Solution() {
   const views = [
     {
       title: "Go Beyond the Template",
-      description: "We'll design a table that prioritizes the information that's a priority to you",
+      description: "We'll design a system that prioritizes the information that's a priority to you",
       component: <CRMDashboardView />
     },
         {
-      title: "Always Ready to Work...",
-      description: "Access your lead data on a desktop, smartphone or through the AirTable app with continuous real-time data syncing",
+      title: "Move at the Speed Your Brand Needs",
+      description: "Access new and existing lead information a desktop, smartphone or through the Airtable app with continuous real-time data syncing",
       component: <CRMLeadsView />
     },
     {
-      title: "...and Always Easy to Use",
+      title: "Build Your Perfect Workflow",
       description: "We take care of the hard parts so you can focus on running your business",
       component: <CRMPipelineView />
     },
@@ -114,7 +114,7 @@ export default function Solution() {
         
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white drop-shadow-lg">
-            <span className="text-gradient">Get Premium Features of an Enterprise CRM -- without the Premium Pricetag.</span>
+            <span className="text-gradient">Get the Premium Features of an Enterprise CRM at a fraction of the cost</span>
           </h2>
 
         </div>
@@ -122,7 +122,7 @@ export default function Solution() {
         {/* Desktop: Overlapping slideshow */}
         <div className="hidden md:block">
           {/* Overlapping cards container */}
-          <div className="relative w-full max-w-5xl mx-auto h-[500px] mb-8">
+          <div className="relative w-full max-w-5xl mx-auto h-[500px] mb-12">
             {views.map((view, index) => {
               const relativeIndex = index - activeIndex;
               const isActive = index === activeIndex;
@@ -172,11 +172,11 @@ export default function Solution() {
           </div>
 
           {/* Title and Description stacked below carousel */}
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-bold text-white mb-2 transition-all duration-700 ease-in-out drop-shadow-md">
+          <div key={activeIndex} className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">
               {views[activeIndex].title}
             </h3>
-            <p className="text-sm text-gray-700 max-w-2xl mx-auto transition-all duration-700 ease-in-out">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed opacity-100">
               {views[activeIndex].description}
             </p>
           </div>
@@ -204,7 +204,7 @@ export default function Solution() {
         <div className="md:hidden">
           {/* Carousel container */}
           <div 
-            className="relative overflow-hidden mb-6"
+            className="relative overflow-hidden mb-8"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -226,11 +226,11 @@ export default function Solution() {
           </div>
 
           {/* Title and Description stacked below carousel */}
-          <div className="text-center mb-4 px-4">
-            <h3 className="text-lg font-bold text-white mb-1 drop-shadow-md transition-all duration-300 ease-in-out">
+          <div key={activeIndex} className="text-center mb-6 px-4">
+            <h3 className="text-xl font-bold text-white mb-3 drop-shadow-lg">
               {views[activeIndex].title}
             </h3>
-            <p className="text-gray-700 text-xs transition-all duration-300 ease-in-out">
+            <p className="text-gray-200 text-sm leading-relaxed opacity-100">
               {views[activeIndex].description}
             </p>
           </div>

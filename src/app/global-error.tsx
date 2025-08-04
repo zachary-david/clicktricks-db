@@ -80,7 +80,7 @@ export default function GlobalError({
                 </div>
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Oops! Something went wrong</h1>
                 <p className="text-gray-600 mb-6">
-                  We apologize for the inconvenience. The good news? Your interest in ClickTricks DB is safe, and we're here to help!
+                  We apologize for the inconvenience. The good news? Your interest in ClickTricks is safe, and we're here to help!
                 </p>
               </div>
               
@@ -150,7 +150,7 @@ export default function GlobalError({
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <div className="bg-blue-50 rounded-lg p-4 mb-4">
                   <p className="text-sm text-gray-700">
-                    <span className="font-semibold">Still interested in ClickTricks DB?</span> This error won't affect your ability to get started with your custom Airtable CRM setup.
+                    <span className="font-semibold">Still interested in ClickTricks?</span> This error won't affect your ability to get started with your custom Airtable CRM setup.
                   </p>
                 </div>
                 
@@ -159,7 +159,7 @@ export default function GlobalError({
                     Need immediate assistance? We're here to help!
                   </p>
                   <a 
-                    href="mailto:support@clicktricksdb.com" 
+                    href="mailto:support@clicktricks.com" 
                     className="text-[#01a2f1] hover:text-[#0182c4] font-medium text-sm"
                   >
                     support@clicktricksdb.com

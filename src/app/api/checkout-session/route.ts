@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'ClickTricks DB Setup',
+              name: 'ClickTricks Setup',
               description: 'Custom Airtable CRM setup for your business',
               images: [`${origin}/api/og-image`], // Optional: Add your product image
             },

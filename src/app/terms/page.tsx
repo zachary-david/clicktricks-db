@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Logo from '@/components/Logo';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | ClickTricks DB',
-  description: 'Terms of Service for ClickTricks DB Airtable CRM setup services',
+  title: 'Terms of Service | ClickTricks',
+  description: 'Terms of Service for ClickTricks Airtable CRM setup services',
   robots: {
     index: true,
     follow: true
@@ -84,7 +84,7 @@ export default function TermsOfService() {
             <strong>Please note:</strong> We provide setup and initial training. Ongoing support, 
             major modifications, or additional training beyond the initial scope may be subject 
             to additional fees. We are not responsible for data loss, system downtime, or 
-            AirTable service issues after project completion.
+            Airtable service issues after project completion.
           </p>
           
           <h2 className="text-2xl font-semibold mb-4 text-white" style={{color: "#ffffff !important"}}>4. Client Responsibilities</h2>
@@ -102,9 +102,9 @@ export default function TermsOfService() {
           <h2 className="text-2xl font-semibold mb-4 text-white" style={{color: "#ffffff !important"}}>5. Intellectual Property</h2>
           <p className="mb-6 text-gray-300">
             Upon full payment, you own all data, configurations, and customizations created 
-            specifically for your AirTable CRM implementation. However, our proprietary 
+            specifically for your Airtable CRM implementation. However, our proprietary 
             methodologies, templates, and general business processes remain the intellectual 
-            property of ClickTricks DB.
+            property of ClickTricks.
           </p>
           
           <h2 className="text-2xl font-semibold mb-4 text-white" style={{color: "#ffffff !important"}}>6. Support and Guarantee</h2>
@@ -170,7 +170,7 @@ export default function TermsOfService() {
         <div className="container mx-auto px-6 py-8">
           <div className="text-center">
             <p className="text-gray-300 text-sm">
-              © {new Date().getFullYear()} ClickTricks DB. All rights reserved.
+              © {new Date().getFullYear()} ClickTricks. All rights reserved.
             </p>
             <div className="mt-4 space-x-4">
               <Link href="/privacy" className="text-[#01a2f1] hover:text-white text-sm">

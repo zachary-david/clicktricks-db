@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Logo from '@/components/Logo';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | ClickTricks DB',
-  description: 'Privacy Policy for ClickTricks DB Airtable CRM setup services',
+  title: 'Privacy Policy | ClickTricks',
+  description: 'Privacy Policy for ClickTricks Airtable CRM setup services',
   robots: {
     index: true,
     follow: true
@@ -138,7 +138,7 @@ export default function PrivacyPolicy() {
         <div className="container mx-auto px-6 py-8">
           <div className="text-center">
             <p className="text-gray-300 text-sm">
-              © {new Date().getFullYear()} ClickTricks DB. All rights reserved.
+              © {new Date().getFullYear()} ClickTricks. All rights reserved.
             </p>
             <div className="mt-4 space-x-4">
               <Link href="/privacy" className="text-[#01a2f1] hover:text-white text-sm">

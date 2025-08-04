@@ -44,7 +44,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
           <p className="text-sm">
-            © {new Date().getFullYear()} ClickTricks DB. All rights reserved. | 
+            © {new Date().getFullYear()} ClickTricks. All rights reserved. | 
             <a href="/privacy" className="hover:text-white ml-2">Privacy Policy</a> | 
             <a href="/terms" className="hover:text-white ml-2">Terms of Service</a>
           </p>

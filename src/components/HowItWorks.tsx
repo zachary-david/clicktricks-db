@@ -2,25 +2,25 @@
 
 import React, { useState } from 'react';
 import { ClipboardDocumentCheckIcon, CogIcon, RocketLaunchIcon } from '@heroicons/react/24/outline';
-import InteractiveCRMTable from './InteractiveCRMTable';
+import Image from 'next/image';
 import SectionTitle from './SectionTitle';
 
 const steps = [
   {
     number: '1',
-    title: 'Discovery Call',
-    description: 'We start with a 30-minute call to understand your business needs and current lead management challenges. This ensures your CRM is perfectly tailored to your workflow.',
+    title: 'No-Obligation Q&A',
+    description: 'Let\s connect today by email or video call. Each button on this website will take you to an Airtable form that puts you in touch with us upon submission.',
     icon: ClipboardDocumentCheckIcon,
   },
   {
     number: '2',
     title: 'Custom Setup',
-    description: 'Within 48 hours, we build your custom Airtable CRM with automated workflows, professional templates, and integrations that match your business processes.',
+    description: 'After confirmation and payment, we will build your custom Airtable CRM with automated workflows, professional templates, and integrations that match your business processes.',
     icon: CogIcon,
   },
   {
     number: '3',
-    title: 'Launch & Training',
+    title: 'Delivery, Training, and Support',
     description: 'We provide a personalized walkthrough of your new CRM, showing you exactly how to use every feature. Plus, you get 30 days of support to ensure success.',
     icon: RocketLaunchIcon,
   },
@@ -42,7 +42,7 @@ export default function HowItWorks() {
               How It Works
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-300">
-              Get your custom CRM set up in three simple steps
+              Each business has unique needs. <br/> Tell us about your current lead management challenges, and we'll design the solutions that solve them.
             </p>
           </div>
           {/* Header border - contained within viewport */}
@@ -114,8 +114,17 @@ export default function HowItWorks() {
           </div>
 
           {/* Right Column - CRM Demo */}
-          <div className="bg-gray-900/50 rounded-xl p-4 backdrop-blur-sm ring-1 ring-white/10 lg:mt-32">
-            <InteractiveCRMTable />
+          <div className="bg-gray-900/50 rounded-xl overflow-hidden backdrop-blur-sm ring-1 ring-white/10 lg:mt-32 flex items-center justify-center p-4">
+            <div className="w-1/2">
+              <Image 
+                src="/crm-leads-temp.jpeg"
+                alt="Airtable CRM Interface"
+                width={989}
+                height={2048}
+                className="w-full h-auto object-contain"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>

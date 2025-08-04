@@ -53,7 +53,7 @@ export default function CheckoutPage() {
               
               <div className="mt-8 text-center text-sm text-gray-500">
                 <p>By completing your purchase, you agree to our terms of service.</p>
-                <p className="mt-2">Questions? Email support@clicktricksdb.com</p>
+                <p className="mt-2">Questions? Email support@clicktricks.com</p>
               </div>
             </div>
           </div>

@@ -61,7 +61,7 @@ export default function SuccessPage() {
                 🎉 Payment Successful!
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Welcome to ClickTricks DB! Your custom Airtable CRM setup is on its way.
+                Welcome to ClickTricks! Your custom Airtable CRM setup is on its way.
               </p>
             </div>
 
@@ -162,7 +162,7 @@ export default function SuccessPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <a
-                href="mailto:support@clicktricksdb.com?subject=New Customer - Kickoff Call Request"
+                href="mailto:support@clicktricks.com?subject=New Customer - Kickoff Call Request"
                 className="bg-[#01a2f1] text-white p-6 rounded-lg hover:bg-[#0182c4] transition-colors"
               >
                 <EnvelopeIcon className="h-8 w-8 mx-auto mb-3" />
@@ -185,8 +185,8 @@ export default function SuccessPage() {
             <div className="mt-12">
               <p className="text-gray-600 mb-4">
                 Questions? Email us at{' '}
-                <a href="mailto:support@clicktricksdb.com" className="text-[#01a2f1] hover:underline">
-                  support@clicktricksdb.com
+                <a href="mailto:support@clicktricks.com" className="text-[#01a2f1] hover:underline">
+                  support@clicktricks.com
                 </a>
               </p>
               <Link 

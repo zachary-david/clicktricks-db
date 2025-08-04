@@ -1,8 +1,8 @@
 "use client";
 
 export default function CRMPipelineView() {
-  // Temporary local URL - will be replaced with Supabase URL
-  const videoUrl = "/crm-pipeline-temp.mp4";
+  // Supabase URL for the pipeline video
+  const videoUrl = "https://tnwxuxctzoygblwokcmb.supabase.co/storage/v1/object/public/clicktricksweb//CRMPipelineview.mp4";
   
   return (
     <div className="w-full h-full">

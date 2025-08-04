@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://clicktricksdb.com'
+  const baseUrl = 'https://clicktricks.com'
   const currentDate = new Date()
 
   return [
