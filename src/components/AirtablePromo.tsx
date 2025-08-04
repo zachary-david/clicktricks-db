@@ -18,7 +18,7 @@ export default function AirtablePromo() {
             </p>
             
             {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start mb-8 lg:mb-0">
               <a
                 href="https://airtable.com/invite/r/1tSgBaO2"
                 target="_blank"
@@ -28,9 +28,23 @@ export default function AirtablePromo() {
                 Download Airtable
               </a>
             </div>
+            
+            {/* Mobile Airtable Logo - stacked below CTA */}
+            <div className="flex lg:hidden items-center justify-center">
+              <div className="max-w-xs w-full">
+                <Image
+                  src="/airtable-logo.svg"
+                  alt="Airtable Logo"
+                  width={300}
+                  height={150}
+                  className="w-full h-auto opacity-90 filter brightness-0 invert"
+                  priority
+                />
+              </div>
+            </div>
           </div>
           
-          {/* Right Column - Airtable Logo */}
+          {/* Right Column - Airtable Logo (Desktop) */}
           <div className="hidden lg:flex items-center justify-center">
             <div className="max-w-md w-full">
               <Image

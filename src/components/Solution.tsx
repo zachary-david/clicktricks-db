@@ -113,7 +113,7 @@ export default function Solution() {
         />
         
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white drop-shadow-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900">
             <span className="text-gradient">Get the Premium Features of an Enterprise CRM at a fraction of the cost</span>
           </h2>
 
@@ -173,10 +173,10 @@ export default function Solution() {
 
           {/* Title and Description stacked below carousel */}
           <div key={activeIndex} className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               {views[activeIndex].title}
             </h3>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed opacity-100">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed opacity-100">
               {views[activeIndex].description}
             </p>
           </div>
@@ -189,8 +189,8 @@ export default function Solution() {
                 onClick={() => handleDotClick(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex 
-                    ? 'bg-white w-8' 
-                    : 'bg-white bg-opacity-50 hover:bg-opacity-70'
+                    ? 'bg-blue-600 w-8' 
+                    : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 role="tab"
                 aria-selected={index === activeIndex}
@@ -227,10 +227,10 @@ export default function Solution() {
 
           {/* Title and Description stacked below carousel */}
           <div key={activeIndex} className="text-center mb-6 px-4">
-            <h3 className="text-xl font-bold text-white mb-3 drop-shadow-lg">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
               {views[activeIndex].title}
             </h3>
-            <p className="text-gray-200 text-sm leading-relaxed opacity-100">
+            <p className="text-gray-600 text-sm leading-relaxed opacity-100">
               {views[activeIndex].description}
             </p>
           </div>
@@ -239,7 +239,7 @@ export default function Solution() {
           <div className="flex justify-between items-center px-4">
             <button
               onClick={handlePrev}
-              className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 text-white rounded-lg hover:bg-opacity-30 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               aria-label="Previous view"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -256,8 +256,8 @@ export default function Solution() {
                   onClick={() => handleDotClick(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     index === activeIndex 
-                      ? 'bg-white w-6' 
-                      : 'bg-white bg-opacity-50'
+                      ? 'bg-blue-600 w-6' 
+                      : 'bg-gray-300'
                   }`}
                   role="tab"
                   aria-selected={index === activeIndex}
@@ -268,7 +268,7 @@ export default function Solution() {
 
             <button
               onClick={handleNext}
-              className="flex items-center gap-2 px-4 py-2 bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 text-white rounded-lg hover:bg-opacity-30 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               aria-label="Next view"
             >
               Next

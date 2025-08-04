@@ -35,8 +35,7 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-2xl text-center">
           <div className="py-12 min-h-[120px]">
             <SectionTitle 
-              text="TRUSTED TOOLS, DONE-FOR-YOU-DESIGN" 
-              icon={<CogIcon className="w-4 h-4 text-[#01a2f1]" />}
+              text="7-DAYS-OR-LESS, GUARANTEED" 
             />
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mt-2" style={{color: '#ffffff !important', fontWeight: '800 !important'}}>
               How It Works

@@ -23,7 +23,7 @@ export default function CallToAction({ variant = 'primary' }: CallToActionProps)
             </h2>
             
             {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center lg:justify-start mb-8 lg:mb-0">
               <a
                 href="https://airtable.com/appBZnf3TjwoxnVU9/paguBKmCn5fyVfNsk/form"
                 target="_blank"
@@ -33,9 +33,23 @@ export default function CallToAction({ variant = 'primary' }: CallToActionProps)
                 Get Started Now
               </a>
             </div>
+            
+            {/* Mobile Airtable Logo - stacked below CTA */}
+            <div className="flex lg:hidden items-center justify-center">
+              <div className="max-w-xs w-full">
+                <Image
+                  src="/airtable-logo.svg"
+                  alt="Airtable Logo"
+                  width={300}
+                  height={150}
+                  className="w-full h-auto opacity-80"
+                  priority
+                />
+              </div>
+            </div>
           </div>
           
-          {/* Right Column - Airtable Logo */}
+          {/* Right Column - Airtable Logo (Desktop) */}
           <div className="hidden lg:flex items-center justify-center">
             <div className="max-w-md w-full">
               <Image

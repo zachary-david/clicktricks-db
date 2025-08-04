@@ -44,12 +44,10 @@ export default function Benefits() {
       />
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <SectionTitle 
-          text="Trusted Tools, Done-For-You Design" 
-          icon={<BiSupport className="w-4 h-4 text-[#01a2f1]" />}
-        />
+        <div className="text-left lg:text-center mb-6">
+        </div>
         
-        <div className="mx-auto max-w-2xl text-center mb-12">
+        <div className="mx-auto max-w-2xl text-left lg:text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6">
             Simple. Powerful. Affordable.
           </h2>
